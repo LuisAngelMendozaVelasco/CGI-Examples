@@ -7,21 +7,25 @@
   <body>
     <h1>Ejercicio1</h1>
     <canvas id="Canvas1" widgt="100" height="100"> &iexcl;No funciona! </canvas>
-    <canvas id="Canvas2" widgt="200" height="200"> &iexcl;No funciona! </canvas>
-    <canvas id="Canvas3" widgt="300" height="300"> &iexcl;No funciona! </canvas>
     <script>
-      var Canvas1=document.getElementById("Canvas1")
-      var Canvas2=document.getElementById("Canvas2")
-      var Canvas3=document.getElementById("Canvas3")
-      var contexto1=Canvas1.getContext("2d");
-      var contexto2=Canvas2.getContext("2d");
-      var contexto3=Canvas3.getContext("2d");
-      contexto1.fillStyle="red";
-      contexto1.fillRect(30,30,50,50);
-      contexto2.fillStyle="blue";
-      contexto2.fillRect(230,230,250,250);
-      contexto3.fillStyle="green";
-      contexto3.fillRect(430,430,450,450);
+    var Canvas1=document.getElementById("Canvas1")
+    var contexto1=Canvas1.getContext("2d");
+    contexto1.fillStyle="red";
+    contexto1.fillRect(30,30,50,50);
+    </script>
+    <canvas id="Canvas2" widgt="100" height="100"> &iexcl;No funciona! </canvas>
+    <script>
+    var Canvas2=document.getElementById("Canvas2")
+    var contexto2=Canvas2.getContext("2d");
+    contexto2.fillStyle="blue";
+    contexto2.fillRect(230,230,250,250);
+    </script>
+    <canvas id="Canvas3" widgt="100" height="100"> &iexcl;No funciona! </canvas>
+    <script>
+    var Canvas3=document.getElementById("Canvas3")
+    var contexto3=Canvas3.getContext("2d");
+    contexto3.fillStyle="green";
+    contexto3.fillRect(430,430,450,450);
     </script>
   </body>
 </html>
