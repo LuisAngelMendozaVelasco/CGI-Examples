@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio1</title>
+  </head>
+  <body>
+    <h1>Ejercicio1</h1>
+    <canvas id="Canvas1" widgt="100" height="100"> </canvas>
+    <canvas id="Canvas2" widgt="100" height="100"> </canvas>
+    <canvas id="Canvas3" widgt="100" height="100"> </canvas>
+      &iexcl;No funciona!
+    <script>
+      var Canvas1=document.getElementById("Canvas1")
+      var Canvas2=document.getElementById("Canvas2")
+      var Canvas3=document.getElementById("Canvas3")
+      var contexto=Canvas1.getContext("2d");
+      var contexto=Canvas2.getContext("2d");
+      var contexto=Canvas3.getContext("2d");
+      contexto.fillStyle="red";
+      contexto.fillRect(30,30,50,50);
+      contexto.fillStyle="blue";
+      contexto.fillRect(230,230,250,250);
+      contexto.fillStyle="green";
+      contexto.fillRect(430,430,450,450);
+    </script>
+  </body>
+</html>
