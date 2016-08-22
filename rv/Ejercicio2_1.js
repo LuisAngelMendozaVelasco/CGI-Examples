@@ -9,6 +9,6 @@ var forma2=new THREE.SphereGeometry(1,8,6);
 var material=new THREE.MeshNormalMaterial();
 var cilindro=new THREE.Mesh(forma,material);
 var esfera=new THREE.Mesh(forma2,material);
-esfera,position.set(0,1.7,0);
+esfera.position.set(0,1.7,0);
 escena.add(cilindro,esfera);
 renderizador.render(escena,camara);
