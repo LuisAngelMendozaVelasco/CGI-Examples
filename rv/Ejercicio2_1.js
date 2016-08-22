@@ -4,7 +4,7 @@ camara.position.z=7;
 var renderizador=new THREE.WebGLRenderer();
 renderizador.setSize(window.innerHeight*.95,window.innerHeight*.95);
 document.body.appendChild(renderizador.domElement);
-var forma=new THREE.CylinderGeometry(.1, .1, .1, .1);
+var forma=new THREE.CylinderGeometry(2, 2, 2, 2);
 var material=new THREE.MeshNormalMaterial();
 var cubo=new THREE.Mesh(forma,material);
 cubo.rotateX(-Math.PI/4);
