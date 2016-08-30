@@ -6,7 +6,7 @@ for (var i=30;i<50;i++){
                   }
 var forma=new THREE.LatheGeometry(puntos);
 
-for (var i=0;i<20;i++){
+for (var i=0;i<50;i++){
   puntos2.push(new THREE.Vector2(
                   i+1,1+2));
                   }
