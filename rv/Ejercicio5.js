@@ -19,7 +19,7 @@ var malla2=new THREE.Mesh(forma2,material);
 malla.rotateX(Math.PI/6);
 malla2.rotateX(Math.PI/6);
 malla.position.set(0,0.9,0);
-malla2.position.set(0,-15,0);
+malla2.position.set(0,0,0);
 
 var escena=new THREE.Scene();
 escena.add(malla);
