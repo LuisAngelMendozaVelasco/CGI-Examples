@@ -13,12 +13,12 @@ forma.faces.push(new THREE.Face3(0,1,2)); //cara1
 forma.faces.push(new THREE.Face3(4,6,7)); //cara2
 forma.faces.push(new THREE.Face3(4,5,6)); //cara3
 
-forma.faces.push(new THREE.Face3(0,3,4)); //cara4
-forma.faces.push(new THREE.Face3(3,4,7)); //cara5
-forma.faces.push(new THREE.Face3(1,2,5)); //cara6
-forma.faces.push(new THREE.Face3(2,5,6)); //cara7
+forma.faces.push(new THREE.Face3(0,4,7)); //cara4
+forma.faces.push(new THREE.Face3(0,3,7)); //cara5
+forma.faces.push(new THREE.Face3(1,5,6)); //cara6
+forma.faces.push(new THREE.Face3(1,2,6)); //cara7
 
-forma.faces.push(new THREE.Face3(2,3,6)); //cara0
+forma.faces.push(new THREE.Face3(3,2,6)); //cara0
 forma.faces.push(new THREE.Face3(3,6,7)); //cara1
 forma.faces.push(new THREE.Face3(0,1,5)); //cara0
 forma.faces.push(new THREE.Face3(0,4,5)); //cara1
