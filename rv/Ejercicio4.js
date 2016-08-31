@@ -1,14 +1,15 @@
 var estrella=new THREE.Shape();
 
-estrella.moveTo(-20,20);
-estrella.lineTo(-70,0);
-estrella.lineTo(-20,-20);
-estrella.lineTo(0,-70);
-estrella.lineTo(20,-20);
-estrella.lineTo(70,0);
-estrella.lineTo(20,20);
+estrella.moveTo(-35,35);
+estrella.lineTo(-70,35);
+estrella.lineTo(-45,-35);
+estrella.lineTo(-70,-70);
+estrella.lineTo(0,-45);
+estrella.lineTo(70,-70);
+estrella.lineTo(45,35);
+estrella.lineTo(70,35);
+estrella.lineTo(35,35);
 estrella.lineTo(0,70);
-estrella.lineTo(-20,20);
 
 var forma= new THREE.ShapeGeometry(estrella);
 var material=new THREE.MeshBasicMaterial({color: 0xFFFF00});
