@@ -1,4 +1,4 @@
-var torre=[];
+var torre=new THREE.Shape();
 
 torre.moveTo(50,0);
 torre.lineTo(50,10);
