@@ -1,8 +1,8 @@
 var torre=new THREE.Shape();
 
-torre.moveTo(50,0);
-torre.lineTo(50,10);
-torre.lineTo(45,10);
+torre.moveTo(100,0);
+torre.lineTo(100,10);
+torre.lineTo(85,10);
 
 var puntos=[];
 for (var i=10;i<30;i++){
