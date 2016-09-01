@@ -14,10 +14,10 @@ var malla= new THREE.Mesh(forma,material);
 //malla2.rotateX(Math.PI/6);
 
 var torre2=[];
-torre2.push(new THREE.Vector3(-30,140,-100));
-torre2.push(new THREE.Vector3(30,140,-100));
-torre2.push(new THREE.Vector3(30,140,-70));
-torre2.push(new THREE.Vector3(30,140,-70));
+torre2.push(new THREE.Vector2(-30,140));
+torre2.push(new THREE.Vector2(30,140));
+torre2.push(new THREE.Vector2(30,140;
+torre2.push(new THREE.Vector2(30,140,-70));
 
 var forma2=new THREE.ExtrudeGeometry(torre2,{amount:25});
 var material2=new THREE.MeshNormalMaterial();
