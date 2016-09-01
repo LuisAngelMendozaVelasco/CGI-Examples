@@ -9,7 +9,7 @@ torre.push(new THREE.Vector2(47,30));
 var forma2=new THREE.LatheGeometry(torre);
 var material2=new THREE.MeshNormalMaterial();
 var malla2= new THREE.Mesh(forma2,material2);
-malla2.rotateX(Math.PI/6);
+//malla2.rotateX(Math.PI/6);
 
 var escena=new THREE.Scene();
 escena.add(malla2);
