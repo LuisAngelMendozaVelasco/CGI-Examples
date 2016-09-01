@@ -16,7 +16,7 @@ var malla=new THREE.Mesh(forma,material);
 malla.rotateX(Math.PI/6);
 
 var forma2=new THREE.LatheGeometry(torre);
-var material2=new THREE.MeshBasicMaterial({color: 0xFFFF00});
+var material2=new THREE.MeshNormalMaterial();
 var malla2= new THREE.Mesh(forma2,material2);
 malla2.rotateX(Math.PI/6);
 
