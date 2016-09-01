@@ -1,12 +1,12 @@
 var torre=[];
 
-torre.push(new THREE.Vector2(50,0));
-torre.push(new THREE.Vector2(50,10));
-torre.push(new THREE.Vector2(45,10));
-torre.push(new THREE.Vector2(45,20));
-torre.push(new THREE.Vector2(35,30));
-torre.push(new THREE.Vector2(35,60));
-torre.push(new THREE.Vector2(45,70));
+torre.push(new THREE.Vector2(100,0));
+torre.push(new THREE.Vector2(100,20));
+torre.push(new THREE.Vector2(90,20));
+torre.push(new THREE.Vector2(90,40));
+torre.push(new THREE.Vector2(70,60));
+torre.push(new THREE.Vector2(70,120));
+torre.push(new THREE.Vector2(90,140));
 
 var forma2=new THREE.LatheGeometry(torre);
 var material2=new THREE.MeshNormalMaterial();
