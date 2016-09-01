@@ -1,19 +1,10 @@
 var torre=[];
 
-torre.push(new THREE.Vector2(150,0));
-torre.push(new THREE.Vector2(150,50));
-torre.push(new THREE.Vector2(145,50));
-
-var puntos=[];
-for (var i=50;i<80;i++){
-  puntos.push(new THREE.Vector2(
-                  Math.sin(i*0.2)*15+50,(i-5)*2));
-                  }
-                  
-var forma=new THREE.LatheGeometry(puntos);
-var material=new THREE.MeshNormalMaterial();
-var malla=new THREE.Mesh(forma,material);
-malla.rotateX(Math.PI/6);
+torre.push(new THREE.Vector2(50,0));
+torre.push(new THREE.Vector2(50,10));
+torre.push(new THREE.Vector2(47.5,16.6));
+torre.push(new THREE.Vector2(50,23.3));
+torre.push(new THREE.Vector2(47,30));
 
 var forma2=new THREE.LatheGeometry(torre);
 var material2=new THREE.MeshNormalMaterial();
