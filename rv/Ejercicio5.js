@@ -1,4 +1,4 @@
-var torre=new [];
+var torre=[];
 
 torre.push(100,0);
 torre.push(100,10);
