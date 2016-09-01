@@ -1,8 +1,8 @@
 var torre=[];
 
-torre.push(100,0);
-torre.push(100,10);
-torre.push(85,10);
+torre.push(new THREE.Vector2(50,0));
+torre.push(new THREE.Vector2(50,10));
+torre.push(new THREE.Vector2(45,10));
 
 var puntos=[];
 for (var i=10;i<30;i++){
