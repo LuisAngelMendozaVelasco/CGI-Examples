@@ -1,11 +1,11 @@
 var torre=[];
 
-torre.push(new THREE.Vector2(50,0));
-torre.push(new THREE.Vector2(50,10));
-torre.push(new THREE.Vector2(45,10));
+torre.push(new THREE.Vector2(150,0));
+torre.push(new THREE.Vector2(150,50));
+torre.push(new THREE.Vector2(145,50));
 
 var puntos=[];
-for (var i=10;i<30;i++){
+for (var i=50;i<80;i++){
   puntos.push(new THREE.Vector2(
                   Math.sin(i*0.2)*15+50,(i-5)*2));
                   }
