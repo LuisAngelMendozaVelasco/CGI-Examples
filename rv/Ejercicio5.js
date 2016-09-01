@@ -1,4 +1,4 @@
-var torre=new THREE.Shape();
+var torre=[];
 
 torre.moveTo(50,0);
 torre.lineTo(50,10);
@@ -18,6 +18,7 @@ malla.rotateX(Math.PI/6);
 var forma2=new THREE.LatheGeometry(torre);
 var material2=new THREE.MeshBasicMaterial({color: 0xFFFF00});
 var malla2= new THREE.Mesh(forma2,material2);
+malla2.rotateX(Math.PI/6);
 
 var escena=new THREE.Scene();
 escena.add(malla);
