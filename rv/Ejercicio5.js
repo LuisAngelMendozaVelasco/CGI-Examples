@@ -12,7 +12,6 @@ var malla2= new THREE.Mesh(forma2,material2);
 malla2.rotateX(Math.PI/6);
 
 var escena=new THREE.Scene();
-escena.add(malla);
 escena.add(malla2);
 var camara=new THREE.PerspectiveCamera();
 camara.position.z=500;
