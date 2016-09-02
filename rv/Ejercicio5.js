@@ -48,7 +48,7 @@ torreForma.merge(torre2Malla.geometry,torre2Malla.matrix);
 var material=new THREE.MeshNormalMaterial();
 var torreMalla=new THREE.Mesh(torreForma,material);
 
-torreMalla.rotateX(0*Math.PI/180);
+torreMalla.rotateX(30*Math.PI/180);
 var escena=new THREE.Scene();
 escena.add(torreMalla);
 var camara=new THREE.PerspectiveCamera();
