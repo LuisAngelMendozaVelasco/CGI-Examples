@@ -1,9 +1,9 @@
 var torre1=[];
 
-torre1.push(new THREE.Vector2(100,-50));
+torre1.push(new THREE.Vector2(120,-50));
+torre1.push(new THREE.Vector2(120,-30));
 torre1.push(new THREE.Vector2(100,-30));
-torre1.push(new THREE.Vector2(90,-30));
-torre1.push(new THREE.Vector2(90,-10));
+torre1.push(new THREE.Vector2(100,-10));
 torre1.push(new THREE.Vector2(70,10));
 torre1.push(new THREE.Vector2(70,100));
 torre1.push(new THREE.Vector2(90,120));
@@ -47,10 +47,10 @@ torre2_3.lineTo(30,84.85);
 var torre3 = new THREE.CylinderGeometry(90,90,5,32);
 
 var forma1=new THREE.LatheGeometry(torre1);
-var forma2= new THREE.ExtrudeGeometry(torre2,{amount:20});
-var forma2_1= new THREE.ExtrudeGeometry(torre2_1,{amount:20});
-var forma2_2= new THREE.ExtrudeGeometry(torre2_2,{amount:20});
-var forma2_3= new THREE.ExtrudeGeometry(torre2_3,{amount:20});
+var forma2= new THREE.ExtrudeGeometry(torre2,{amount:40});
+var forma2_1= new THREE.ExtrudeGeometry(torre2_1,{amount:40});
+var forma2_2= new THREE.ExtrudeGeometry(torre2_2,{amount:40});
+var forma2_3= new THREE.ExtrudeGeometry(torre2_3,{amount:40});
 var forma3=torre3;
 forma2.rotateX(90*Math.PI/180)
 forma2.translate(0,143,0);
