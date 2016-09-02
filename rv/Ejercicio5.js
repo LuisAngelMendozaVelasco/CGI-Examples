@@ -32,11 +32,11 @@ torre2.lineTo(30,90);
 torre2.lineTo(30,30);
 torre2.moveTo(-30,30);
 
-var torre3 = new THREE.CircleGeometry( 90, 32 );
+var torre3 = new THREE.CylinderGeometry(90,90,5,32);
 
 var forma1=new THREE.LatheGeometry(torre1);
 var forma2= new THREE.ExtrudeGeometry(torre2,{amount:20});
-var forma3=new THREE.ExtrudeGeometry(torre3,{amount:5});
+var forma3=torre3;
 forma2.rotateX(90*Math.PI/180)
 forma2.translate(0,115,0);
 forma3.rotateX(90*Math.PI/180)
