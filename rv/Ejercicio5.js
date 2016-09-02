@@ -16,18 +16,18 @@ var malla= new THREE.Mesh(forma,material);
 var torre2=new THREE.Shape();
 
 torre2.moveTo(-30,90);
-torre2.lineTo(-30,30);
+torre2.lineTo(-73.65,73.65);
 torre2.lineTo(-90,30);
-torre2.lineTo(-90,-30);
-torre2.lineTo(-30,-30);
+torre2.moveTo(-90,-30);
+torre2.lineTo(-73.65,-73.65);
 torre2.lineTo(-30,-90);
-torre2.lineTo(30,-90);
-torre2.lineTo(30,-30);
+torre2.moveTo(30,-90);
+torre2.lineTo(73.65,-73.65);
 torre2.lineTo(90,-30);
-torre2.lineTo(90,30);
-torre2.lineTo(30,30);
+torre2.moveTo(90,30);
+torre2.lineTo(73.65,73.65);
 torre2.lineTo(30,90);
-torre2.lineTo(-30,90);
+torre2.moveTo(-30,90);
 
 var forma2= new THREE.ExtrudeGeometry(torre2,{amount:20});
 forma2.rotateX(90*Math.PI/180)
