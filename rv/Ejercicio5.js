@@ -10,27 +10,11 @@ torre1.push(new THREE.Vector2(100,90));
 
 var torre2=new THREE.Shape();
 
-torre2.moveTo(-30,30);
-torre2.lineTo(-30,90);
-torre2.lineTo(-73.65,73.65);
-torre2.lineTo(-90,30);
-torre2.lineTo(-30,30);
-torre2.moveTo(-30,-30);
-torre2.lineTo(-90,-30);
-torre2.lineTo(-73.65,-73.65);
-torre2.lineTo(-30,-90);
-torre2.lineTo(-30,-30);
-torre2.moveTo(30,-30);
-torre2.lineTo(30,-90);
-torre2.lineTo(73.65,-73.65);
-torre2.lineTo(90,-30);
-torre2.lineTo(30,-30);
-torre2.moveTo(30,30);
-torre2.lineTo(90,30);
-torre2.lineTo(73.65,73.65);
-torre2.lineTo(30,90);
-torre2.lineTo(30,30);
-torre2.moveTo(-30,30);
+torre2.moveTo(-30,84.85);
+torre2.lineTo(-30,57.43);
+torre2.lineTo(-57.43,-30);
+torre2.lineTo(-84.85,30);
+torre2.lineTo(-30,84.85);
 
 var torre3 = new THREE.CylinderGeometry(90,90,5,32);
 
