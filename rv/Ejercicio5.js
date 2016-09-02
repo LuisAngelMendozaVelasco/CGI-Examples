@@ -6,7 +6,7 @@ torre1.push(new THREE.Vector2(90,-30));
 torre1.push(new THREE.Vector2(90,-10));
 torre1.push(new THREE.Vector2(70,10));
 torre1.push(new THREE.Vector2(70,70));
-torre1.push(new THREE.Vector2(100,90));
+torre1.push(new THREE.Vector2(90,90));
 
 var torre2=new THREE.Shape();
 
