@@ -31,7 +31,7 @@ torre2.lineTo(-30,90);
 
 var forma2= new THREE.ExtrudeGeometry(torre2,{amount:40});
 forma2.rotateX(90*Math.PI/180)
-forma2.translate(0,140,0);
+forma2.translate(0,180,0);
 var material2=new THREE.MeshNormalMaterial();
 var malla2= new THREE.Mesh(forma2,material2);
 
