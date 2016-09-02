@@ -32,18 +32,28 @@ torre2.lineTo(30,90);
 torre2.lineTo(30,30);
 torre2.moveTo(-30,30);
 
+var torre3 = new THREE.CircleGeometry( 90, 32 );
+var material = new THREE.MeshBasicMaterial( { color: 0xffff00 } );
+var circle = new THREE.Mesh( geometry, material );
+scene.add( circle );
+
 var forma1=new THREE.LatheGeometry(torre1);
 var forma2= new THREE.ExtrudeGeometry(torre2,{amount:20});
+var forma3=new THREE.ExtrudeGeometry(torre2,{amount:5});
 forma2.rotateX(90*Math.PI/180)
 forma2.translate(0,115,0);
+forma3.rotateX(90*Math.PI/180)
+forma3.translate(0,95,0);
 
 var torre1Malla=new THREE.Mesh(forma1);
 var torre2Malla=new THREE.Mesh(forma2);
+var torre3Malla=new THREE.Mesh(forma3);
 
 var torreForma=new THREE.Geometry();
 
 torreForma.merge(torre1Malla.geometry,torre1Malla.matrix);
 torreForma.merge(torre2Malla.geometry,torre2Malla.matrix);
+torreForma.merge(torre3Malla.geometry,torre3Malla.matrix);
 
 var material=new THREE.MeshNormalMaterial();
 var torreMalla=new THREE.Mesh(torreForma,material);
