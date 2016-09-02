@@ -13,15 +13,6 @@ var material=new THREE.MeshNormalMaterial();
 var malla= new THREE.Mesh(forma,material);
 //malla2.rotateX(Math.PI/6);
 
-var torre2=[];
-torre2.push(new THREE.Vector2(-30,140));
-torre2.push(new THREE.Vector2(30,140));
-torre2.push(new THREE.Vector2(30,140;
-torre2.push(new THREE.Vector2(30,140,-70));
-
-var forma2=new THREE.ExtrudeGeometry(torre2,{amount:25});
-var material2=new THREE.MeshNormalMaterial();
-var malla2=new THREE.Mesh(forma2,material2);
 
 var escena=new THREE.Scene();
 escena.add(malla);
