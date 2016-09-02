@@ -16,7 +16,6 @@ var malla= new THREE.Mesh(forma,material);
 
 var escena=new THREE.Scene();
 escena.add(malla);
-escena.add(malla2);
 var camara=new THREE.PerspectiveCamera();
 camara.position.z=500;
 var renderizador=new THREE.WebGLRenderer();
