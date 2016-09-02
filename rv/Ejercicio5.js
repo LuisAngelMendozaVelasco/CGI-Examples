@@ -26,7 +26,7 @@ torre2.lineTo(-73.65,-73.65);
 torre2.lineTo(-30,-90);
 torre2.lineTo(-30,-30);
 torre2.moveTo(30,-30);
-torre2.line(30,-90);
+torre2.lineTo(30,-90);
 torre2.lineTo(73.65,-73.65);
 torre2.lineTo(90,-30);
 torre2.lineTo(30,-30);
