@@ -6,7 +6,7 @@ torre.push(new THREE.Vector2(90,-30));
 torre.push(new THREE.Vector2(90,-10));
 torre.push(new THREE.Vector2(70,10));
 torre.push(new THREE.Vector2(70,70));
-torre.push(new THREE.Vector2(90,90));
+torre.push(new THREE.Vector2(100,90));
 
 var forma=new THREE.LatheGeometry(torre);
 var material=new THREE.MeshNormalMaterial();
