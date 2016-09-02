@@ -16,6 +16,22 @@ torre2.lineTo(-57.43,30);
 torre2.lineTo(-84.85,30);
 torre2.lineTo(-30,84.85);
 
+var torre2=new THREE.Shape();
+
+torre2.moveTo(-30,84.85);
+torre2.lineTo(-30,57.43);
+torre2.lineTo(-57.43,30);
+torre2.lineTo(-84.85,30);
+torre2.lineTo(-30,84.85);
+
+var torre2=new THREE.Shape();
+
+torre2.moveTo(-30,84.85);
+torre2.lineTo(-30,57.43);
+torre2.lineTo(-57.43,30);
+torre2.lineTo(-84.85,30);
+torre2.lineTo(-30,84.85);
+
 var torre3 = new THREE.CylinderGeometry(90,90,5,32);
 
 var forma1=new THREE.LatheGeometry(torre1);
@@ -38,7 +54,7 @@ torreForma.merge(torre3Malla.geometry,torre3Malla.matrix);
 var material=new THREE.MeshNormalMaterial();
 var torreMalla=new THREE.Mesh(torreForma,material);
 
-torreMalla.rotateX(30*Math.PI/180);
+torreMalla.rotateX(90*Math.PI/180);
 var escena=new THREE.Scene();
 escena.add(torreMalla);
 var camara=new THREE.PerspectiveCamera();
