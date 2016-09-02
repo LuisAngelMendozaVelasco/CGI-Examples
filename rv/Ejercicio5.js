@@ -33,9 +33,6 @@ torre2.lineTo(30,30);
 torre2.moveTo(-30,30);
 
 var torre3 = new THREE.CircleGeometry( 90, 32 );
-var material = new THREE.MeshBasicMaterial( { color: 0xffff00 } );
-var circle = new THREE.Mesh( geometry, material );
-scene.add( circle );
 
 var forma1=new THREE.LatheGeometry(torre1);
 var forma2= new THREE.ExtrudeGeometry(torre2,{amount:20});
