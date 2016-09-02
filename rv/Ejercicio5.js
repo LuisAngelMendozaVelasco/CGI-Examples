@@ -12,7 +12,7 @@ var torre2=new THREE.Shape();
 
 torre2.moveTo(-30,84.85);
 torre2.lineTo(-30,57.43);
-torre2.lineTo(-57.43,-30);
+torre2.lineTo(-57.43,30);
 torre2.lineTo(-84.85,30);
 torre2.lineTo(-30,84.85);
 
