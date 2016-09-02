@@ -49,13 +49,13 @@ var forma2_2= new THREE.ExtrudeGeometry(torre2_2,{amount:20});
 var forma2_3= new THREE.ExtrudeGeometry(torre2_3,{amount:20});
 var forma3=torre3;
 forma2.rotateX(90*Math.PI/180)
-forma2.translate(0,125,0);
+forma2.translate(0,113,0);
 forma2_1.rotateX(90*Math.PI/180)
-forma2_1.translate(0,125,0);
+forma2_1.translate(0,113,0);
 forma2_2.rotateX(90*Math.PI/180)
-forma2_2.translate(0,125,0);
+forma2_2.translate(0,113,0);
 forma2_3.rotateX(90*Math.PI/180)
-forma2_3.translate(0,125,0);
+forma2_3.translate(0,113,0);
 forma3.translate(0,88,0);
 
 var torre1Malla=new THREE.Mesh(forma1);
