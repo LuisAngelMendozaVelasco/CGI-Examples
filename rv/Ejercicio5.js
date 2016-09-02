@@ -1,12 +1,12 @@
 var torre=[];
 
-torre.push(new THREE.Vector2(100,0));
-torre.push(new THREE.Vector2(100,20));
-torre.push(new THREE.Vector2(90,20));
-torre.push(new THREE.Vector2(90,40));
-torre.push(new THREE.Vector2(70,60));
-torre.push(new THREE.Vector2(70,120));
-torre.push(new THREE.Vector2(90,140));
+torre.push(new THREE.Vector2(100,-50));
+torre.push(new THREE.Vector2(100,-30));
+torre.push(new THREE.Vector2(90,-30));
+torre.push(new THREE.Vector2(90,-10));
+torre.push(new THREE.Vector2(70,10));
+torre.push(new THREE.Vector2(70,70));
+torre.push(new THREE.Vector2(90,90));
 
 var forma=new THREE.LatheGeometry(torre);
 var material=new THREE.MeshNormalMaterial();
@@ -29,9 +29,9 @@ torre2.lineTo(30,30);
 torre2.lineTo(30,90);
 torre2.lineTo(-30,90);
 
-var forma2= new THREE.ExtrudeGeometry(torre2,{amount:40});
+var forma2= new THREE.ExtrudeGeometry(torre2,{amount:20});
 forma2.rotateX(90*Math.PI/180)
-forma2.translate(0,180,0);
+forma2.translate(0,110,0);
 var material2=new THREE.MeshNormalMaterial();
 var malla2= new THREE.Mesh(forma2,material2);
 
