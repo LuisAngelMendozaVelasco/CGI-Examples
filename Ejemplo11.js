@@ -9,7 +9,7 @@ camara.far=1000;
 camara.updateProjectionMatrix();
 camara.position.z=100;
 
-var cubo=new THREE.Mesh(new THREE.BoxGeometry(30,30,30),new THREE:meshNormalMaterial());
+var cubo=new THREE.Mesh(new THREE.BoxGeometry(30,30,30),new THREE.meshNormalMaterial());
 cubo.rotateY(Math.PI/4);
 
 var esfera1=new.THREE.Mesh(new THREE.SpehreGeometry(15),new THREE.MeshNormalMaterial());
