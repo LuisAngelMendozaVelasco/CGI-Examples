@@ -20,7 +20,7 @@ escena.add(esfera1);
 escena.add(esfera2);
 escena.add(cubo);
 
-var rendrizador=new THREE.WebGLRenderer();
+var renderizador=new THREE.WebGLRenderer();
 renderizador.setSize(window.innerWidth,window.innerHeight);
 
 document.body.appendChild(renderizador.domElement);
