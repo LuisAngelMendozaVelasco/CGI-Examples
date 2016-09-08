@@ -1,6 +1,6 @@
 // grid
 
-var size = 500, step = 50;
+var size = 200, step = 200;
 
 var geometry = new THREE.Geometry();
 
