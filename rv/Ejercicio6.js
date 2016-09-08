@@ -4,19 +4,17 @@ cubeGeo = new THREE.BoxGeometry( 50, 50, 50 );
 cubeMaterial = new THREE.MeshBasicMaterial({color: 0xffffff});
 
 // create cube
-var voxel = new THREE.Mesh( cubeGeo, cubeMaterial );
+var voxel[] = new THREE.Mesh( cubeGeo, cubeMaterial );
 var size = 200, step = 100;
-var objects = [];
 
 for ( var i = - size; i <= size; i += step ) {
-  voxel.position.set(i,0,0);
-  objects.push(voxel);
+  for ( var j = 1; j <= 4; j += 1 )
+  voxel[j].position.set(i,0,0);
 }
-
 
 voxel.rotateX(40*Math.PI/180);
 var scene=new THREE.Scene();
-scene.add( voxel );
+scene.add( voxel);
 //objects.push( voxel );
 var camara=new THREE.PerspectiveCamera();
 camara.position.z=500;
