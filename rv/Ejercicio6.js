@@ -4,9 +4,13 @@ cubeGeo = new THREE.BoxGeometry( 50, 50, 50 );
 cubeMaterial = new THREE.MeshBasicMaterial({color: 0xffffff});
 
 // create cube
-
 var voxel = new THREE.Mesh( cubeGeo, cubeMaterial );
-voxel.position.set(0,-1,0);
+var size = 200, step = 100;
+
+for ( var i = - size; i <= size; i += step ) {
+  voxel.position.set.push(i,0,0);
+}
+
 
 voxel.rotateX(40*Math.PI/180);
 var scene=new THREE.Scene();
