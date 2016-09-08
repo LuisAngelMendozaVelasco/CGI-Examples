@@ -14,7 +14,7 @@ for ( var i = - size; i <= size; i += step ) {
 
 	}
 
-var material = new THREE.LineBasicMaterial( { color: 0x000000, opacity: 0.2, transparent: true } );
+var material = new THREE.LineBasicMaterial( { color: 0xffffff, opacity: 0.2, transparent: true } );
 
 var line = new THREE.LineSegments( geometry, material );
 var scene=new THREE.Scene();
