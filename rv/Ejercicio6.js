@@ -1,7 +1,7 @@
 // cubes
 
 cubeGeo = new THREE.BoxGeometry( 50, 50, 50 );
-cubeMaterial = new THREE.MeshLambertMaterial( { color: 0xffffff, map: new THREE.TextureLoader().load( "textures/square-outline-textured.png" ) } );
+cubeMaterial = new THREE.MeshBasicMaterial({color: 0xffffff});
 
 // create cube
 
