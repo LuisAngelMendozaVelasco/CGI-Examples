@@ -6,9 +6,11 @@ cubeMaterial = new THREE.MeshBasicMaterial({color: 0xffffff});
 // create cube
 var voxel = new THREE.Mesh( cubeGeo, cubeMaterial );
 var size = 200, step = 100;
+var objects = [];
 
 for ( var i = - size; i <= size; i += step ) {
   voxel.position.set(i,0,0);
+  objects.push(voxel);
 }
 
 
