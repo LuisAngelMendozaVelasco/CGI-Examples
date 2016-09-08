@@ -8,7 +8,7 @@ var voxel = new THREE.Mesh( cubeGeo, cubeMaterial );
 var size = 200, step = 100;
 
 for ( var i = - size; i <= size; i += step ) {
-  voxel.position.set.push(i,0,0);
+  voxel.position.set(i,0,0);
 }
 
 
