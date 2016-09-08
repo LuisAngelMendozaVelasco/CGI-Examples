@@ -11,7 +11,7 @@ voxel.position.divideScalar( 50 ).floor().multiplyScalar( 50 ).addScalar( 25 );
 
 var scene=new THREE.Scene();
 scene.add( voxel );
-objects.push( voxel );
+//objects.push( voxel );
 var camara=new THREE.PerspectiveCamera();
 camara.position.z=500;
 var renderizador=new THREE.WebGLRenderer();
