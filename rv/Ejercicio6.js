@@ -8,6 +8,7 @@ cubeMaterial = new THREE.MeshBasicMaterial({color: 0xffffff});
 var voxel = new THREE.Mesh( cubeGeo, cubeMaterial );
 voxel.position.set(0,-1,0);
 
+voxel.rotateX(40*Math.PI/180);
 var scene=new THREE.Scene();
 scene.add( voxel );
 //objects.push( voxel );
