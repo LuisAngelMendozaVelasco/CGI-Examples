@@ -1,25 +1,17 @@
-// grid
+// cubes
 
-var size = 200, step = 50;
+cubeGeo = new THREE.BoxGeometry( 50, 50, 50 );
+cubeMaterial = new THREE.MeshLambertMaterial( { color: 0xffffff, map: new THREE.TextureLoader().load( "textures/square-outline-textured.png" ) } );
 
-var geometry = new THREE.Geometry();
+// create cube
 
-for ( var i = - size; i <= size; i += step ) {
+var voxel = new THREE.Mesh( cubeGeo, cubeMaterial );
+voxel.position.copy(0).add(0);
+voxel.position.divideScalar( 50 ).floor().multiplyScalar( 50 ).addScalar( 25 );
 
-	geometry.vertices.push( new THREE.Vector3( - size, 0, i ) );
-	geometry.vertices.push( new THREE.Vector3(   size, 0, i ) );
-
-	geometry.vertices.push( new THREE.Vector3( i, 0, - size ) );
-	geometry.vertices.push( new THREE.Vector3( i, 0,   size ) );
-
-	}
-
-var material = new THREE.LineBasicMaterial( { color: 0xffffff, opacity: 0.2, transparent: true } );
-
-var line = new THREE.LineSegments( geometry, material );
-line.rotateX(40*Math.PI/180);
 var scene=new THREE.Scene();
-scene.add( line );
+scene.add( voxel );
+objects.push( voxel );
 var camara=new THREE.PerspectiveCamera();
 camara.position.z=500;
 var renderizador=new THREE.WebGLRenderer();
