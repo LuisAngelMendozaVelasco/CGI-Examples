@@ -6,8 +6,7 @@ cubeMaterial = new THREE.MeshBasicMaterial({color: 0xffffff});
 // create cube
 
 var voxel = new THREE.Mesh( cubeGeo, cubeMaterial );
-voxel.position.copy(0).add(0);
-voxel.position.divideScalar( 50 ).floor().multiplyScalar( 50 ).addScalar( 25 );
+voxel.position.set(0,-1,0);
 
 var scene=new THREE.Scene();
 scene.add( voxel );
