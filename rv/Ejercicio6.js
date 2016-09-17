@@ -2,8 +2,8 @@
 var bloque=new THREE.BoxGeometry(10,10,10);
 //Materiales
 var mw=new THREE.MeshBasicMaterial({color: 0xffffff});
-var mb=new THREE.MeshBasicMaterial({color: 0x8A9597});
-var mc=new THREE.MeshBasicMaterial({color: 0x083401});
+var mb=new THREE.MeshBasicMaterial({color: 0x804000});
+var mc=new THREE.MeshBasicMaterial({color: 0x400000});
 //Creación del grupo del tablero
 var g1=new THREE.Group();
 var k=0;
