@@ -79,7 +79,7 @@ torreForma.merge(torre2_3Malla.geometry,torre2_3Malla.matrix);
 torreForma.merge(torre3Malla.geometry,torre3Malla.matrix);
 
 var material=new THREE.MeshBasicMaterial({color: 0xEEEED8});
-var torreMalla=new THREE.Mesh(torreForma,material);
+var torreBlancaMalla=new THREE.Mesh(torreForma,material);
 
-torreMalla.rotateX(Math.PI/2);
-torreMalla.scale.set(0.05,0.05,0.05)
+torreBlancaMalla.rotateX(Math.PI/2);
+torreBlancaMalla.scale.set(0.05,0.05,0.05)
