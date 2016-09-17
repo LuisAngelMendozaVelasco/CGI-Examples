@@ -2,7 +2,7 @@
 var cubo=new THREE.BoxGeometry(10,10,10);
 
 //Materiales
-var blanco=new THREE.MeshBasicMaterial({color: 0xffffff});
+var hueso=new THREE.MeshBasicMaterial({color: 0xE3DAC9});
 var cafe1=new THREE.MeshBasicMaterial({color: 0x804000});
 var cafe2=new THREE.MeshBasicMaterial({color: 0x400000});
 
@@ -12,7 +12,7 @@ var k=0;
 for (var i=0;i<8;i++){
   for(var j=0;j<8;j++){
     if(k%2==0){
-      var malla=new THREE.Mesh(cubo,blanco);
+      var malla=new THREE.Mesh(cubo,hueso);
     }
     else{
       var malla= new THREE.Mesh(cubo,cafe1);  
