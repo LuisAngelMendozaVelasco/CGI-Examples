@@ -82,4 +82,4 @@ var material=new THREE.MeshBasicMaterial({color: 0xEEEED8});
 var torreMalla=new THREE.Mesh(torreForma,material);
 
 torreMalla.rotateX(Math.PI/2);
-torrew.scale.set(1.5,1.5,1.5)
+torreMalla.scale.set(1.5,1.5,1.5)
