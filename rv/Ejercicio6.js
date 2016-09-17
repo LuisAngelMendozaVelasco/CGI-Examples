@@ -53,9 +53,30 @@ for (var n=1;n<9;n++){//Filas
   }
 }
 
-
-escena.add(torre3);
-escena.add(torre4);
+//var torre1= torrew.clone();
+//torre1.position.x=10;
+//torre1.position.y=10;
+//torre1.position.z=5;
+//var torre2= torrew.clone();
+//torre2.position.x=80;
+//torre2.position.y=10;
+//torre2.position.z=5;
+//var torre3= torreb.clone();
+//torre3.position.x=10;
+//torre3.position.y=80;
+//torre3.position.z=5;
+//var torre4= torreb.clone();
+//torre4.position.x=80;
+//torre4.position.y=80;
+//torre4.position.z=5;
+var escena=new THREE.Scene();
+escena.add(g1);
+escena.add(g2);
+escena.add(g3);
+//escena.add(torre1);
+//escena.add(torre2);
+//escena.add(torre3);
+//escena.add(torre4);
 
 var camara=new THREE.PerspectiveCamera();
 camara.position.z=130;
