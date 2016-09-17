@@ -83,7 +83,7 @@ escena.add(torre3);
 escena.add(torre4);
 
 var camara=new THREE.PerspectiveCamera();
-camara.position.z=130;
+camara.position.z=100;
 camara.position.x=45;
 camara.position.y=45;
 escena.rotateX(-Math.PI/4)
