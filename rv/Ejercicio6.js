@@ -57,7 +57,7 @@ for (var n=1;n<9;n++){//Filas
   }
 }
 
-var torre1= Ejercicio6TorreBlanca.clone();
+var torre1= torreMalla.clone();
 torre1.position.x=10;
 torre1.position.y=10;
 torre1.position.z=5;
