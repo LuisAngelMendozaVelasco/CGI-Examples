@@ -91,8 +91,8 @@ camara.near= 50;
 camara.far= 400;
 camara.updateProjectionMatrix();
 camara.position.z=200;
-camara.position.x=40;
-camara.position.y=40;
+camara.position.x=45;
+camara.position.y=45;
 escena.rotateX(-Math.PI/4)
 var renderizador=new THREE.WebGLRenderer();
 renderizador.setSize(window.innerWidth*.95,window.innerHeight*.95);
