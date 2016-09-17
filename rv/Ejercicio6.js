@@ -57,14 +57,14 @@ for (var n=1;n<9;n++){//Filas
   }
 }
 
-var torre1= torreMalla.clone();
+var torre1= torreBlancaMalla.clone();
 torre1.position.x=10;
 torre1.position.y=10;
 torre1.position.z=5;
-//var torre2= torrew.clone();
-//torre2.position.x=80;
-//torre2.position.y=10;
-//torre2.position.z=5;
+var torre2= torreBlancaMalla.clone();
+torre2.position.x=80;
+torre2.position.y=10;
+torre2.position.z=5;
 //var torre3= torreb.clone();
 //torre3.position.x=10;
 //torre3.position.y=80;
@@ -78,7 +78,7 @@ escena.add(tablero);
 escena.add(borde1);
 escena.add(borde2);
 escena.add(torre1);
-//escena.add(torre2);
+escena.add(torre2);
 //escena.add(torre3);
 //escena.add(torre4);
 
