@@ -1,21 +1,21 @@
-var LuzPuntual = new THREE.PointLight(0xFFFFFF);
-LuzPuntual.position.x=10;
-LuzPuntual.position.y=10;
-LuzPuntual.position.z=10;
+var luzPuntual=new THREE.PointLight(0xFFFFFF);
+luzPuntual.position.x=10;
+luzPuntual.position.y=10;
+luzPuntual.position.z=10;
 
-var forma = new THREE.SphereGeometry(1);
-var material = new THREE.MeshLambertMaterial({color: '0#00cc00'});
-var malla = new THREE.Mesh(forma, material);
+var forma=new THREE.SphereGeometry(1);
+var material=new THREE.MeshLambertMaterial({color: "#00cc00"});
+var malla=new THREE.Mesh(forma,material);
 
-var escena = new THREE.Scene();
+var escena=new THREE.Scene();
 escena.add(malla);
-escena.add(LuzPuntual);
+escena.add(luzPuntual);
 
-var camara = new THREE.PerspectiveCamera();
+var camara=new THREE.PerspectiveCamera();
 camara.position.z=5;
 
-var lienzo = document.getElementById("LuzPuntual");
-var renderizador= new THREE.WebGLRenderer({canvas:lienzo, antialias:true});
+var lienzo=document.getElementById("lambertMaterial");
+var renderizador=new THREE.WebGLRenderer({canvas: lienzo, antiAlias:true});
 
 renderizador.setSize(600,600);
 renderizador.render(escena,camara);
