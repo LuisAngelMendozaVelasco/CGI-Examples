@@ -1,3 +1,6 @@
+var iluminacion= new THREE.PointLight(0xFFFFFF);
+iluminacion.position.y=20;
+
 //Definición de la geometría
 var cubo=new THREE.BoxGeometry(10,10,10);
 
@@ -81,13 +84,26 @@ escena.add(torre1);
 escena.add(torre2);
 escena.add(torre3);
 escena.add(torre4);
+escena.add(iluminacion);
 
 var camara=new THREE.PerspectiveCamera();
 camara.position.z=130;
 camara.position.x=45;
 camara.position.y=45;
 escena.rotateX(-Math.PI/4)
-var renderizador=new THREE.WebGLRenderer();
-renderizador.setSize(window.innerHeight*.95,window.innerHeight*.95);
+//var renderizador=new THREE.WebGLRenderer();
+//renderizador.setSize(window.innerHeight*.95,window.innerHeight*.95);
+//document.body.appendChild(renderizador.domElement);
+//renderizador.render(escena,camara);
+
+var lienzo= document.getElementById("luzSinSombras");
+var renderizador= new THREE.WebGLRenderer({canvas:lienzo,antialias:true});
+renderizador.setSize(600,600);
+//
 document.body.appendChild(renderizador.domElement);
+//
+renderizador.shadowMapEnabled=true;
+malla.castShadow=true;
+base.receiveShadow=true;
+iluminacion.castShadow=true;
 renderizador.render(escena,camara);
