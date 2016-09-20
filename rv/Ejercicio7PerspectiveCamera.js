@@ -98,7 +98,7 @@ escena.rotateX(-Math.PI/4)
 
 var lienzo= document.getElementById("luzSinSombras");
 var renderizador= new THREE.WebGLRenderer({canvas:lienzo,antialias:true});
-renderizador.setSize(600,600);
+renderizador.setSize(window.innerHeight*.95,window.innerHeight*.95);//renderizador.setSize(600,600);
 //
 document.body.appendChild(renderizador.domElement);
 //
