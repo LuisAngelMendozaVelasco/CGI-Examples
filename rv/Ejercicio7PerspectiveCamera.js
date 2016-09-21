@@ -6,12 +6,6 @@ var hueso=new THREE.MeshLambertMaterial({color: 0xE3DAC9});
 var cafe1=new THREE.MeshLambertMaterial({color: 0x804000});
 var cafe2=new THREE.MeshLambertMaterial({color: 0x400000});
 
-//Materiales de las torres
-var tbmaterial1=new THREE.MeshLambertMaterial({color: 0x171714, transparent: true, opacity: 1});//Torre negra con opacidad del 100%
-var tbmaterial2=new THREE.MeshLambertMaterial({color: 0x171714, transparent: true, opacity: 0.75});//Torre negra con opacidad del 75%
-var twmaterial1=new THREE.MeshLambertMaterial({color: 0xEEEED8, transparent: true, opacity: 0.5});//Torre blanca con opacidad del 50%
-var twmaterial2=new THREE.MeshLambertMaterial({color: 0xEEEED8, transparent: true, opacity: .25});//Torre blanca con opacidad del 25%
-
 //Creación del tablero
 var tablero=new THREE.Group();
 var k=0;
@@ -62,23 +56,121 @@ for (var n=1;n<9;n++){//Filas
   borde2.add(malla3);
   }
 }
+////////////////////////////////////////////////////
+var torre1=[];
 
-var torre1= torreBlancaMalla.clone();
-torre1.position.x=10;
-torre1.position.y=10;
-torre1.position.z=5;
-var torre2= torreBlancaMalla.clone();
-torre2.position.x=80;
-torre2.position.y=10;
-torre2.position.z=5;
-var torre3= torreNegraMalla.clone();
-torre3.position.x=10;
-torre3.position.y=80;
-torre3.position.z=5;
-var torre4= torreNegraMalla.clone();
-torre4.position.x=80;
-torre4.position.y=80;
-torre4.position.z=5;
+torre1.push(new THREE.Vector2(120,-50));
+torre1.push(new THREE.Vector2(120,-30));
+torre1.push(new THREE.Vector2(100,-30));
+torre1.push(new THREE.Vector2(100,-10));
+torre1.push(new THREE.Vector2(70,10));
+torre1.push(new THREE.Vector2(70,100));
+torre1.push(new THREE.Vector2(90,120));
+
+var torre2=new THREE.Shape();
+
+torre2.moveTo(-30,84.85);
+torre2.lineTo(-30,57.43);
+torre2.lineTo(-57.43,30);
+torre2.lineTo(-84.85,30);
+torre2.lineTo(-63.64,63.64);
+torre2.lineTo(-30,84.85);
+
+var torre2_1=new THREE.Shape();
+
+torre2_1.moveTo(-30,-84.85);
+torre2_1.lineTo(-30,-57.43);
+torre2_1.lineTo(-57.43,-30);
+torre2_1.lineTo(-84.85,-30);
+torre2_1.lineTo(-63.64,-63.64);
+torre2_1.lineTo(-30,-84.85);
+
+var torre2_2=new THREE.Shape();
+
+torre2_2.moveTo(30,-84.85);
+torre2_2.lineTo(30,-57.43);
+torre2_2.lineTo(57.43,-30);
+torre2_2.lineTo(84.85,-30);
+torre2_2.lineTo(63.64,-63.64);
+torre2_2.lineTo(30,-84.85);
+
+var torre2_3=new THREE.Shape();
+
+torre2_3.moveTo(30,84.85);
+torre2_3.lineTo(30,57.43);
+torre2_3.lineTo(57.43,30);
+torre2_3.lineTo(84.85,30);
+torre2_3.lineTo(63.64,63.64);
+torre2_3.lineTo(30,84.85);
+
+var torre3 = new THREE.CylinderGeometry(90,90,5,32);
+
+var forma1=new THREE.LatheGeometry(torre1);
+var forma2= new THREE.ExtrudeGeometry(torre2,{amount:40});
+var forma2_1= new THREE.ExtrudeGeometry(torre2_1,{amount:40});
+var forma2_2= new THREE.ExtrudeGeometry(torre2_2,{amount:40});
+var forma2_3= new THREE.ExtrudeGeometry(torre2_3,{amount:40});
+var forma3=torre3;
+forma2.rotateX(90*Math.PI/180)
+forma2.translate(0,163,0);
+forma2_1.rotateX(90*Math.PI/180)
+forma2_1.translate(0,163,0);
+forma2_2.rotateX(90*Math.PI/180)
+forma2_2.translate(0,163,0);
+forma2_3.rotateX(90*Math.PI/180)
+forma2_3.translate(0,163,0);
+forma3.translate(0,118,0);
+
+var torre1Malla=new THREE.Mesh(forma1);
+var torre2Malla=new THREE.Mesh(forma2);
+var torre2_1Malla=new THREE.Mesh(forma2_1);
+var torre2_2Malla=new THREE.Mesh(forma2_2);
+var torre2_3Malla=new THREE.Mesh(forma2_3);
+var torre3Malla=new THREE.Mesh(forma3);
+
+var torreFormaBlanca=new THREE.Geometry();
+
+torreForma.merge(torre1Malla.geometry,torre1Malla.matrix);
+torreForma.merge(torre2Malla.geometry,torre2Malla.matrix);
+torreForma.merge(torre2_1Malla.geometry,torre2_1Malla.matrix);
+torreForma.merge(torre2_2Malla.geometry,torre2_2Malla.matrix);
+torreForma.merge(torre2_3Malla.geometry,torre2_3Malla.matrix);
+torreForma.merge(torre3Malla.geometry,torre3Malla.matrix);
+
+var materialBlanca1=new THREE.MeshLambertMaterial({color: 0xEEEED8, transparent: true, opacity: 1});
+var materialBlanca2=new THREE.MeshLambertMaterial({color: 0xEEEED8, transparent: true, opacity: 0.75});
+var torreBlancaMalla1=new THREE.Mesh(torreForma,materialBlanca1);
+var torreBlancaMalla2=new THREE.Mesh(torreForma,materialBlanca2);
+
+var materialNegra1=new THREE.MeshLambertMaterial({color: 0x000000, transparent: true, opacity: 0.5});
+var materialNegra2=new THREE.MeshLambertMaterial({color: 0x000000, transparent: true, opacity: 0.25});
+var torreNegraMalla1=new THREE.Mesh(torreForma,materialNegra1);
+var torreNegraMalla2=new THREE.Mesh(torreForma,materialNegra2);
+
+torreBlancaMalla1.rotateX(Math.PI/2);
+torreBlancaMalla2.rotateX(Math.PI/2);
+torreNegraMalla1.rotateX(Math.PI/2);
+torreNegraMalla2.rotateX(Math.PI/2);
+torreBlancaMalla1.scale.set(0.05,0.05,0.05)
+torreBlancaMalla2.scale.set(0.05,0.05,0.05)
+torreNegraMalla1.scale.set(0.05,0.05,0.05)
+torreNegraMalla2.scale.set(0.05,0.05,0.05)
+///////////////////////////////////////////////////////
+torreBlancaMalla1.position.x=10;
+torreBlancaMalla1.position.y=10;
+torreBlancaMalla1.position.z=5;
+
+torreBlancaMalla2.position.x=80;
+torreBlancaMalla2.position.y=10;
+torreBlancaMalla2.position.z=5;
+
+torreNegraMalla1.position.x=10;
+torreNegraMalla1.position.y=80;
+torreNegraMalla1.position.z=5;
+
+torreNegraMalla2.position.x=80;
+torreNegraMalla2.position.y=80;
+torreNegraMalla2.position.z=5;
 
 //Creación de luces en la escena
 var luzPuntual=new THREE.PointLight(0xFFFF00);//AMARILLO
