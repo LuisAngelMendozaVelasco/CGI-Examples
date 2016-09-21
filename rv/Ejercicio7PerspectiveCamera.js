@@ -1,13 +1,16 @@
-var iluminacion= new THREE.PointLight(0xFFFFFF);
-iluminacion.position.y=20;
-
 //Definición de la geometría
 var cubo=new THREE.BoxGeometry(10,10,10);
 
 //Materiales
-var hueso=new THREE.MeshBasicMaterial({color: 0xE3DAC9});
-var cafe1=new THREE.MeshBasicMaterial({color: 0x804000});
-var cafe2=new THREE.MeshBasicMaterial({color: 0x400000});
+var hueso=new THREE.MeshLambertMaterial({color: 0xE3DAC9});
+var cafe1=new THREE.MeshLambertMaterial({color: 0x804000});
+var cafe2=new THREE.MeshLambertMaterial({color: 0x400000});
+
+//Materiales de las torres
+var tbmaterial1=new THREE.MeshLambertMaterial({color: 0x171714, transparent: true, opacity: 1});//Torre negra con opacidad del 100%
+var tbmaterial2=new THREE.MeshLambertMaterial({color: 0x171714, transparent: true, opacity: 0.75});//Torre negra con opacidad del 75%
+var twmaterial1=new THREE.MeshLambertMaterial({color: 0xEEEED8, transparent: true, opacity: 0.5});//Torre blanca con opacidad del 50%
+var twmaterial2=new THREE.MeshLambertMaterial({color: 0xEEEED8, transparent: true, opacity: .25});//Torre blanca con opacidad del 25%
 
 //Creación del tablero
 var tablero=new THREE.Group();
@@ -76,6 +79,22 @@ var torre4= torreNegraMalla.clone();
 torre4.position.x=80;
 torre4.position.y=80;
 torre4.position.z=5;
+
+//Creación de luces en la escena
+var luzPuntual=new THREE.PointLight(0xFFFF00);//AMARILLO
+var luzPuntual1=new THREE.PointLight(0xFF00FF);//ROSA
+var luzPuntual2=new THREE.PointLight(0x00FFFF);//CYAN
+//Posición de la iluminación
+luzPuntual.position.x=10;
+luzPuntual.position.y=90;
+luzPuntual.position.z=70;
+luzPuntual1.position.x=80;
+luzPuntual1.position.y=90;
+luzPuntual1.position.z=70;
+luzPuntual2.position.x=100;
+luzPuntual2.position.y=10;
+luzPuntual2.position.z=70;
+
 var escena=new THREE.Scene();
 escena.add(tablero);
 escena.add(borde1);
@@ -84,26 +103,24 @@ escena.add(torre1);
 escena.add(torre2);
 escena.add(torre3);
 escena.add(torre4);
-escena.add(iluminacion);
+escena.add(luzPuntual);
+escena.add(luzPuntual1);
+escena.add(luzPuntual2);
 
 var camara=new THREE.PerspectiveCamera();
 camara.position.z=130;
 camara.position.x=45;
 camara.position.y=45;
 escena.rotateX(-Math.PI/4)
-//var renderizador=new THREE.WebGLRenderer();
-//renderizador.setSize(window.innerHeight*.95,window.innerHeight*.95);
-//document.body.appendChild(renderizador.domElement);
-//renderizador.render(escena,camara);
-
-var lienzo= document.getElementById("luzSinSombras");
-var renderizador= new THREE.WebGLRenderer({canvas:lienzo,antialias:true});
-renderizador.setSize(window.innerHeight*.95,window.innerHeight*.95);//renderizador.setSize(600,600);
-//
+var renderizador=new THREE.WebGLRenderer();
+renderizador.setSize(window.innerHeight*.95,window.innerHeight*.95);
 document.body.appendChild(renderizador.domElement);
-//
 renderizador.shadowMapEnabled=true;
-malla.castShadow=true;
-base.receiveShadow=true;
-iluminacion.castShadow=true;
+torre1.castShadow=true;
+torre2.castShadow=true;
+torre3.castShadow=true;
+torre4.castShadow=true;
+luzPuntual.castShadow=true;
+luzPuntual1.castShadow=true;
+luzPuntual2.castShadow=true;
 renderizador.render(escena,camara);
