@@ -182,13 +182,13 @@ var luzPuntual2=new THREE.PointLight(0x00FFFF);//CYAN
 //Posición de la iluminación
 luzPuntual.position.x=10;
 luzPuntual.position.y=90;
-luzPuntual.position.z=50;
+luzPuntual.position.z=60;
 luzPuntual1.position.x=80;
 luzPuntual1.position.y=90;
-luzPuntual1.position.z=50;
+luzPuntual1.position.z=60;
 luzPuntual2.position.x=100;
 luzPuntual2.position.y=10;
-luzPuntual2.position.z=50;
+luzPuntual2.position.z=60;
 
 var escena=new THREE.Scene();
 escena.add(tablero);
