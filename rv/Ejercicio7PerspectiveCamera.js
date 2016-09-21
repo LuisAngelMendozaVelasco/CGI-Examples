@@ -207,7 +207,7 @@ escena.rotateX(-Math.PI/4)
 var renderizador=new THREE.WebGLRenderer();
 renderizador.setSize(window.innerHeight*.95,window.innerHeight*.95);
 document.body.appendChild(renderizador.domElement);
-renderizador.shadowMap.enabled=true;
+renderizador.shadowMapEnabled=true;
 torreBlancaMalla1.castShadow=true;
 torreBlancaMalla2.castShadow=true;
 torreNegraMalla1.castShadow=true;
