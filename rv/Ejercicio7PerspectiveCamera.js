@@ -128,7 +128,7 @@ var torre2_2Malla=new THREE.Mesh(forma2_2);
 var torre2_3Malla=new THREE.Mesh(forma2_3);
 var torre3Malla=new THREE.Mesh(forma3);
 
-var torreFormaBlanca=new THREE.Geometry();
+var torreForma=new THREE.Geometry();
 
 torreForma.merge(torre1Malla.geometry,torre1Malla.matrix);
 torreForma.merge(torre2Malla.geometry,torre2Malla.matrix);
