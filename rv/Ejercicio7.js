@@ -159,21 +159,21 @@ torreBlancaMalla2.scale.set(0.05,0.05,0.05)
 torreNegraMalla1.scale.set(0.05,0.05,0.05)
 torreNegraMalla2.scale.set(0.05,0.05,0.05)
 ///////////////////////////////////////////////////////
-torreBlancaMalla1.position.x=0;
-torreBlancaMalla1.position.y=0;
-torreBlancaMalla1.position.z=10;
+torreBlancaMalla1.position.x=10;
+torreBlancaMalla1.position.y=10;
+torreBlancaMalla1.position.z=5;
 
-torreBlancaMalla2.position.x=90;
-torreBlancaMalla2.position.y=0;
-torreBlancaMalla2.position.z=10;
+torreBlancaMalla2.position.x=80;
+torreBlancaMalla2.position.y=10;
+torreBlancaMalla2.position.z=5;
 
-torreNegraMalla1.position.x=0;
-torreNegraMalla1.position.y=90;
-torreNegraMalla1.position.z=10;
+torreNegraMalla1.position.x=10;
+torreNegraMalla1.position.y=80;
+torreNegraMalla1.position.z=5;
 
-torreNegraMalla2.position.x=90;
-torreNegraMalla2.position.y=90;
-torreNegraMalla2.position.z=10;
+torreNegraMalla2.position.x=80;
+torreNegraMalla2.position.y=80;
+torreNegraMalla2.position.z=5;
 
 //Creación de luces en la escena
 var luzPuntual=new THREE.PointLight(0xFFFF00);//AMARILLO
@@ -181,14 +181,14 @@ var luzPuntual1=new THREE.PointLight(0xFF00FF);//ROSA
 var luzPuntual2=new THREE.PointLight(0x00FFFF);//CYAN
 //Posición de la iluminación
 luzPuntual.position.x=10;
-luzPuntual.position.y=90;
-luzPuntual.position.z=70;
+luzPuntual.position.y=10;
+luzPuntual.position.z=100;
 luzPuntual1.position.x=80;
-luzPuntual1.position.y=90;
+luzPuntual1.position.y=100;
 luzPuntual1.position.z=70;
 luzPuntual2.position.x=100;
-luzPuntual2.position.y=10;
-luzPuntual2.position.z=70;
+luzPuntual2.position.y=80;
+luzPuntual2.position.z=100;
 
 var escena=new THREE.Scene();
 escena.add(tablero);
