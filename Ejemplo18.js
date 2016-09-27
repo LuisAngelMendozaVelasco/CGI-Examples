@@ -11,7 +11,7 @@ VENTANA.setup=function(){
 
   var capturarp=false;
 
-  window.addEventListener(tipo_evento,VENTANA,listener,capturarp);
+  window.addEventListener(tipo_evento,VENTANA.listener,capturarp);
 
   VENTANA.escena=new THREE.Scene();
   VENTANA.camara=new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,0.1,1000);
