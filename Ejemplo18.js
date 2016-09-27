@@ -31,5 +31,5 @@ VENTANA.loop=function(){
   VENTANA.renderizador.render(VENTANA.escena,VENTANA.camara);
  }
  
- VENTANA.setup();
- VENTANA.loop();
+VENTANA.setup();
+VENTANA.loop();
