@@ -1,4 +1,4 @@
-VAR TEXTURA=new Object();
+var TEXTURA=new Object();
 
 TEXTURA.retrollamada=function(textura){
   var material=new THREE.MeshBasicMaterial({map:textura});
