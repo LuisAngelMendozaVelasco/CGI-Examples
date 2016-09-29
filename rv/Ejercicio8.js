@@ -217,7 +217,7 @@ escena.add(luzPuntual2);
   var cargador=new THREE.TextureLoader();
   cargador.load("carrara 01-2270x1396.jpg",TEXTURA.retrollamada);
   TEXTURA.camara=new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,0.1,1000);
-  TEXTURA.camara.position.z=5;
+  TEXTURA.camara.position.z=80;
   var lienzo=document.getElementById("torre_textura");
   TEXTURA.renderizador=new THREE.WebGLRenderer({canvas:lienzo,antialias:true});
   TEXTURA.renderizador.setSize(600,600);
