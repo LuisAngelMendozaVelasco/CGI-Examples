@@ -151,6 +151,7 @@ var torreBlancaMalla2=new THREE.Mesh(torreForma,materialBlanca2);
 TEXTURA.retrollamada=function(textura){
   var material=new THREE.MeshBasicMaterial({map:textura});
   TEXTURA.malla=new THREE.Mesh(torreForma,material);
+  TEXTURA.malla.scale.set(0.05,0.05,0.05)
   TEXTURA.escena.add(TEXTURA.malla);
  }
 ////////////////////////////
