@@ -156,6 +156,7 @@ TEXTURA.retrollamadacblanca=function(textura){
       k++;
     }
   k++;
+  }
   textura3=true;
   TEXTURA.escena.add(tablero1);    
 }
@@ -180,6 +181,7 @@ TEXTURA.retrollamadacnegra=function(textura){
       k++;
     }
   k++;
+  }
   textura4=true;
   TEXTURA.escena.add(tablero2);    
 }  
