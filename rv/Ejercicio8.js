@@ -1,67 +1,9 @@
-//Definición de la geometría
-var cubo=new THREE.BoxGeometry(10,10,10);
-////////////////////////
-var TEXTURA=new Object();
-////////////////////////
-
-//Materiales
-var hueso=new THREE.MeshLambertMaterial({color: 0xE3DAC9});
-var cafe1=new THREE.MeshLambertMaterial({color: 0x804000});
-var cafe2=new THREE.MeshLambertMaterial({color: 0x400000});
-
-//Creación del tablero
-var tablero=new THREE.Group();
-var k=0;
-for (var i=0;i<8;i++){
-  for(var j=0;j<8;j++){
-    if(k%2==0){
-      var malla=new THREE.Mesh(cubo,hueso);
-    }
-    else{
-      var malla= new THREE.Mesh(cubo,cafe1);  
-    }
-    malla.position.x=(j+1)*10;//Columnas
-    malla.position.y=(i+1)*10;//Filas
-    malla.matrixAutoUpdate=false;
-    malla.updateMatrix();
-    malla.receiveShadow=true;
-    tablero.add(malla);
-    k++;
-  }
-k++;
-}
-
-//Creación borde alto
-var borde1= new THREE.Group();
-for(var l=0;l<10;l++){//columnas
-  for(var m=0;m<2;m++){//filas
-  var malla2= new THREE.Mesh(cubo,cafe2);
-  if(m==1){
-    malla2.position.y=90;
-  }
-  malla2.position.x=(l*10);
-  malla2.matrixAutoUpdate = false;
-  malla2.updateMatrix();
-  malla2.receiveShadow=true;
-  borde1.add(malla2);
-  }
-}
-
-//Creación del brode ancho
-var borde2=new THREE.Group();
-for (var n=1;n<9;n++){//Filas
-  for (var o=0;o<2;o++){//Columnas
-  var malla3=new THREE.Mesh(cubo,cafe2);
-  if (o==1){
-    malla3.position.x=90;
-  }
-  malla3.position.y=(n)*10
-  malla3.matrixAutoUpdate = false;
-  malla3.updateMatrix();
-  malla3.receiveShadow=true;
-  borde2.add(malla3);
-  }
-}
+var setupdone=false;
+var textura1=false;
+var textura2=false;
+var textura3=false;
+var textura4=false;
+var textura5=false;
 ////////////////////////////////////////////////////
 var torre1=[];
 
@@ -143,114 +85,180 @@ torreForma.merge(torre2_2Malla.geometry,torre2_2Malla.matrix);
 torreForma.merge(torre2_3Malla.geometry,torre2_3Malla.matrix);
 torreForma.merge(torre3Malla.geometry,torre3Malla.matrix);
 
-var materialBlanca1=new THREE.MeshLambertMaterial({color: 0xEEEED8, transparent: true, opacity: 1});
-var materialBlanca2=new THREE.MeshLambertMaterial({color: 0xEEEED8, transparent: true, opacity: 0.75});
-var torreBlancaMalla1=new THREE.Mesh(torreForma,materialBlanca1);
-var torreBlancaMalla2=new THREE.Mesh(torreForma,materialBlanca2);
-///////////////////
-TEXTURA.retrollamada=function(textura){
+//Declaración del objeto
+var TEXTURA=new Object();
+//Declaración de las retrollamadas
+//Marmol blanco
+TEXTURA.retrollamadamblanco=function(textura){
   var material=new THREE.MeshBasicMaterial({map:textura});
-  TEXTURA.malla=new THREE.Mesh(torreForma,material);
-  TEXTURA.malla.scale.set(0.05,0.05,0.05)
-  TEXTURA.escena.add(TEXTURA.malla);
- }
-////////////////////////////
-var materialNegra1=new THREE.MeshLambertMaterial({color: 0x000000, transparent: true, opacity: 0.5});
-var materialNegra2=new THREE.MeshLambertMaterial({color: 0x000000, transparent: true, opacity: 0.25});
-var torreNegraMalla1=new THREE.Mesh(torreForma,materialNegra1);
-var torreNegraMalla2=new THREE.Mesh(torreForma,materialNegra2);
-
-torreBlancaMalla1.rotateX(Math.PI/2);
-torreBlancaMalla2.rotateX(Math.PI/2);
-torreNegraMalla1.rotateX(Math.PI/2);
-torreNegraMalla2.rotateX(Math.PI/2);
-torreBlancaMalla1.scale.set(0.05,0.05,0.05)
-torreBlancaMalla2.scale.set(0.05,0.05,0.05)
-torreNegraMalla1.scale.set(0.05,0.05,0.05)
-torreNegraMalla2.scale.set(0.05,0.05,0.05)
-///////////////////////////////////////////////////////
-torreBlancaMalla1.position.x=10;
-torreBlancaMalla1.position.y=10;
-torreBlancaMalla1.position.z=5;
-
-torreBlancaMalla2.position.x=80;
-torreBlancaMalla2.position.y=10;
-torreBlancaMalla2.position.z=5;
-
-torreNegraMalla1.position.x=10;
-torreNegraMalla1.position.y=80;
-torreNegraMalla1.position.z=5;
-
-torreNegraMalla2.position.x=80;
-torreNegraMalla2.position.y=80;
-torreNegraMalla2.position.z=5;
-
-//Creación de luces en la escena
-var luzPuntual=new THREE.PointLight(0xFFFF00);//AMARILLO
-var luzPuntual1=new THREE.PointLight(0xFF00FF);//ROSA
-var luzPuntual2=new THREE.PointLight(0x00FFFF);//CYAN
-//Posición de la iluminación
-luzPuntual.position.x=10;
-luzPuntual.position.y=90;
-luzPuntual.position.z=60;
-luzPuntual1.position.x=80;
-luzPuntual1.position.y=90;
-luzPuntual1.position.z=60;
-luzPuntual2.position.x=100;
-luzPuntual2.position.y=10;
-luzPuntual2.position.z=60;
-
-var escena=new THREE.Scene();
-escena.add(tablero);
-escena.add(borde1);
-escena.add(borde2);
-escena.add(torreBlancaMalla1);
-escena.add(torreBlancaMalla2);
-escena.add(torreNegraMalla1);
-escena.add(torreNegraMalla2);
-escena.add(luzPuntual);
-escena.add(luzPuntual1);
-escena.add(luzPuntual2);
-//////////////////////////////////
- TEXTURA.setup=function(){
-  TEXTURA.escena=new THREE.Scene();
-  var cargador=new THREE.TextureLoader();
-  cargador.load("carrara 01-2270x1396.jpg",TEXTURA.retrollamada);
-  TEXTURA.camara=new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,0.1,1000);
-  TEXTURA.camara.position.z=85;
-  var lienzo=document.getElementById("torre_textura");
-  TEXTURA.renderizador=new THREE.WebGLRenderer({canvas:lienzo,antialias:true});
-  TEXTURA.renderizador.setSize(600,600);
- }
-///////////////////////////////////////
-var camara=new THREE.PerspectiveCamera();
-camara.position.z=130;
-camara.position.x=45;
-camara.position.y=45;
-escena.rotateX(-Math.PI/4)
-var renderizador=new THREE.WebGLRenderer();
-renderizador.setSize(window.innerHeight*.95,window.innerHeight*.95);
-document.body.appendChild(renderizador.domElement);
-renderizador.shadowMap.enabled=true;
-torreBlancaMalla1.castShadow=true;
-torreBlancaMalla2.castShadow=true;
-torreNegraMalla1.castShadow=true;
-torreNegraMalla2.castShadow=true;
-luzPuntual.castShadow=true;
-luzPuntual1.castShadow=true;
-luzPuntual2.castShadow=true;
-renderizador.render(escena,camara);
-///////////////////////////////////////
- TEXTURA.loop=function(){
-  requestAnimationFrame(TEXTURA.loop);
   
-  if(TEXTURA.malla!==undefined){
-    //TEXTURA.malla.rotateX(0.01);
-    TEXTURA.malla.rotateY(0.01);
+  Textura.ftorre1=new THREE.Mesh(torreForma,material);
+  Textura.ftorre1.position.x=10;
+  Textura.ftorre1.position.y=10;
+  Textura.ftorre1.position.z=5;
+  Textura.ftorre1.scale.set(0.05,0.05,0.05)
+  Textura.ftorre1.rotateX(Math.PI/2);
+  Textura.escena.add(TEXTURA,ftorre1);
+  
+  Textura.ftorre2=new THREE.Mesh(torreForma,material);
+  Textura.ftorre2.position.x=80;
+  Textura.ftorre2.position.y=10;
+  Textura.ftorre2.position.z=5;
+  Textura.ftorre2.scale.set(0.05,0.05,0.05)
+  Textura.ftorre2.rotateX(Math.PI/2);
+  Textura.escena.add(TEXTURA,ftorre2);
+  
+  textura1=true;
+}
+
+//Marmol negro
+TEXTURA.retrollamadamnegro=function(textura){
+  var material=new THREE.MeshBasicMaterial({map:textura});
+  
+  Textura.ftorre3=new THREE.Mesh(torreForma,material);
+  Textura.ftorre3.position.x=10;
+  Textura.ftorre3.position.y=80;
+  Textura.ftorre3.position.z=5;
+  Textura.ftorre3.scale.set(0.05,0.05,0.05)
+  Textura.ftorre3.rotateX(Math.PI/2);
+  Textura.escena.add(TEXTURA,ftorre3);
+  
+  Textura.ftorre4=new THREE.Mesh(torreForma,material);
+  Textura.ftorre4.position.x=80;
+  Textura.ftorre4.position.y=80;
+  Textura.ftorre4.position.z=5;
+  Textura.ftorre4.scale.set(0.05,0.05,0.05)
+  Textura.ftorre4.rotateX(Math.PI/2);
+  Textura.escena.add(TEXTURA,ftorre4);
+  
+  textura2=true;
+}
+
+//Definición de la geometría
+var cubo=new THREE.BoxGeometry(10,10,10);
+//Ceramica blanca
+TEXTURA.retrollamadacblanca=function(textura){
+  var material=new THREE.MeshBasicMaterial({map:textura});
+//Creación del grupo del tablero
+  var tablero1=new THREE.Group();
+  var k=0;
+  for (var i=0;i<8;i++){
+    for(var j=0;j<8;j++){
+      if(k%2==0){
+        TEXTURA.malla1=new THREE.Mesh(cubo,material);
+        TEXTURA.malla1.position.x=(j+1)*10;//Columnas
+        TEXTURA.malla1.position.y=(i+1)*10;//Filas
+        TEXTURA.malla1.matrixAutoUpdate=false;
+        TEXTURA.malla1.updateMatrix();
+        TEXTURA.malla1.receiveShadow=true;
+        tablero1.add(TEXTURA.malla1);
+      }
+      k++;
+    }
+  k++;
+  textura3=true;
+  TEXTURA.escena.add(tablero1);    
+}
+
+//Ceramica negra
+TEXTURA.retrollamadacnegra=function(textura){
+  var material=new THREE.MeshBasicMaterial({map:textura});
+//Creación del grupo del tablero
+  var tablero2=new THREE.Group();
+  var k=0;
+  for (var i=0;i<8;i++){
+    for(var j=0;j<8;j++){
+      if(k%2==0){
+        TEXTURA.malla2=new THREE.Mesh(cubo,material);
+        TEXTURA.malla2.position.x=(j+1)*10;//Columnas
+        TEXTURA.malla2.position.y=(i+1)*10;//Filas
+        TEXTURA.malla2.matrixAutoUpdate=false;
+        TEXTURA.malla2.updateMatrix();
+        TEXTURA.malla2.receiveShadow=true;
+        tablero2.add(TEXTURA.malla2);
+      }
+      k++;
+    }
+  k++;
+  textura4=true;
+  TEXTURA.escena.add(tablero2);    
+}  
+
+//Madera
+TEXTURA.retrollamadamadera=function(textura){
+  var material=new THREE.MeshBasicMaterial({map:textura});
+  //Creación del grupo del borde (Alto)
+  var tablero3= new THREE.Group();
+  for(var l=0;l<10;l++){//columnas
+    for(var m=0;m<2;m++){//filas
+    var malla3= new THREE.Mesh(cubo,material);
+    if(m==1){
+     malla3.position.y=90;
+    }
+    malla3.position.x=(l*10);
+    malla3.matrixAutoUpdate = false;
+    malla3.updateMatrix();
+    malla3.receiveShadow=true;
+    tablero3.add(malla3);
+    }
   }
+  //Creación del grupo del borde lateral (Ancho)
+  var tablero4=new THREE.Group();
+  for (var n=1;n<9;n++){//Filas
+    for (var o=0;o<2;o++){//Columnas
+    var malla4=new THREE.Mesh(cubo,material);
+    if (o==1){
+      malla4.position.x=90;
+    }
+    malla4.position.y=(n)*10
+    malla4.matrixAutoUpdate = false;
+    malla4.updateMatrix();
+    malla4.receiveShadow=true;
+    tablero4.add(malla4);
+    }
+  }
+  textura5=true;
+  TEXTURA.escena.add(tablero3);
+  TEXTURA.escena.add(tablero4);
+}
+
+TEXTURA.setup=function(){
+  //Creación de la escena
+  TEXTURA.escena=new THREE.Scene();
+  //Cargadores de las texturas
+  var cargador1=new THREE.TextureLoader();
+  var cargador2=new THREE.TextureLoader();
+  var cargador3=new THREE.TextureLoader();
+  var cargador4=new THREE.TextureLoader();
+  var cargador5=new THREE.TextureLoader();
+  //Configuración de las imagenes
+  cargador1.load("marmolnegro.jpg",TEXTURA.retrollamadamblanco);
+  cargador2.load("marmolblanco.jpg",TEXTURA.retrollamadamnegro);
+  cargador3.load("ceramicablanca.png",TEXTURA.retrollamadacblanca);
+  cargador4.load("ceramicanegra.jpg",TEXTURA.retrollamadacnegra);
+  cargador5.load("madera.jpg",TEXTURA.retrollamadamadera);
+  //Creación de la cámara
+  TEXTURA.camara=new THREE.PerspectiveCamera();
+  TEXTURA.camara.position.z=130;
+  TEXTURA.camara.position.x=45;
+  TEXTURA.camara.position.y=45;
+  TEXTURA.escena.rotateX(-Math.PI/6)
+  //Creación del lienzo y renderizador
+  var lienzo= document.getElementById("Tablero-ajedrez");
+  TEXTURA.renderizador=new THREE.WebGLRenderer({canvas:lienzo,antialias:true});
+  TEXTURA.renderizador.setSize(window.innerHeight*.95,window.innerHeight*.95)
+}
+
+
+TEXTURA.loop=function(){
+  requestAnimationFrame(TEXTURA.loop);
+  if((textura1==true)&&(textura2==true)&&(textura3==true)&&(textura4==true)&&(textura5==true)){
+    if(setupdone==false){
+     TEXTURA.setup();
+     setupdone=true;
+    }
   TEXTURA.renderizador.render(TEXTURA.escena,TEXTURA.camara);
- }
- 
- TEXTURA.setup();
- TEXTURA.loop();
-////////////////////////////////////////
+  } 
+}
+TEXTURA.setup();
+TEXTURA.loop();
