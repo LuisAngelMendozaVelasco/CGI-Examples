@@ -98,7 +98,7 @@ TEXTURA.retrollamadamblanco=function(textura){
   TEXTURA.ftorre1.position.z=5;
   TEXTURA.ftorre1.scale.set(0.05,0.05,0.05)
   TEXTURA.ftorre1.rotateX(Math.PI/2);
-  TEXTURA.escena.add(TEXTURA,ftorre1);
+  TEXTURA.escena.add(TEXTURA.ftorre1);
   
   TEXTURA.ftorre2=new THREE.Mesh(torreForma,material);
   TEXTURA.ftorre2.position.x=80;
@@ -106,7 +106,7 @@ TEXTURA.retrollamadamblanco=function(textura){
   TEXTURA.ftorre2.position.z=5;
   TEXTURA.ftorre2.scale.set(0.05,0.05,0.05)
   TEXTURA.ftorre2.rotateX(Math.PI/2);
-  TEXTURA.escena.add(TEXTURA,ftorre2);
+  TEXTURA.escena.add(TEXTURA.ftorre2);
   
   textura1=true;
 }
@@ -121,7 +121,7 @@ TEXTURA.retrollamadamnegro=function(textura){
   TEXTURA.ftorre3.position.z=5;
   TEXTURA.ftorre3.scale.set(0.05,0.05,0.05)
   TEXTURA.ftorre3.rotateX(Math.PI/2);
-  TEXTURA.escena.add(TEXTURA,ftorre3);
+  TEXTURA.escena.add(TEXTURA.ftorre3);
   
   TEXTURA.ftorre4=new THREE.Mesh(torreForma,material);
   TEXTURA.ftorre4.position.x=80;
@@ -129,7 +129,7 @@ TEXTURA.retrollamadamnegro=function(textura){
   TEXTURA.ftorre4.position.z=5;
   TEXTURA.ftorre4.scale.set(0.05,0.05,0.05)
   TEXTURA.ftorre4.rotateX(Math.PI/2);
-  TEXTURA.escena.add(TEXTURA,ftorre4);
+  TEXTURA.escena.add(TEXTURA.ftorre4);
   
   textura2=true;
 }
