@@ -236,7 +236,7 @@ TEXTURA.setup=function(){
   //Configuración de las imagenes
   cargador1.load("marmolnegro.jpg",TEXTURA.retrollamadamblanco);
   cargador2.load("marmolblanco.jpg",TEXTURA.retrollamadamnegro);
-  cargador3.load("ceramicablanca.png",TEXTURA.retrollamadacblanca);
+  cargador3.load("ceramicablanca.jpg",TEXTURA.retrollamadacblanca);
   cargador4.load("ceramicanegra.jpg",TEXTURA.retrollamadacnegra);
   cargador5.load("madera.jpg",TEXTURA.retrollamadamadera);
   //Creación de la cámara
