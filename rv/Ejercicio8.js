@@ -144,7 +144,7 @@ TEXTURA.retrollamadacblanca=function(textura){
   var k=0;
   for (var i=0;i<8;i++){
     for(var j=0;j<8;j++){
-      if(k%2==0){
+      if(k%2!==0){
         TEXTURA.malla1=new THREE.Mesh(cubo,material);
         TEXTURA.malla1.position.x=(j+1)*10;//Columnas
         TEXTURA.malla1.position.y=(i+1)*10;//Filas
