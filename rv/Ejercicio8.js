@@ -92,21 +92,21 @@ var TEXTURA=new Object();
 TEXTURA.retrollamadamblanco=function(textura){
   var material=new THREE.MeshBasicMaterial({map:textura});
   
-  Textura.ftorre1=new THREE.Mesh(torreForma,material);
-  Textura.ftorre1.position.x=10;
-  Textura.ftorre1.position.y=10;
-  Textura.ftorre1.position.z=5;
-  Textura.ftorre1.scale.set(0.05,0.05,0.05)
-  Textura.ftorre1.rotateX(Math.PI/2);
-  Textura.escena.add(TEXTURA,ftorre1);
+  TEXTURA.ftorre1=new THREE.Mesh(torreForma,material);
+  TEXTURA.ftorre1.position.x=10;
+  TEXTURA.ftorre1.position.y=10;
+  TEXTURA.ftorre1.position.z=5;
+  TEXTURA.ftorre1.scale.set(0.05,0.05,0.05)
+  TEXTURA.ftorre1.rotateX(Math.PI/2);
+  TEXTURA.escena.add(TEXTURA,ftorre1);
   
-  Textura.ftorre2=new THREE.Mesh(torreForma,material);
-  Textura.ftorre2.position.x=80;
-  Textura.ftorre2.position.y=10;
-  Textura.ftorre2.position.z=5;
-  Textura.ftorre2.scale.set(0.05,0.05,0.05)
-  Textura.ftorre2.rotateX(Math.PI/2);
-  Textura.escena.add(TEXTURA,ftorre2);
+  TEXTURA.ftorre2=new THREE.Mesh(torreForma,material);
+  TEXTURA.ftorre2.position.x=80;
+  TEXTURA.ftorre2.position.y=10;
+  TEXTURA.ftorre2.position.z=5;
+  TEXTURA.ftorre2.scale.set(0.05,0.05,0.05)
+  TEXTURA.ftorre2.rotateX(Math.PI/2);
+  TEXTURA.escena.add(TEXTURA,ftorre2);
   
   textura1=true;
 }
@@ -115,21 +115,21 @@ TEXTURA.retrollamadamblanco=function(textura){
 TEXTURA.retrollamadamnegro=function(textura){
   var material=new THREE.MeshBasicMaterial({map:textura});
   
-  Textura.ftorre3=new THREE.Mesh(torreForma,material);
-  Textura.ftorre3.position.x=10;
-  Textura.ftorre3.position.y=80;
-  Textura.ftorre3.position.z=5;
-  Textura.ftorre3.scale.set(0.05,0.05,0.05)
-  Textura.ftorre3.rotateX(Math.PI/2);
-  Textura.escena.add(TEXTURA,ftorre3);
+  TEXTURA.ftorre3=new THREE.Mesh(torreForma,material);
+  TEXTURA.ftorre3.position.x=10;
+  TEXTURA.ftorre3.position.y=80;
+  TEXTURA.ftorre3.position.z=5;
+  TEXTURA.ftorre3.scale.set(0.05,0.05,0.05)
+  TEXTURA.ftorre3.rotateX(Math.PI/2);
+  TEXTURA.escena.add(TEXTURA,ftorre3);
   
-  Textura.ftorre4=new THREE.Mesh(torreForma,material);
-  Textura.ftorre4.position.x=80;
-  Textura.ftorre4.position.y=80;
-  Textura.ftorre4.position.z=5;
-  Textura.ftorre4.scale.set(0.05,0.05,0.05)
-  Textura.ftorre4.rotateX(Math.PI/2);
-  Textura.escena.add(TEXTURA,ftorre4);
+  TEXTURA.ftorre4=new THREE.Mesh(torreForma,material);
+  TEXTURA.ftorre4.position.x=80;
+  TEXTURA.ftorre4.position.y=80;
+  TEXTURA.ftorre4.position.z=5;
+  TEXTURA.ftorre4.scale.set(0.05,0.05,0.05)
+  TEXTURA.ftorre4.rotateX(Math.PI/2);
+  TEXTURA.escena.add(TEXTURA,ftorre4);
   
   textura2=true;
 }
