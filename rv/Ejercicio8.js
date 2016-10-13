@@ -244,7 +244,7 @@ TEXTURA.setup=function(){
   TEXTURA.camara.position.z=130;
   TEXTURA.camara.position.x=45;
   TEXTURA.camara.position.y=45;
-  TEXTURA.escena.rotateX(-Math.PI/6)
+  TEXTURA.escena.rotateX(-Math.PI/4)
   //Creación del lienzo y renderizador
   var lienzo= document.getElementById("Tablero-ajedrez");
   TEXTURA.renderizador=new THREE.WebGLRenderer({canvas:lienzo,antialias:true});
