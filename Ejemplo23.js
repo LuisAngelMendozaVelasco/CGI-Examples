@@ -7,7 +7,7 @@ function Agent(x=0,y=0){
 Agent.prototype=new THREE.Object3D();
 
 Agent.prototype.sense=function(environment){};
-Agent.prototype.plan=function(enverionment){};
+Agent.prototype.plan=function(environment){};
 Agent.prototype.act=function(environment){};
 
 function Environment(){
