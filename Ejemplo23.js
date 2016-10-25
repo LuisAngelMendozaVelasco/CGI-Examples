@@ -97,7 +97,7 @@ function setup(){
   document.body.appenChild(renderer.domElement)
 }
 
-functionj loop(){
+function loop(){
   requestAnimationFrame(loop);
   entorno.sense();
   entorno.plan();
