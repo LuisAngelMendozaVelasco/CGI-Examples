@@ -166,7 +166,7 @@ function setup(){
  }
  
 function loop(){
-  requestAnimationframe(loop);
+  requestAnimationFrame(loop);
   environment.sense();
   environment.plan();
   environment.act();
