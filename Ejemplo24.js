@@ -152,7 +152,7 @@ function loop(){
   renderer.render(environment,camera);
  }
 
-//var environment,camera,renderer;
+var environment,camera,renderer;
 
 setup();
 loop();
