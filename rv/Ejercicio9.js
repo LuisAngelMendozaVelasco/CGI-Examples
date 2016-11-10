@@ -242,9 +242,9 @@ prototipo.setup = function(){
     torre2.rotateX(Math.PI/2);
   //Torre3
     torre3 = new THREE.Mesh(new prototipo.TorreGeometry(),marmolnegro);
-    torre3.position.y=80;
-    torre3.position.z=-5;
-    torre3.position.x=10;
+    torre3.position.y=6;
+    torre3.position.z=-80;
+    torre3.position.x=70;
     torre3.scale.set(0.05,0.05,0.05);
     torre3.rotateX(Math.PI/2);
   //Torre4
