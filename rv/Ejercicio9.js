@@ -161,7 +161,7 @@ prototipo.TableroGeometry1 = function(){
   
     for (var n=1;n<9;n++){//Filas
     for (var o=0;o<2;o++){//Columnas
-    var malla4=new THREE.Mesh(cubo,material);
+    var malla4=new THREE.Mesh(cubo,madera);
     if (o==1){
       malla4.position.x=90;
     }
