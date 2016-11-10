@@ -252,7 +252,7 @@ prototipo.setup = function(){
     torre4.position.y=6;
     torre4.position.z=-10;
     torre4.position.x=70;
-    torre4.scale.set(0.05,0.05,0.05);
+ //   torre4.scale.set(0.05,0.05,0.05);
     torre4.rotateX(Math.PI/2);
   //Peonnegro1
     peonn1 = new THREE.Mesh(new prototipo.PeonGeometry(),marmolnegro);
