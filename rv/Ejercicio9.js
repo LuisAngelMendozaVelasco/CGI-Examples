@@ -229,24 +229,28 @@ prototipo.setup = function(){
     var marmolnegro = new THREE.MeshBasicMaterial({map:textura2});
   //Figuras
     torre1 = new THREE.Mesh(new prototipo.TorreGeometry(),marmolblanco);
-    torre1.position.y=5;
-    torre1.position.z=-10;
+    torre1.position.y=10;
+    torre1.position.z=5;
     torre1.position.x=10;
+    torre1.scale.set(0.05,0.05,0.05);
   //Torre2
     torre2 = new THREE.Mesh(new prototipo.TorreGeometry(),marmolblanco);
-    torre2.position.y=5;
-    torre2.position.z=-80;
-    torre2.position.x=10;
+    torre2.position.y=10;
+    torre2.position.z=5;
+    torre2.position.x=80;
+    torre2.scale.set(0.05,0.05,0.05);
   //Torre3
     torre3 = new THREE.Mesh(new prototipo.TorreGeometry(),marmolnegro);
-    torre3.position.y=5;
-    torre3.position.z=-80;
-    torre3.position.x=80;
+    torre3.position.y=80;
+    torre3.position.z=5;
+    torre3.position.x=10;
+    torre3.scale.set(0.05,0.05,0.05);
   //Torre4
     torre4 = new THREE.Mesh(new prototipo.TorreGeometry(),marmolnegro);
-    torre4.position.y=5;
-    torre4.position.z=-10;
+    torre4.position.y=80;
+    torre4.position.z=5;
     torre4.position.x=80;
+    torre4.scale.set(0.05,0.05,0.05);
   //Peonnegro1
     peonn1 = new THREE.Mesh(new prototipo.PeonGeometry(),marmolnegro);
     peonn1.position.y=5;
