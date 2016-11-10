@@ -9,7 +9,9 @@ var prototipo = new Object();
   escena.rotateX(Math.PI/4);
   camara = new THREE.PerspectiveCamera();
   camara.position.z=130;
-  camara.position.x=50; 
+  camara.position.x=45;
+  camara.position.y=45;
+  escena.rotateX(-Math.PI/4)
 
 prototipo.TorreGeometry= function() {
   THREE.Geometry.call(this);
