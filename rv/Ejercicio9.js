@@ -256,10 +256,11 @@ prototipo.setup = function(){
     torre4.rotateX(Math.PI/2);
   //Peonnegro1
     peonn1 = new THREE.Mesh(new prototipo.PeonGeometry(),marmolnegro);
-    peonn1.position.y=5;
+    peonn1.position.y=10;
     peonn1.position.z=-10;
-    peonn1.position.x=70;
+    peonn1.position.x=65;
     peonn1.rotateX(Math.PI/2);
+    peonn1.scale.set(0.9,0.9,0.9);
   //Peonnegro2
     peonn2 = new THREE.Mesh(new prototipo.PeonGeometry(),marmolnegro);
     peonn2.position.y=5;
