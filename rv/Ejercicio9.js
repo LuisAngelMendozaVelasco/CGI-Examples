@@ -6,7 +6,6 @@ var malla1,malla2,malla3;
 
 var prototipo = new Object();
   escena = new THREE.Scene();
-  escena.rotateX(Math.PI/4);
   camara = new THREE.PerspectiveCamera();
   camara.position.z=130;
   camara.position.x=45;
