@@ -111,7 +111,7 @@ torreForma.merge(torre2_3Malla.geometry,torre2_3Malla.matrix);
 torreForma.merge(torre3Malla.geometry,torre3Malla.matrix);
 
 torre1=new THREE.Mesh(torreForma,marmolblanco);
-    torre1.position.y=10;
+    torre1.position.y=80;
     torre1.position.z=-5;
     torre1.position.x=10;
     torre1.scale.set(0.05,0.05,0.05);
