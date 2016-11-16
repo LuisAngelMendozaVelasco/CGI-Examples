@@ -239,27 +239,27 @@ prototipo.setup = function(){
     torre2.position.z=10;
     torre2.position.x=80;
     torre2.scale.set(0.05,0.05,0.05);
-    torre2.rotateX(Math.PI/2);
+    torre2.rotateX(-Math.PI/2);
   //Torre3
     torre3 = new THREE.Mesh(new prototipo.TorreGeometry(),marmolnegro);
     torre3.position.y=6;
     torre3.position.z=-80;
     torre3.position.x=70;
     torre3.scale.set(0.05,0.05,0.05);
-    torre3.rotateX(Math.PI/2);
+    torre3.rotateX(-Math.PI/2);
   //Torre4
     torre4 = new THREE.Mesh(new prototipo.TorreGeometry(),marmolnegro);
     torre4.position.y=6;
     torre4.position.z=-10;
     torre4.position.x=70;
  //   torre4.scale.set(0.05,0.05,0.05);
-    torre4.rotateX(Math.PI/2);
+    torre4.rotateX(-Math.PI/2);
   //Peonnegro1
     peonn1 = new THREE.Mesh(new prototipo.PeonGeometry(),marmolnegro);
     peonn1.position.y=10;
     peonn1.position.z=-10;
     peonn1.position.x=70;
-    peonn1.rotateX(Math.PI/2);
+    peonn1.rotateX(-Math.PI/2);
     peonn1.scale.set(0.9,0.9,0.9);
   //Peonnegro2
     peonn2 = new THREE.Mesh(new prototipo.PeonGeometry(),marmolnegro);
@@ -273,14 +273,14 @@ prototipo.setup = function(){
     peonn3.position.y=30;
     peonn3.position.z=-10;
     peonn3.position.x=70;
-    peonn3.rotateX(Math.PI/2); 
+    peonn3.rotateX(-Math.PI/2); 
     peonn3.scale.set(0.9,0.9,0.9);  
   //Peonnegro4
     peonn4 = new THREE.Mesh(new prototipo.PeonGeometry(),marmolnegro);
     peonn4.position.y=40;
     peonn4.position.z=-10;
     peonn4.position.x=70;
-    peonn4.rotateX(Math.PI/2);
+    peonn4.rotateX(-Math.PI/2);
     peonn4.scale.set(0.9,0.9,0.9);  
   //Peonnegro5
     peonn5 = new THREE.Mesh(new prototipo.PeonGeometry(),marmolnegro);
