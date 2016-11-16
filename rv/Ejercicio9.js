@@ -1,5 +1,5 @@
 var camara,escena,renderizador;
-var torre1,torre2,torre3,torre4,reyn,reyb;
+var torre1,torre2,torre3,torre4,rey1,rey2;
 var peonn1,peonn2,peonn3,peonn4,peonn5,peonn6,peonn7,peonn8;
 var peonb1,peonb2,peonb3,peonb4,peonb5,peonb6,peonb7,peonb8;
 var malla1,malla2,malla3;
@@ -303,19 +303,19 @@ prototipo.setup = function(){
     torre4.scale.set(0.05,0.05,0.05);
     torre4.rotateX(-Math.PI/2);
   //Rey 1
-    reyb=new THREE.Mesh(new prototipo.ReyGeometry(),marmolblanco);
-    reyb.position.y=50;
-    reyb.position.z=-5;
-    reyb.position.x=10;
-    reyb.scale.set(0.175,0.175,0.175);
-    reyb.rotateX(-Math.PI/2);
+    rey1=new THREE.Mesh(new prototipo.ReyGeometry(),marmolblanco);
+    rey1.position.y=50;
+    rey1.position.z=-5;
+    rey1.position.x=10;
+    rey1.scale.set(0.175,0.175,0.175);
+    rey1.rotateX(-Math.PI/2);
   //Rey 2
-    reyn=new THREE.Mesh(new prototipo.ReyGeometry(),marmolnegro);
-    reyn.position.y=50;
-    reyn.position.z=-5;
-    reyn.position.x=80;
-    reyn.scale.set(0.175,0.175,0.175);
-    reyn.rotateX(-Math.PI/2);
+    rey2=new THREE.Mesh(new prototipo.ReyGeometry(),marmolnegro);
+    rey2.position.y=50;
+    rey2.position.z=-5;
+    rey2.position.x=80;
+    rey2.scale.set(0.175,0.175,0.175);
+    rey2.rotateX(-Math.PI/2);
   //Peonnegro1
     peonn1 = new THREE.Mesh(new prototipo.PeonGeometry(),marmolnegro);
     peonn1.rotateX(-Math.PI/2);
@@ -412,7 +412,7 @@ prototipo.setup = function(){
     peonb8.position.y=80;
     peonb8.position.z=-5;
     peonb8.position.x=20;  
-  escena.add(torre1,torre2,torre3,torre4,reyn,reyb);
+  escena.add(torre1,torre2,torre3,torre4,rey1,rey2);
   escena.add(new prototipo.TableroGeometry(),new prototipo.TableroGeometry1());
   escena.add(peonn1,peonn2,peonn3,peonn4,peonn5,peonn6,peonn7,peonn8);
   escena.add(peonb1,peonb2,peonb3,peonb4,peonb5,peonb6,peonb7,peonb8);
