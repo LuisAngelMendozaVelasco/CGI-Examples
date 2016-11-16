@@ -311,44 +311,44 @@ prototipo.setup = function(){
   //Peonblanco2
     peonb2 = new THREE.Mesh(new prototipo.PeonGeometry(),marmolblanco);
     peonb2.rotateX(-Math.PI/2); 
-    peonb2.position.y=10;
+    peonb2.position.y=20;
     peonb2.position.z=-5;
     peonb2.position.x=20;
   //Peonblanco3
     peonb3 = new THREE.Mesh(new prototipo.PeonGeometry(),marmolblanco);
     peonb3.rotateX(-Math.PI/2); 
-    peonb3.position.y=10;
+    peonb3.position.y=30;
     peonb3.position.z=-5;
     peonb3.position.x=20;
   //Peonblanco4
     peonb4 = new THREE.Mesh(new prototipo.PeonGeometry(),marmolblanco);
     peonb4.rotateX(-Math.PI/2); 
-    peonb4.position.y=10;
+    peonb4.position.y=40;
     peonb4.position.z=-5;
     peonb4.position.x=20;
   //Peonblanco5
     peonb5 = new THREE.Mesh(new prototipo.PeonGeometry(),marmolblanco);
     peonb5.rotateX(-Math.PI/2); 
-    peonb5.position.y=10;
+    peonb5.position.y=50;
     peonb5.position.z=-5;
     peonb5.position.x=20;
   //Peonblanco6
     peonb6 = new THREE.Mesh(new prototipo.PeonGeometry(),marmolblanco);
     peonb6.rotateX(-Math.PI/2); 
-    peonb6.position.y=10;
+    peonb6.position.y=60;
     peonb6.position.z=-5;
     peonb6.position.x=20;
   //Peonblanco7
     peonb7 = new THREE.Mesh(new prototipo.PeonGeometry(),marmolblanco);
     peonb7.rotateX(-Math.PI/2); 
-    peonb7.position.y=10;
+    peonb7.position.y=70;
     peonb7.position.z=-5;
     peonb7.position.x=20;
   //Peonblanco8
     peonb8 = new THREE.Mesh(new prototipo.PeonGeometry(),marmolblanco);
     peonb8.rotateX(-Math.PI/2); 
-    peonb8.position.y=10;
-    peonb8.position.z=-80;
+    peonb8.position.y=80;
+    peonb8.position.z=-5;
     peonb8.position.x=20;  
   escena.add(torre1,torre2,torre3,torre4);
   escena.add(new prototipo.TableroGeometry(),new prototipo.TableroGeometry1());
