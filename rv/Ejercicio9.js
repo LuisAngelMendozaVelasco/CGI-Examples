@@ -410,7 +410,7 @@ prototipo.setup = function(){
     peonb8.position.y=80;
     peonb8.position.z=-5;
     peonb8.position.x=20;  
-  escena.add(torre1,torre2,torre3,torre4,reyn,neyb);
+  escena.add(torre1,torre2,torre3,torre4,reyn,reyb);
   escena.add(new prototipo.TableroGeometry(),new prototipo.TableroGeometry1());
   escena.add(peonn1,peonn2,peonn3,peonn4,peonn5,peonn6,peonn7,peonn8);
   escena.add(peonb1,peonb2,peonb3,peonb4,peonb5,peonb6,peonb7,peonb8);
