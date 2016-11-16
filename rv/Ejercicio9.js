@@ -219,8 +219,7 @@ prototipo.PeonGeometry = function(){
   this.merge(mpeonfinal3.geometry,mpeonfinal3.matrix);
 }
 ////////////////////////////
-//------------REY-----------
-prototipo.ReyGeometry1=function(){
+prototipo.ReyGeometry=function(){
     THREE.Geometry.call(this);
     var puntosrey=[];
     
@@ -262,7 +261,7 @@ prototipo.ReyGeometry1=function(){
     this.merge(ReyFormaFinal.geometry,ReyFormaFinal.matrix);  
 }
 //////////////////////////////
-prototipo.ReyGeometry1.prototype = new THREE.Geometry();
+prototipo.ReyGeometry.prototype = new THREE.Geometry();
 prototipo.PeonGeometry.prototype = new THREE.Geometry();
 prototipo.TableroGeometry.prototype = new THREE.Group();
 prototipo.TableroGeometry1.prototype = new THREE.Group();
@@ -304,6 +303,27 @@ prototipo.setup = function(){
     torre4.position.x=80;
     torre4.scale.set(0.05,0.05,0.05);
     torre4.rotateX(-Math.PI/2);
+  //Rey 3
+    rey3=new THREE.Mesh(new prototipo.ReyGeometry(),marmolblanco);
+    rey3.position.y=50;
+    rey3.position.z=-5;
+    rey3.position.x=10;
+    rey3.scale.set(0,0,0);
+    rey3.rotateX(-Math.PI/2);
+    //Rey 2
+    rey2=new THREE.Mesh(new prototipo.ReyGeometry(),marmolnegro);
+    rey2.position.y=50;
+    rey2.position.z=-5;
+    rey2.position.x=80;
+    rey2.scale.set(0.175,0.175,0.175);
+    rey2.rotateX(-Math.PI/2);
+  //Rey 1
+    rey1=new THREE.Mesh(new prototipo.ReyGeometry(),marmolblanco);
+    rey1.position.y=50;
+    rey1.position.z=-5;
+    rey1.position.x=10;
+    rey1.scale.set(0.175,0.175,0.175);
+    rey1.rotateX(-Math.PI/2);   
   //Peonnegro1
     peonn1 = new THREE.Mesh(new prototipo.PeonGeometry(),marmolnegro);
     peonn1.rotateX(-Math.PI/2);
@@ -399,23 +419,9 @@ prototipo.setup = function(){
     peonb8.rotateX(-Math.PI/2); 
     peonb8.position.y=80;
     peonb8.position.z=-5;
-    peonb8.position.x=20;
-    //Rey 2
- //   rey2=new THREE.Mesh(new prototipo.ReyGeometry(),marmolnegro);
- //   rey2.position.y=50;
- //   rey2.position.z=-5;
- //   rey2.position.x=80;
- //   rey2.scale.set(0.175,0.175,0.175);
- //   rey2.rotateX(-Math.PI/2);
-  //Rey 1
-  //  rey1=new THREE.Mesh(new prototipo.ReyGeometry(),marmolblanco);
-  //  rey1.position.y=50;
-  //  rey1.position.z=-5;
-  //  rey1.position.x=10;
-  //  rey1.scale.set(0.175,0.175,0.175);
-  //  rey1.rotateX(-Math.PI/2);  
+    peonb8.position.x=20; 
   escena.add(torre1,torre2,torre3,torre4);
-//  escena.add(rey1,rey2);
+  escena.add(rey1,rey2);
   escena.add(new prototipo.TableroGeometry(),new prototipo.TableroGeometry1());
   escena.add(peonn1,peonn2,peonn3,peonn4,peonn5,peonn6,peonn7,peonn8);
   escena.add(peonb1,peonb2,peonb3,peonb4,peonb5,peonb6,peonb7,peonb8);
