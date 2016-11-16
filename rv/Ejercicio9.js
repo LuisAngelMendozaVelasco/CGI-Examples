@@ -23,8 +23,8 @@ torre1.push(new THREE.Vector2(120,-30));
 torre1.push(new THREE.Vector2(100,-30));
 torre1.push(new THREE.Vector2(100,-10));
 torre1.push(new THREE.Vector2(70,10));
-torre1.push(new THREE.Vector2(70,100));
-torre1.push(new THREE.Vector2(90,120));
+torre1.push(new THREE.Vector2(70,200));
+torre1.push(new THREE.Vector2(90,220));
 
 var torre2=new THREE.Shape();
 
@@ -71,14 +71,14 @@ var forma2_2= new THREE.ExtrudeGeometry(torre2_2,{amount:40});
 var forma2_3= new THREE.ExtrudeGeometry(torre2_3,{amount:40});
 var forma3=torre3;
 forma2.rotateX(90*Math.PI/180)
-forma2.translate(0,163,0);
+forma2.translate(0,263,0);
 forma2_1.rotateX(90*Math.PI/180)
-forma2_1.translate(0,163,0);
+forma2_1.translate(0,263,0);
 forma2_2.rotateX(90*Math.PI/180)
-forma2_2.translate(0,163,0);
+forma2_2.translate(0,263,0);
 forma2_3.rotateX(90*Math.PI/180)
-forma2_3.translate(0,163,0);
-forma3.translate(0,118,0);
+forma2_3.translate(0,263,0);
+forma3.translate(0,218,0);
 
 var torre1Malla=new THREE.Mesh(forma1);
 var torre2Malla=new THREE.Mesh(forma2);
