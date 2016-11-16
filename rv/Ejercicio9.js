@@ -1,5 +1,5 @@
 var camara,escena,renderizador;
-var torre1,torre2,torre3,torre4;
+var torre1,torre2,torre3,torre4,reyn,reb;
 var peonn1,peonn2,peonn3,peonn4,peonn5,peonn6,peonn7,peonn8;
 var peonb1,peonb2,peonb3,peonb4,peonb5,peonb6,peonb7,peonb8;
 var malla1,malla2,malla3;
@@ -307,12 +307,14 @@ prototipo.setup = function(){
     reyn.position.y=50;
     reyn.position.z=-5;
     reyn.position.x=10;
+    reyn.scale.set(0.05,0.05,0.05);
     reyn.rotateX(-Math.PI/2);
   //Rey 2
     reyb=new THREE.Mesh(new prototipo.TorreGeometry(),marmolnegro);
     reyb.position.y=40;
     reyb.position.z=-5;
     reyb.position.x=80;
+    reyb.scale.set(0.05,0.05,0.05);
     reyb.rotateX(-Math.PI/2);
   //Peonnegro1
     peonn1 = new THREE.Mesh(new prototipo.PeonGeometry(),marmolnegro);
