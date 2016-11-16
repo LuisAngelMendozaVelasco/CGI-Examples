@@ -1,6 +1,6 @@
 var camara,escena,renderizador;
 var torre1,torre2,torre3,torre4;
-//var rey1,rey2;
+var rey1,rey2;
 var peonn1,peonn2,peonn3,peonn4,peonn5,peonn6,peonn7,peonn8;
 var peonb1,peonb2,peonb3,peonb4,peonb5,peonb6,peonb7,peonb8;
 var malla1,malla2,malla3;
@@ -220,53 +220,53 @@ prototipo.PeonGeometry = function(){
 }
 ////////////////////////////
 //------------REY-----------
-//prototipo.ReyGeometry=function(){
-   // THREE.Geometry.call(this);
-   // var puntosrey=[];
+prototipo.ReyGeometry=function(){
+    THREE.Geometry.call(this);
+    var puntosrey=[];
     
-  //  puntosrey.push( new THREE.Vector2(0,0));
-  //  puntosrey.push( new THREE.Vector2(20,0));
-  //  puntosrey.push( new THREE.Vector2(20,10));
-  //  puntosrey.push( new THREE.Vector2(15,10));
-  //  puntosrey.push( new THREE.Vector2(15,15));
-   // puntosrey.push( new THREE.Vector2(10,15));
-  //  puntosrey.push( new THREE.Vector2(5,60));
-  //  puntosrey.push( new THREE.Vector2(20,60));
-  //  puntosrey.push( new THREE.Vector2(20,65));
-  //  puntosrey.push( new THREE.Vector2(10,65));
-  //  puntosrey.push( new THREE.Vector2(10,70));
-  ///  puntosrey.push( new THREE.Vector2(15,70));
-  //  puntosrey.push( new THREE.Vector2(15,80));
-  //  puntosrey.push( new THREE.Vector2(10,80));
-  //  puntosrey.push( new THREE.Vector2(20,100));
-  //  puntosrey.push( new THREE.Vector2(0,100));
+    puntosrey.push( new THREE.Vector2(0,0));
+    puntosrey.push( new THREE.Vector2(20,0));
+    puntosrey.push( new THREE.Vector2(20,10));
+    puntosrey.push( new THREE.Vector2(15,10));
+    puntosrey.push( new THREE.Vector2(15,15));
+    puntosrey.push( new THREE.Vector2(10,15));
+    puntosrey.push( new THREE.Vector2(5,60));
+    puntosrey.push( new THREE.Vector2(20,60));
+    puntosrey.push( new THREE.Vector2(20,65));
+    puntosrey.push( new THREE.Vector2(10,65));
+    puntosrey.push( new THREE.Vector2(10,70));
+    puntosrey.push( new THREE.Vector2(15,70));
+    puntosrey.push( new THREE.Vector2(15,80));
+    puntosrey.push( new THREE.Vector2(10,80));
+    puntosrey.push( new THREE.Vector2(20,100));
+    puntosrey.push( new THREE.Vector2(0,100));
     
- //   var baseRey= new THREE.LatheGeometry(puntosrey);
- //   var baseReyMalla= new THREE.Mesh( baseRey);
+    var baseRey= new THREE.LatheGeometry(puntosrey);
+    var baseReyMalla= new THREE.Mesh( baseRey);
     
- //   var reyForma= new THREE.Geometry();
+    var reyForma= new THREE.Geometry();
 
- //   reyForma.merge(baseReyMalla.geometry, baseReyMalla.matrix);
+    reyForma.merge(baseReyMalla.geometry, baseReyMalla.matrix);
     
- //   var vertical= new THREE.BoxGeometry(10,20,10);
-  //  vertical.translate(0,110,0);
- //   var verticalMalla= new THREE.Mesh(vertical);
-  //  reyForma.merge(verticalMalla.geometry, verticalMalla.matrix);
+    var vertical= new THREE.BoxGeometry(10,20,10);
+    vertical.translate(0,110,0);
+    var verticalMalla= new THREE.Mesh(vertical);
+    reyForma.merge(verticalMalla.geometry, verticalMalla.matrix);
     
- //   var horizontal= new THREE.BoxGeometry(20,10,10);
- //   horizontal.translate(0,110,0);
- //   var horizontalMalla= new THREE.Mesh(horizontal);
- //   reyForma.merge(horizontalMalla.geometry, horizontalMalla.matrix);
- //   var ReyFormaFinal=new THREE.Mesh(reyForma);
+    var horizontal= new THREE.BoxGeometry(20,10,10);
+    horizontal.translate(0,110,0);
+    var horizontalMalla= new THREE.Mesh(horizontal);
+    reyForma.merge(horizontalMalla.geometry, horizontalMalla.matrix);
+    var ReyFormaFinal=new THREE.Mesh(reyForma);
     
-  //  this.merge(ReyFormaFinal.geometry,ReyFormaFinal.matrix);  
-//}
+    this.merge(ReyFormaFinal.geometry,ReyFormaFinal.matrix);  
+}
 //////////////////////////////
 prototipo.PeonGeometry.prototype = new THREE.Geometry();
 prototipo.TableroGeometry.prototype = new THREE.Group();
 prototipo.TableroGeometry1.prototype = new THREE.Group();
 prototipo.TorreGeometry.prototype = new THREE.Geometry();
-//prototipo.ReyGeometry.prototype = new THREE.Geometry();
+prototipo.ReyGeometry.prototype = new THREE.Geometry();
 
 prototipo.setup = function(){
   //Textura
