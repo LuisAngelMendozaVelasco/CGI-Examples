@@ -220,7 +220,7 @@ prototipo.PeonGeometry = function(){
 }
 ////////////////////////////
 //------------REY-----------
-prototipo.ReyGeometry=function(){
+prototipo.ReyGeometry1=function(){
     THREE.Geometry.call(this);
     var puntosrey=[];
     
@@ -262,7 +262,7 @@ prototipo.ReyGeometry=function(){
     this.merge(ReyFormaFinal.geometry,ReyFormaFinal.matrix);  
 }
 //////////////////////////////
-prototipo.ReyGeometry.prototype = new THREE.Geometry();
+prototipo.ReyGeometry1.prototype = new THREE.Geometry();
 prototipo.PeonGeometry.prototype = new THREE.Geometry();
 prototipo.TableroGeometry.prototype = new THREE.Group();
 prototipo.TableroGeometry1.prototype = new THREE.Group();
