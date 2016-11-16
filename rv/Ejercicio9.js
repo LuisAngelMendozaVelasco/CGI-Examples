@@ -143,6 +143,50 @@ prototipo.TableroGeometry = function(){
   k++;
   }
 }
+////////////////////////////
+//------------REY-----------
+prototipo.ReyGeometry=function(){
+    THREE.Geometry.call(this);
+    var puntosrey=[];
+    
+    puntosrey.push( new THREE.Vector2(0,0));
+    puntosrey.push( new THREE.Vector2(20,0));
+    puntosrey.push( new THREE.Vector2(20,10));
+    puntosrey.push( new THREE.Vector2(15,10));
+    puntosrey.push( new THREE.Vector2(15,15));
+    puntosrey.push( new THREE.Vector2(10,15));
+    puntosrey.push( new THREE.Vector2(5,60));
+    puntosrey.push( new THREE.Vector2(20,60));
+    puntosrey.push( new THREE.Vector2(20,65));
+    puntosrey.push( new THREE.Vector2(10,65));
+    puntosrey.push( new THREE.Vector2(10,70));
+    puntosrey.push( new THREE.Vector2(15,70));
+    puntosrey.push( new THREE.Vector2(15,80));
+    puntosrey.push( new THREE.Vector2(10,80));
+    puntosrey.push( new THREE.Vector2(20,100));
+    puntosrey.push( new THREE.Vector2(0,100));
+    
+    var baseRey= new THREE.LatheGeometry(puntosrey);
+    var baseReyMalla= new THREE.Mesh( baseRey);
+    
+    var reyForma= new THREE.Geometry();
+
+    reyForma.merge(baseReyMalla.geometry, baseReyMalla.matrix);
+    
+    var vertical= new THREE.BoxGeometry(10,20,10);
+    vertical.translate(0,110,0);
+    var verticalMalla= new THREE.Mesh(vertical);
+    reyForma.merge(verticalMalla.geometry, verticalMalla.matrix);
+    
+    var horizontal= new THREE.BoxGeometry(20,10,10);
+    horizontal.translate(0,110,0);
+    var horizontalMalla= new THREE.Mesh(horizontal);
+    reyForma.merge(horizontalMalla.geometry, horizontalMalla.matrix);
+    var ReyFormaFinal=new THREE.Mesh(reyForma);
+    
+    this.merge(ReyFormaFinal.geometry,ReyFormaFinal.matrix);  
+}
+//////////////////////////////
 
 prototipo.TableroGeometry1 = function(){
   THREE.Group.call(this);
@@ -221,6 +265,7 @@ prototipo.PeonGeometry.prototype = new THREE.Geometry();
 prototipo.TableroGeometry.prototype = new THREE.Group();
 prototipo.TableroGeometry1.prototype = new THREE.Group();
 prototipo.TorreGeometry.prototype = new THREE.Geometry();
+prototipo.ReyGeometry.prototype = new THREE.Geometry();
 
 prototipo.setup = function(){
   //Textura
@@ -233,30 +278,42 @@ prototipo.setup = function(){
     torre1 = new THREE.Mesh(new prototipo.TorreGeometry(),marmolblanco);
     torre1.position.y=10;
     torre1.position.z=-5;
-    torre1.position.x=80;
+    torre1.position.x=10;
     torre1.scale.set(0.05,0.05,0.05);
     torre1.rotateX(-Math.PI/2);
   //Torre2
     torre2 = new THREE.Mesh(new prototipo.TorreGeometry(),marmolblanco);
     torre2.position.y=80;
     torre2.position.z=-5;
-    torre2.position.x=80;
+    torre2.position.x=10;
     torre2.scale.set(0.05,0.05,0.05);
     torre2.rotateX(-Math.PI/2);
   //Torre3
     torre3 = new THREE.Mesh(new prototipo.TorreGeometry(),marmolnegro);
     torre3.position.y=10;
     torre3.position.z=-5;
-    torre3.position.x=10;
+    torre3.position.x=80;
     torre3.scale.set(0.05,0.05,0.05);
     torre3.rotateX(-Math.PI/2);
   //Torre4
     torre4 = new THREE.Mesh(new prototipo.TorreGeometry(),marmolnegro);
     torre4.position.y=80;
     torre4.position.z=-5;
-    torre4.position.x=10;
+    torre4.position.x=80;
     torre4.scale.set(0.05,0.05,0.05);
     torre4.rotateX(-Math.PI/2);
+  //Rey 1
+    reyn=new THREE.Mesh(new prototipo.TorreGeometry(),marmolblanco);
+    reyn.position.y=50;
+    reyn.position.z=-5;
+    reyn.position.x=10;
+    reyn.rotateX(-Math.PI/2);
+  //Rey 2
+    reyb=new THREE.Mesh(new prototipo.TorreGeometry(),marmolnegro);
+    reyb.position.y=40;
+    reyb.position.z=-5;
+    reyb.position.x=80;
+    reyb.rotateX(-Math.PI/2);
   //Peonnegro1
     peonn1 = new THREE.Mesh(new prototipo.PeonGeometry(),marmolnegro);
     peonn1.rotateX(-Math.PI/2);
@@ -353,7 +410,7 @@ prototipo.setup = function(){
     peonb8.position.y=80;
     peonb8.position.z=-5;
     peonb8.position.x=20;  
-  escena.add(torre1,torre2,torre3,torre4);
+  escena.add(torre1,torre2,torre3,torre4,reyn,neyb);
   escena.add(new prototipo.TableroGeometry(),new prototipo.TableroGeometry1());
   escena.add(peonn1,peonn2,peonn3,peonn4,peonn5,peonn6,peonn7,peonn8);
   escena.add(peonb1,peonb2,peonb3,peonb4,peonb5,peonb6,peonb7,peonb8);
