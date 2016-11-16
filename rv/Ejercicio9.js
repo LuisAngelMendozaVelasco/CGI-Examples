@@ -307,7 +307,7 @@ prototipo.setup = function(){
     rey1.position.y=50;
     rey1.position.z=-5;
     rey1.position.x=10;
-    rey1.scale.set(0.3,0.3,0.3);
+    rey1.scale.set(1,1,1);
     rey1.rotateX(-Math.PI/2);
   //Rey 2
     rey2=new THREE.Mesh(new prototipo.ReyGeometry(),marmolnegro);
