@@ -303,19 +303,19 @@ prototipo.setup = function(){
     torre4.scale.set(0.05,0.05,0.05);
     torre4.rotateX(-Math.PI/2);
   //Rey 1
-    reyb=new THREE.Mesh(new prototipo.ReyGeometry(),marmolnegro);
+    reyb=new THREE.Mesh(new prototipo.ReyGeometry(),marmolblanco);
     reyb.position.y=50;
     reyb.position.z=-5;
     reyb.position.x=10;
     reyb.scale.set(0.175,0.175,0.175);
     reyb.rotateX(-Math.PI/2);
   //Rey 2
-    reyb=new THREE.Mesh(new prototipo.ReyGeometry(),marmolnegro);
-    reyb.position.y=50;
-    reyb.position.z=-5;
-    reyb.position.x=80;
-    reyb.scale.set(0.175,0.175,0.175);
-    reyb.rotateX(-Math.PI/2);
+    reyn=new THREE.Mesh(new prototipo.ReyGeometry(),marmolnegro);
+    reyn.position.y=50;
+    reyn.position.z=-5;
+    reyn.position.x=80;
+    reyn.scale.set(0.175,0.175,0.175);
+    reyn.rotateX(-Math.PI/2);
   //Peonnegro1
     peonn1 = new THREE.Mesh(new prototipo.PeonGeometry(),marmolnegro);
     peonn1.rotateX(-Math.PI/2);
