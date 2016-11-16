@@ -7,9 +7,9 @@ var malla1,malla2,malla3;
 var prototipo = new Object();
   escena = new THREE.Scene();
   camara = new THREE.PerspectiveCamera();
-  camara.position.z=180;
+  camara.position.z=190;
   camara.position.x=45;
-  camara.position.y=-45;
+  camara.position.y=-40;
   escena.rotateX(Math.PI*0.7)
 
 prototipo.TorreGeometry= function() {
@@ -303,14 +303,14 @@ prototipo.setup = function(){
     torre4.scale.set(0.05,0.05,0.05);
     torre4.rotateX(-Math.PI/2);
   //Rey 1
-    reyn=new THREE.Mesh(new prototipo.TorreGeometry(),marmolblanco);
+    reyn=new THREE.Mesh(new prototipo.ReyGeometry(),marmolblanco);
     reyn.position.y=50;
     reyn.position.z=-5;
     reyn.position.x=10;
     reyn.scale.set(0.05,0.05,0.05);
     reyn.rotateX(-Math.PI/2);
   //Rey 2
-    reyb=new THREE.Mesh(new prototipo.TorreGeometry(),marmolnegro);
+    reyb=new THREE.Mesh(new prototipo.ReyGeometry(),marmolnegro);
     reyb.position.y=50;
     reyb.position.z=-5;
     reyb.position.x=80;
