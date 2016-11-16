@@ -259,102 +259,95 @@ prototipo.setup = function(){
     peonn1.rotateX(-Math.PI/2);
     peonn1.position.y=10;
     peonn1.position.z=-5;
-    peonn1.position.x=70;
-    
-    peonn1.scale.set(0.9,0.9,0.9);
+    peonn1.position.x=70;  
   //Peonnegro2
     peonn2 = new THREE.Mesh(new prototipo.PeonGeometry(),marmolnegro);
     peonn2.rotateX(-Math.PI/2);
     peonn2.position.y=20;
     peonn2.position.z=-5;
-    peonn2.position.x=70;
-    
-    peonn2.scale.set(0.9,0.9,0.9);
+    peonn2.position.x=70;  
   //Peonnegro3
     peonn3 = new THREE.Mesh(new prototipo.PeonGeometry(),marmolnegro);
     peonn3.rotateX(-Math.PI/2); 
     peonn3.position.y=30;
     peonn3.position.z=-5;
-    peonn3.position.x=70;
-    
-    peonn3.scale.set(0.9,0.9,0.9);  
+    peonn3.position.x=70;  
   //Peonnegro4
     peonn4 = new THREE.Mesh(new prototipo.PeonGeometry(),marmolnegro);
     peonn4.rotateX(-Math.PI/2);
     peonn4.position.y=40;
     peonn4.position.z=-5;
-    peonn4.position.x=70;
-    
-    peonn4.scale.set(0.9,0.9,0.9);  
+    peonn4.position.x=70;  
   //Peonnegro5
     peonn5 = new THREE.Mesh(new prototipo.PeonGeometry(),marmolnegro);
     peonn5.rotateX(-Math.PI/2);
     peonn5.position.y=50;
     peonn5.position.z=-5;
-    peonn5.position.x=70;
-    
-    peonn5.scale.set(0.9,0.9,0.9);  
+    peonn5.position.x=70;   
   //Peonnegro6
     peonn6 = new THREE.Mesh(new prototipo.PeonGeometry(),marmolnegro);
+    peonn6.rotateX(-Math.PI/2);
     peonn6.position.y=60;
     peonn6.position.z=-5;
-    peonn6.position.x=70;
-    peonn6.rotateX(-Math.PI/2);
-    peonn6.scale.set(0.9,0.9,0.9);  
+    peonn6.position.x=70; 
   //Peonnegro7
     peonn7 = new THREE.Mesh(new prototipo.PeonGeometry(),marmolnegro);
     peonn7.rotateX(-Math.PI/2);
     peonn7.position.y=70;
     peonn7.position.z=-5;
-    peonn7.position.x=70;
-    
-    peonn7.scale.set(0.9,0.9,0.9);  
+    peonn7.position.x=70;  
   //Peonnegro8
     peonn8 = new THREE.Mesh(new prototipo.PeonGeometry(),marmolnegro);
     peonn8.rotateX(-Math.PI/2); 
     peonn8.position.y=80;
     peonn8.position.z=-5;
-    peonn8.position.x=70; 
-    
-    peonn8.scale.set(0.9,0.9,0.9);  
+    peonn8.position.x=70;   
   //Peonblanco1
     peonb1 = new THREE.Mesh(new prototipo.PeonGeometry(),marmolblanco);
-    peonb1.position.y=5;
-    peonb1.position.z=-10;
+    peonb1.rotateX(-Math.PI/2); 
+    peonb1.position.y=10;
+    peonb1.position.z=-5;
     peonb1.position.x=20;
   //Peonblanco2
     peonb2 = new THREE.Mesh(new prototipo.PeonGeometry(),marmolblanco);
-    peonb2.position.y=5;
-    peonb2.position.z=-20;
+    peonb2.rotateX(-Math.PI/2); 
+    peonb2.position.y=10;
+    peonb2.position.z=-5;
     peonb2.position.x=20;
   //Peonblanco3
     peonb3 = new THREE.Mesh(new prototipo.PeonGeometry(),marmolblanco);
-    peonb3.position.y=5;
-    peonb3.position.z=-30;
+    peonb3.rotateX(-Math.PI/2); 
+    peonb3.position.y=10;
+    peonb3.position.z=-5;
     peonb3.position.x=20;
   //Peonblanco4
     peonb4 = new THREE.Mesh(new prototipo.PeonGeometry(),marmolblanco);
-    peonb4.position.y=5;
-    peonb4.position.z=-40;
+    peonb4.rotateX(-Math.PI/2); 
+    peonb4.position.y=10;
+    peonb4.position.z=-5;
     peonb4.position.x=20;
   //Peonblanco5
     peonb5 = new THREE.Mesh(new prototipo.PeonGeometry(),marmolblanco);
-    peonb5.position.y=5;
-    peonb5.position.z=-50;
+    peonb5.rotateX(-Math.PI/2); 
+    peonb5.position.y=10;
+    peonb5.position.z=-5;
     peonb5.position.x=20;
   //Peonblanco6
     peonb6 = new THREE.Mesh(new prototipo.PeonGeometry(),marmolblanco);
-    peonb6.position.y=5;
-    peonb6.position.z=-60;
+    peonb6.rotateX(-Math.PI/2); 
+    peonb6.position.y=10;
+    peonb6.position.z=-5;
     peonb6.position.x=20;
   //Peonblanco7
     peonb7 = new THREE.Mesh(new prototipo.PeonGeometry(),marmolblanco);
-    peonb7.position.y=5;
-    peonb7.position.z=-70;
+    peonb7.rotateX(-Math.PI/2); 
+    peonb7.position.y=10;
+    peonb7.position.z=-5;
     peonb7.position.x=20;
   //Peonblanco8
     peonb8 = new THREE.Mesh(new prototipo.PeonGeometry(),marmolblanco);
-    peonb8.position.y=5;
+    peonb8.rotateX(-Math.PI/2); 
+    peonb8.position.y=10;
     peonb8.position.z=-80;
     peonb8.position.x=20;  
   escena.add(torre1,torre2,torre3,torre4);
