@@ -94,8 +94,9 @@ torreForma.merge(torre2_1Malla.geometry,torre2_1Malla.matrix);
 torreForma.merge(torre2_2Malla.geometry,torre2_2Malla.matrix);
 torreForma.merge(torre2_3Malla.geometry,torre2_3Malla.matrix);
 torreForma.merge(torre3Malla.geometry,torre3Malla.matrix);
+var torreFormaFinal=new THREE.Mesh(torreForma);
   
-this.merge(torreForma.geometry,torreForma.matrix);
+this.merge(torreFormaFinal.geometry,torreFormaFinal.matrix);
 }
 /////////////////////////////////////////////////////////////////////////////
 var cubo=new THREE.BoxGeometry(10,10,10);
