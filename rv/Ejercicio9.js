@@ -10,7 +10,7 @@ var prototipo = new Object();
   camara.position.z=130;
   camara.position.x=45;
   camara.position.y=-45;
-  escena.rotateX(Math.PI)
+  escena.rotateX(Math.PI*0.65)
 
 prototipo.TorreGeometry= function() {
   THREE.Geometry.call(this);
@@ -311,7 +311,7 @@ prototipo.setup = function(){
     reyn.rotateX(-Math.PI/2);
   //Rey 2
     reyb=new THREE.Mesh(new prototipo.TorreGeometry(),marmolnegro);
-    reyb.position.y=40;
+    reyb.position.y=50;
     reyb.position.z=-5;
     reyb.position.x=80;
     reyb.scale.set(0.05,0.05,0.05);
