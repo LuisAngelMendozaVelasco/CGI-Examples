@@ -232,28 +232,28 @@ prototipo.setup = function(){
     torre1.position.z=5;
     torre1.position.x=80;
     torre1.scale.set(0.05,0.05,0.05);
-    torre1.rotateX(Math.PI/2);
+    torre1.rotateX(-Math.PI/2);
   //Torre2
     torre2 = new THREE.Mesh(new prototipo.TorreGeometry(),marmolblanco);
     torre2.position.y=80;
     torre2.position.z=5;
     torre2.position.x=80;
     torre2.scale.set(0.05,0.05,0.05);
-    torre2.rotateX(Math.PI/2);
+    torre2.rotateX(-Math.PI/2);
   //Torre3
     torre3 = new THREE.Mesh(new prototipo.TorreGeometry(),marmolnegro);
     torre3.position.y=10;
     torre3.position.z=5;
     torre3.position.x=10;
     torre3.scale.set(0.05,0.05,0.05);
-    torre3.rotateX(Math.PI/2);
+    torre3.rotateX(-Math.PI/2);
   //Torre4
     torre4 = new THREE.Mesh(new prototipo.TorreGeometry(),marmolnegro);
     torre4.position.y=80;
     torre4.position.z=5;
     torre4.position.x=10;
     torre4.scale.set(0.05,0.05,0.05);
-    torre4.rotateX(Math.PI/2);
+    torre4.rotateX(-Math.PI/2);
   //Peonnegro1
     peonn1 = new THREE.Mesh(new prototipo.PeonGeometry(),marmolnegro);
     peonn1.rotateX(-Math.PI/2);
