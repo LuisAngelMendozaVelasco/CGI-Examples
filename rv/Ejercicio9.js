@@ -239,21 +239,21 @@ prototipo.setup = function(){
     torre2.position.z=10;
     torre2.position.x=80;
     torre2.scale.set(0.05,0.05,0.05);
-    torre2.rotateX(-Math.PI/2);
+    torre2.rotateX(Math.PI/2);
   //Torre3
     torre3 = new THREE.Mesh(new prototipo.TorreGeometry(),marmolnegro);
     torre3.position.y=6;
     torre3.position.z=-80;
     torre3.position.x=70;
     torre3.scale.set(0.05,0.05,0.05);
-    torre3.rotateX(-Math.PI/2);
+    torre3.rotateX(Math.PI/2);
   //Torre4
     torre4 = new THREE.Mesh(new prototipo.TorreGeometry(),marmolnegro);
     torre4.position.y=6;
     torre4.position.z=-10;
     torre4.position.x=70;
  //   torre4.scale.set(0.05,0.05,0.05);
-    torre4.rotateX(-Math.PI/2);
+    torre4.rotateX(Math.PI/2);
   //Peonnegro1
     peonn1 = new THREE.Mesh(new prototipo.PeonGeometry(),marmolnegro);
     peonn1.position.y=10;
@@ -266,7 +266,7 @@ prototipo.setup = function(){
     peonn2.position.y=20;
     peonn2.position.z=-10;
     peonn2.position.x=70;
-    peonn2.rotateX(Math.PI/2);
+    peonn2.rotateX(-Math.PI/2);
     peonn2.scale.set(0.9,0.9,0.9);
   //Peonnegro3
     peonn3 = new THREE.Mesh(new prototipo.PeonGeometry(),marmolnegro);
@@ -287,28 +287,28 @@ prototipo.setup = function(){
     peonn5.position.y=50;
     peonn5.position.z=-10;
     peonn5.position.x=70;
-    peonn5.rotateX(Math.PI/2);
+    peonn5.rotateX(-Math.PI/2);
     peonn5.scale.set(0.9,0.9,0.9);  
   //Peonnegro6
     peonn6 = new THREE.Mesh(new prototipo.PeonGeometry(),marmolnegro);
     peonn6.position.y=60;
     peonn6.position.z=-10;
     peonn6.position.x=70;
-    peonn6.rotateX(Math.PI/2);
+    peonn6.rotateX(-Math.PI/2);
     peonn6.scale.set(0.9,0.9,0.9);  
   //Peonnegro7
     peonn7 = new THREE.Mesh(new prototipo.PeonGeometry(),marmolnegro);
     peonn7.position.y=70;
     peonn7.position.z=-10;
     peonn7.position.x=70;
-    peonn7.rotateX(Math.PI/2);
+    peonn7.rotateX(-Math.PI/2);
     peonn7.scale.set(0.9,0.9,0.9);  
   //Peonnegro8
     peonn8 = new THREE.Mesh(new prototipo.PeonGeometry(),marmolnegro);
     peonn8.position.y=80;
     peonn8.position.z=-10;
     peonn8.position.x=70; 
-    peonn8.rotateX(Math.PI/2); 
+    peonn8.rotateX(-Math.PI/2); 
     peonn8.scale.set(0.9,0.9,0.9);  
   //Peonblanco1
     peonb1 = new THREE.Mesh(new prototipo.PeonGeometry(),marmolblanco);
