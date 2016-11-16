@@ -303,12 +303,12 @@ prototipo.setup = function(){
     torre4.scale.set(0.05,0.05,0.05);
     torre4.rotateX(-Math.PI/2);
   //Rey 1
-    reyn=new THREE.Mesh(new prototipo.ReyGeometry(),marmolblanco);
-    reyn.position.y=50;
-    reyn.position.z=-5;
-    reyn.position.x=10;
-    reyn.scale.set(0.175,0.175,0.175);
-    reyn.rotateX(-Math.PI/2);
+    reyb=new THREE.Mesh(new prototipo.ReyGeometry(),marmolnegro);
+    reyb.position.y=50;
+    reyb.position.z=-5;
+    reyb.position.x=10;
+    reyb.scale.set(0.175,0.175,0.175);
+    reyb.rotateX(-Math.PI/2);
   //Rey 2
     reyb=new THREE.Mesh(new prototipo.ReyGeometry(),marmolnegro);
     reyb.position.y=50;
