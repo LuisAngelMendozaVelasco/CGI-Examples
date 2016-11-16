@@ -262,7 +262,7 @@ prototipo.ReyGeometry=function(){
     this.merge(ReyFormaFinal.geometry,ReyFormaFinal.matrix);  
 }
 //////////////////////////////
-//prototipo.ReyGeometry.prototype = new THREE.Geometry();
+prototipo.ReyGeometry.prototype = new THREE.Geometry();
 prototipo.PeonGeometry.prototype = new THREE.Geometry();
 prototipo.TableroGeometry.prototype = new THREE.Group();
 prototipo.TableroGeometry1.prototype = new THREE.Group();
