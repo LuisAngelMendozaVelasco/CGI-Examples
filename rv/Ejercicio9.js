@@ -303,11 +303,11 @@ prototipo.setup = function(){
     torre4.scale.set(0.05,0.05,0.05);
     torre4.rotateX(-Math.PI/2);
   //Rey 1
-    rey1=new THREE.Mesh(new prototipo.ReyGeometry(),marmolnegro);
+    rey1=new THREE.Mesh(new prototipo.ReyGeometry(),marmolblanco);
     rey1.position.y=50;
     rey1.position.z=-5;
     rey1.position.x=10;
-    rey1.scale.set(0.175,0.175,0.175);
+    rey1.scale.set(0.3,0.3,0.3);
     rey1.rotateX(-Math.PI/2);
   //Rey 2
     rey2=new THREE.Mesh(new prototipo.ReyGeometry(),marmolnegro);
