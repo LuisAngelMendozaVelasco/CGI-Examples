@@ -307,14 +307,14 @@ prototipo.setup = function(){
     reyn.position.y=50;
     reyn.position.z=-5;
     reyn.position.x=10;
-    reyn.scale.set(0.05,0.05,0.05);
+    reyn.scale.set(0.5,0.5,0.5);
     reyn.rotateX(-Math.PI/2);
   //Rey 2
     reyb=new THREE.Mesh(new prototipo.ReyGeometry(),marmolnegro);
     reyb.position.y=50;
     reyb.position.z=-5;
     reyb.position.x=80;
-    reyb.scale.set(0.05,0.05,0.05);
+    reyb.scale.set(0.5,0.5,0.5);
     reyb.rotateX(-Math.PI/2);
   //Peonnegro1
     peonn1 = new THREE.Mesh(new prototipo.PeonGeometry(),marmolnegro);
