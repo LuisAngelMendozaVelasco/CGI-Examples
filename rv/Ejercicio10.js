@@ -29,7 +29,7 @@ function init(){
     var ceramicanegra = new THREE.MeshBasicMaterial({map:textura4});  
     var madera = new THREE.MeshBasicMaterial({map:textura5});
     
-torre1=new THREE.Mesh(torrefinal11,marmolblanco);
+torre1=new THREE.Mesh(torreForma,marmolblanco);
     torre1.position.y=80;
     torre1.position.z=-5;
     torre1.position.x=10;
