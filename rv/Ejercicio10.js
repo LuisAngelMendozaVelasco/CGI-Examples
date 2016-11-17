@@ -3,7 +3,7 @@ var torre1,torre2,torre3,torre4;
 var rey1,rey2,rey3;
 var peonn1,peonn2,peonn3,peonn4,peonn5,peonn6,peonn7,peonn8;
 var peonb1,peonb2,peonb3,peonb4,peonb5,peonb6,peonb7,peonb8;
-var malla1,malla2,malla3;
+var malla1,malla2,malla3,grupo1,grupo2,grupo3;
 
 init();
 loop();
@@ -202,13 +202,13 @@ function loop() {
                   torre1.translateX(-10);
                   break;
               case 38 :  //Arriba
-                  torre1.translateZ(-10);
+                  torre1.translateY(-10);
                   break;
               case 39 :  //Derecha 
                   torre1.translateX(10);
                   break;
               case 40 :  //Abajo
-                  torre1.translateZ(10);
+                  torre1.translateY(10);
                   break;
           default :alert("Pulsar las flechas del teclado");
           }
