@@ -33,7 +33,7 @@ torre1=new THREE.Mesh(torreForma,marmolblanco);
     torre1.position.y=10;
     torre1.position.z=-7;
     torre1.position.x=10;
-    torre1.scale.set(0.045,0.045,0.045);
+    torre1.scale.set(0.04,0.04,0.04);
     torre1.rotateX(-Math.PI/2);
 
 //Tablero
