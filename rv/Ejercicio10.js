@@ -30,7 +30,7 @@ function init(){
     var madera = new THREE.MeshBasicMaterial({map:textura5});
     
 torre1=new THREE.Mesh(torreForma,marmolblanco);
-    torre1.position.y=80;
+    torre1.position.y=10;
     torre1.position.z=-5;
     torre1.position.x=10;
     torre1.scale.set(0.05,0.05,0.05);
@@ -121,13 +121,13 @@ function loop() {
                   torre1.translateX(-10);
                   break;
               case 38 :  //Arriba
-                  torre1.translateY(-10);
+                  torre1.translateZ(-10);
                   break;
               case 39 :  //Derecha 
                   torre1.translateX(10);
                   break;
               case 40 :  //Abajo
-                  torre1.translateY(10);
+                  torre1.translateZ(10);
                   break;
           default :alert("Pulsar las flechas del teclado");
           }
