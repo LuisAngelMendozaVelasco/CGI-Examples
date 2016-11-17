@@ -31,7 +31,7 @@ function init(){
     
 torre1=new THREE.Mesh(torreForma,marmolblanco);
     torre1.position.y=10;
-    torre1.position.z=-5;
+    torre1.position.z=-1;
     torre1.position.x=10;
     torre1.scale.set(0.05,0.05,0.05);
     torre1.rotateX(-Math.PI/2);
