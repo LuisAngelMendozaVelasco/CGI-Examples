@@ -199,7 +199,7 @@ function loop() {
           switch (tecla)
           {
               case 37 : //Izquierda
-                  torre1.translateX(-10);
+                  torre1.rotateX(-Math.PI/2);
                   break;
               case 38 :  //Arriba
                   torre1.translateY(-10);
