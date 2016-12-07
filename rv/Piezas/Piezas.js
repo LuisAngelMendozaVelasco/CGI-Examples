@@ -485,7 +485,7 @@
                 if (cfg.hasOwnProperty('pieceSet') !== true ||
                     (typeof cfg.pieceSet !== 'string' &&
                     typeof cfg.pieceSet !== 'function')) {
-                    cfg.pieceSet = 'assets/chesspieces/classic/{piece}.json';
+                    cfg.pieceSet = 'Clasico/{piece}.json';
                 }
 
                 // rotate and zoom controls
