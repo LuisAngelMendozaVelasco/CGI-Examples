@@ -132,7 +132,7 @@ function createBoard(pieceSet) {
                 }
                 cfg.pieceSet = 'assets/chesspieces/' + pieceSet + '/{piece}.json';
             }
-            return new Tablero('board', cfg);
+            return new Piezas('board', cfg);
 
     }
  windowsWidth = $(window).width()*0.75
