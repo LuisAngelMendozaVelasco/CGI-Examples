@@ -720,7 +720,7 @@
 
 
                 var geometry, mesh, pataGeometry, meshPata1, meshPata2;
-                var legOffset = 0.2;
+                var legOffset = 0;
                 var uplift = 0.8;
                 var legScale = 1.4;
 
