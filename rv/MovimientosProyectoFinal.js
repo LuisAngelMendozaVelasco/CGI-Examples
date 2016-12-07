@@ -130,7 +130,7 @@ function createBoard(pieceSet) {
                     cfg.lightSquareColor = 0x888888;
                     cfg.darkSquareColor = 0x666666;
                 }
-                cfg.pieceSet = ' + pieceSet + '/{piece}.json';
+                cfg.pieceSet = '' + pieceSet + '/{piece}.json';
             }
             return new Piezas('board', cfg);
 
