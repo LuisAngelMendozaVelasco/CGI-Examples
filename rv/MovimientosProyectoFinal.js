@@ -130,9 +130,9 @@ function createBoard(pieceSet) {
                     cfg.lightSquareColor = 0x888888;
                     cfg.darkSquareColor = 0x666666;
                 }
-                cfg.pieceSet = '' + pieceSet + '/{piece}.json';
+                cfg.pieceSet = 'assets/chesspieces/' + pieceSet + '/{piece}.json'
             }
-            return new Piezas('board', cfg);
+            return new chessboard3('board', cfg);
 
     }
  windowsWidth = $(window).width()*0.75
