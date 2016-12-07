@@ -586,7 +586,7 @@
                 if (cfg.hasOwnProperty('backgroundColor') && typeof cfg.backgroundColor === 'number') {
                     backgroundColor = cfg.backgroundColor;
                 } else {
-                    backgroundColor = 0x00FFFF;
+                    backgroundColor = 0x0080C0;
                 }
                 RENDERER.setClearColor(backgroundColor, 1);
 
