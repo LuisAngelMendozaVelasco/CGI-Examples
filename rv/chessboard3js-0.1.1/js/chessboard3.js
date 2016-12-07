@@ -318,7 +318,7 @@
             }
             var darkSquareMaterial = new THREE.MeshPhongMaterial({color: new THREE.Color(darkSquareColor)});
 
-            var lightSquareColor= 0xf0d9b5;
+            var lightSquareColor= 0xFFFFFF;
             if (cfg.hasOwnProperty('lightSquareColor') && typeof cfg.lightSquareColor === 'number') {
                 lightSquareColor = cfg.lightSquareColor;
             }
