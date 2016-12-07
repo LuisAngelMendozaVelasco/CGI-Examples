@@ -312,7 +312,7 @@
             var FILE_A_TEXT_MATERIAL = textMaterial.clone();
             var FILE_H_TEXT_MATERIAL = textMaterial.clone();
 
-            var darkSquareColor = 0xb68863;
+            var darkSquareColor = 0x000000;
             if (cfg.hasOwnProperty('darkSquareColor') && typeof cfg.darkSquareColor === 'number') {
                 darkSquareColor = cfg.darkSquareColor;
             }
