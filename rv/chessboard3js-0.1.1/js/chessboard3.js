@@ -274,7 +274,7 @@
                 whitePieceSpecular = cfg.whitePieceSpecular;
             }
             WHITE_MATERIAL.specular = new THREE.Color(whitePieceSpecular);
-            WHITE_MATERIAL.transparent = false;
+            WHITE_MATERIAL.transparent = true;
 
             var blackPieceColor = 0x000000;
             if (cfg.hasOwnProperty('blackPieceColor') && typeof cfg.blackPieceColor === 'number') {
