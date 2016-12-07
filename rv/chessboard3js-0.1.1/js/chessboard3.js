@@ -254,7 +254,7 @@
                 CAMERA_DISTANCE * Math.cos(CAMERA_POLAR_ANGLE),
                 -CAMERA_DISTANCE * Math.sin(CAMERA_POLAR_ANGLE));
 
-            var whitePieceColor = 0xAAAAAA;
+            var whitePieceColor = 0xFFFFFF;
             if (cfg.hasOwnProperty('whitePieceColor') && typeof cfg.whitePieceColor === 'number') {
                 whitePieceColor = cfg.whitePieceColor;
             }
