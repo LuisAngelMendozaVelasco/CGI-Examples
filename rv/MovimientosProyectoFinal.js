@@ -124,13 +124,13 @@ function createBoard(pieceSet) {
             onSnapEnd: onSnapEnd
         };
             if (pieceSet) {
-                if (pieceSet === 'Clasico') {
+                if (pieceSet === 'minions') {
                     cfg.whitePieceColor = 0xFFFF00;
                     cfg.blackPieceColor = 0xCC00CC;
                     cfg.lightSquareColor = 0x888888;
                     cfg.darkSquareColor = 0x666666;
                 }
-                cfg.pieceSet = '' + pieceSet + '/{piece}.json'
+                cfg.pieceSet = 'assets/chesspieces/' + pieceSet + '/{piece}.json'
             }
             return new ChessBoard3('board', cfg);
 
