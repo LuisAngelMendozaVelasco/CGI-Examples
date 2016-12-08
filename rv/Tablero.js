@@ -645,7 +645,6 @@ window['Chess'] = window['Chess'] || function(fen) {
 
     make_move(move);
     if (in_check()) {
-      alert("Hola");
       if (in_checkmate()) {
         output += '#';
         alert("Jaque Mate");
