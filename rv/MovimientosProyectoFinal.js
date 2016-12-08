@@ -17,9 +17,7 @@ function updateStatus() {
         if (game.game_over()) {
 
             if (game.in_checkmate()) {
-                status = moveColor + ' jaquemate.';
-                alert("Jaque Mate");
-                confirm("Jaque Mate");   
+                status = moveColor + ' jaquemate.';  
             } else if (game.in_stalemate()) {
                 status = moveColor + " encerrado";
             } else if (game.insufficient_material()) {
