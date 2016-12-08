@@ -650,6 +650,7 @@ window['Chess'] = window['Chess'] || function(fen) {
         alert("Jaque Mate");
       } else {
         output += '+';
+        alert("Jaque");
       }
     }
     undo_move();
