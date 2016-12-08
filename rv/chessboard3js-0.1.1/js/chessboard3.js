@@ -26,7 +26,7 @@
     ];
     var SQUARE_SIZE = 2;
     var CAMERA_POLAR_ANGLE = Math.PI / 4;
-    var CAMERA_DISTANCE = 21.5;
+    var CAMERA_DISTANCE = 18.25;
     var SPARE_POSITION = {
         sw1 : 'wK', sw2: 'wQ', sw3: 'wR', sw4: 'wB', sw5: 'wN', sw6: 'wP',
         sb1 : 'bK', sb2: 'bQ', sb3: 'bR', sb4: 'bB', sb5: 'bN', sb6: 'bP'
@@ -254,7 +254,7 @@
                 CAMERA_DISTANCE * Math.cos(CAMERA_POLAR_ANGLE),
                 -CAMERA_DISTANCE * Math.sin(CAMERA_POLAR_ANGLE));
 
-            var whitePieceColor = 0xFFFFFF;
+            var whitePieceColor = 0xAAAAAA;
             if (cfg.hasOwnProperty('whitePieceColor') && typeof cfg.whitePieceColor === 'number') {
                 whitePieceColor = cfg.whitePieceColor;
             }
@@ -276,7 +276,7 @@
             WHITE_MATERIAL.specular = new THREE.Color(whitePieceSpecular);
             WHITE_MATERIAL.transparent = true;
 
-            var blackPieceColor = 0x000000;
+            var blackPieceColor = 0x333333;
             if (cfg.hasOwnProperty('blackPieceColor') && typeof cfg.blackPieceColor === 'number') {
                 blackPieceColor = cfg.blackPieceColor;
             }
@@ -312,13 +312,13 @@
             var FILE_A_TEXT_MATERIAL = textMaterial.clone();
             var FILE_H_TEXT_MATERIAL = textMaterial.clone();
 
-            var darkSquareColor = 0x000000;
+            var darkSquareColor = 0xb68863;
             if (cfg.hasOwnProperty('darkSquareColor') && typeof cfg.darkSquareColor === 'number') {
                 darkSquareColor = cfg.darkSquareColor;
             }
             var darkSquareMaterial = new THREE.MeshPhongMaterial({color: new THREE.Color(darkSquareColor)});
 
-            var lightSquareColor= 0xFFFFFF;
+            var lightSquareColor= 0xf0d9b5;
             if (cfg.hasOwnProperty('lightSquareColor') && typeof cfg.lightSquareColor === 'number') {
                 lightSquareColor = cfg.lightSquareColor;
             }
@@ -586,7 +586,7 @@
                 if (cfg.hasOwnProperty('backgroundColor') && typeof cfg.backgroundColor === 'number') {
                     backgroundColor = cfg.backgroundColor;
                 } else {
-                    backgroundColor = 0x0080C0;
+                    backgroundColor = 0xBBBBBB;
                 }
                 RENDERER.setClearColor(backgroundColor, 1);
 
@@ -721,7 +721,7 @@
 
                 var geometry, mesh, pataGeometry, meshPata1, meshPata2;
                 var legOffset = 0.2;
-                var uplift = 0;
+                var uplift = 0.8;
                 var legScale = 1.4;
 
                 geometry = GEOMETRIES[species];
@@ -1508,7 +1508,7 @@
 
             function addSquareHighlight(sq, color) {
                 if (!color) {
-                    color = 0xFF0000;
+                    color = 0x00EE00;
                 }
                 var squareMesh = SCENE.getObjectById(SQUARE_MESH_IDS[sq]);
                 var highlightMesh = null;
