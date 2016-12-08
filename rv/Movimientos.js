@@ -12,7 +12,6 @@ function updateStatus() {
         var moveColor = 'White';
         if (game.turn() === 'b') {
             moveColor = 'Black';
-                alert("Hola");
         }
 
         if (game.game_over()) {
@@ -56,6 +55,7 @@ function updateStatus() {
         // console.log(target)
         if (board.hasOwnProperty('removeGreySquares') && typeof board.removeGreySquares === 'function') {
             board.removeGreySquares();
+                                alert("Hola");
         }
 
         // see if the move is legal
