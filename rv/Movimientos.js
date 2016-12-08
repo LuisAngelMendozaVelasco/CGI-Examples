@@ -55,7 +55,6 @@ function updateStatus() {
         // console.log(target)
         if (board.hasOwnProperty('removeGreySquares') && typeof board.removeGreySquares === 'function') {
             board.removeGreySquares();
-                                alert("Hola");
         }
 
         // see if the move is legal
@@ -69,7 +68,7 @@ function updateStatus() {
         // console.log(move)
 
         // illegal move
-        if (move === null) return 'snapback';
+        if (move === null){ alert("Hola");return 'snapback';}
 
         moveList = moveList.slice(0, cursor);
         scoreList = scoreList.slice(0, cursor);
