@@ -2039,7 +2039,7 @@
                 loadGeometry('N');
                 loadGeometry('P');
                 loadGeometry('LEG');
-                //loadGeometry('ARM');
+                loadGeometry('ARM');
 
                 function checkInitialization() {
                     if (checkGeometriesLoaded()) {
