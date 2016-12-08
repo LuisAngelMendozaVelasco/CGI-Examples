@@ -130,7 +130,7 @@ function createBoard(pieceSet) {
                     cfg.lightSquareColor = 0x888888;
                     cfg.darkSquareColor = 0x666666;
                 }
-                cfg.pieceSet = 'assets/chesspieces/' + pieceSet + '/{piece}.json'
+                cfg.pieceSet = 'Ajedrez/Disenio/' + pieceSet + '/{piece}.json'
             }
             return new ChessBoard3('board', cfg);
 
