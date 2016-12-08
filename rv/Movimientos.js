@@ -12,25 +12,21 @@ function updateStatus() {
         var moveColor = 'White';
         if (game.turn() === 'b') {
             moveColor = 'Black';
+                alert("Hola");
         }
 
         if (game.game_over()) {
 
             if (game.in_checkmate()) {
                 status = moveColor + ' jaquemate.'; 
-                    alert("HOLA");
             } else if (game.in_stalemate()) {
                 status = moveColor + " encerrado";
-                    alert("HOLA");
             } else if (game.insufficient_material()) {
                 status = "Empate."
-                    alert("HOLA");
             } else if (game.in_threefold_repetition()) {
                 status = "Empate."
-                    alert("HOLA");
             } else if (game.in_draw()) {
                 status = "Fin de juego."
-                    alert("HOLA");
             }
             alert("Fin del juego")
         }
