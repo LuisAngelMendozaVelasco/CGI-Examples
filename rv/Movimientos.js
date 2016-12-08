@@ -17,15 +17,20 @@ function updateStatus() {
         if (game.game_over()) {
 
             if (game.in_checkmate()) {
-                status = moveColor + ' jaquemate.';  
+                status = moveColor + ' jaquemate.'; 
+                    alert("HOLA");
             } else if (game.in_stalemate()) {
                 status = moveColor + " encerrado";
+                    alert("HOLA");
             } else if (game.insufficient_material()) {
                 status = "Empate."
+                    alert("HOLA");
             } else if (game.in_threefold_repetition()) {
                 status = "Empate."
+                    alert("HOLA");
             } else if (game.in_draw()) {
                 status = "Fin de juego."
+                    alert("HOLA");
             }
             alert("Fin del juego")
         }
@@ -34,7 +39,7 @@ function updateStatus() {
         else {
 
             status += 'Mueven ' + moveColor;
-                alert("¡Bienvenido!");
+                alert("¡BIENVENIDO!");
             // Jaque?
             if (game.in_check() === true) {
                 status += ' ' + moveColor + ' esta en jaque.';      
