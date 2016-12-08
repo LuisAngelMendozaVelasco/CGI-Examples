@@ -91,7 +91,7 @@ function updateStatus() {
         });
 
         // Si no hay posibles movimientos, salir
-        if (moves.length === 0){ alert("Hola");return;}
+        if (moves.length === 0) return;
 
         if (board.hasOwnProperty('greySquare') && typeof board.greySquare === 'function') {
             // Seleccionar recuadro actual
