@@ -11,6 +11,7 @@
  var mat2 = false;
  var mat1 = false;
  var dragUpdate = 0;
+ var drag_cache;
  var killed_mesh;
  var killFlag=false;
 ;(function() {
