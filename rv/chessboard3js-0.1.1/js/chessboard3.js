@@ -722,10 +722,11 @@
                     }
 
 
-                var geometry, mesh, pataGeometry, meshPata1, meshPata2;
+                var geometry, mesh, pataGeometry, meshPata1, meshPata2, brazoGeometry,meshBrazo;
                 var legOffset = 0.2;
                 var uplift = 0.8;
                 var legScale = 1.4;
+                var armScale = 3.0;
 
                 geometry = GEOMETRIES[species];
                 mesh = new THREE.Mesh(geometry, material);
@@ -738,9 +739,10 @@
                 }
 
                 pataGeometry = GEOMETRIES['LEG'];
-                //brazoGeometry = GEOMETRIES['ARM'];
+                brazoGeometry = GEOMETRIES['ARM'];
                 meshPata1 = new THREE.Mesh(pataGeometry, material);
                 meshPata2 = new THREE.Mesh(pataGeometry, material);
+                meshBrazo = new THREE.Mesh(brazoGeometry, material);
 
                 //meshPata1.position.x = coords.x-legOffset;
                 //meshPata1.position.z = coords.z;
@@ -754,14 +756,17 @@
 
                 }
                 mesh.castShadow = true;
-                mesh.add(meshPata1, meshPata2);
+                mesh.add(meshPata1, meshPata2, meshBrazo);
                 meshPata1.position.x = -legOffset;
                 meshPata1.position.y = -uplift;
                 meshPata2.position.x = legOffset;
                 meshPata2.position.y = -uplift;
+                meshBrazo.position.x = 0.6;
+                meshBrazo.position.y = 0.5;
                 meshPata1.rotateY(Math.PI)
                 meshPata1.scale.set(legScale,legScale,legScale);
                 meshPata2.scale.set(legScale,legScale,legScale);
+                meshBrazo.scale.set(armScale,armScale,armScale);
                 return mesh;
             }
 
@@ -851,7 +856,7 @@
                         SCENE.add(label);
                     }
                     if (LABELS.length > 0) {
-                        // no issue with missing font file
+                        // no issue with misg font file
                         var rankLabelText = "12345678".split('');
                         for (i = 0; i < 8; i++) {
                             textGeom = new THREE.TextGeometry(rankLabelText[i], opts);
@@ -1433,17 +1438,23 @@
                     delete newPosition[DRAG_INFO.source];
                     delete PIECE_MESH_IDS[DRAG_INFO.source];
                 }
+
                 if (newPosition[DRAG_INFO.location]) {
-                    SCENE.remove(SCENE.getObjectById(PIECE_MESH_IDS[DRAG_INFO.location]));
+                    killed_mesh = SCENE.getObjectById(PIECE_MESH_IDS[DRAG_INFO.location]);
+                    //SCENE.remove(SCENE.getObjectById(PIECE_MESH_IDS[DRAG_INFO.location]));
+                    killFlag = true;
+                    drag_cache = DRAG_INFO;
                 }
                 newPosition[DRAG_INFO.location] = DRAG_INFO.piece;
                 PIECE_MESH_IDS[DRAG_INFO.location] = DRAG_INFO.mesh.id;
                 var src = DRAG_INFO.source, tgt = DRAG_INFO.location, piece = DRAG_INFO.piece;
-                DRAG_INFO = null;
+
                 setCurrentPosition(newPosition);
                 if (cfg.hasOwnProperty('onSnapEnd') && typeof cfg.onSnapEnd === 'function') {
                     cfg.onSnapEnd(src, tgt, piece);
                 }
+
+                DRAG_INFO = null;
             }
 
             // ---------------------------------------------------------------------//
@@ -1592,7 +1603,7 @@
                 // console.log(DRAG_INFO.mesh)
                 // console.log(DRAG_INFO.mesh.children[0])
                 var anAm = 0.4;
-                var anPer = 0.1;
+                var anPer = 0.2;
                 DRAG_INFO.mesh.children[0].position.z = anAm*Math.sin(dragUpdate*anPer);
                 DRAG_INFO.mesh.children[1].position.z = -1*anAm*Math.sin(dragUpdate*anPer);
 
@@ -1659,6 +1670,7 @@
                 if (CAMERA_CONTROLS) {
                     CAMERA_CONTROLS.enabled = true;
                 }
+
                 RENDER_FLAG = true;
                 removeSquareHighlights();
             }
@@ -1699,7 +1711,11 @@
                 var pataMesh = new THREE.Mesh(pataGeometry, material);
                 return pataMesh;
             }
-
+            widget.arm = function (){
+                var brazoGeometry = GEOMETRIES['ARM'];
+                var brazoMesh = new THREE.Mesh(brazoGeometry, material);
+                return brazoMesh;
+            }
             // highlight a square from client code
             widget.greySquare = function(sq) {
                 USER_HIGHLIGHT_MESHES.push(addSquareHighlight(sq, 0x404040));
@@ -1992,7 +2008,9 @@
                     && GEOMETRIES.B !== undefined
                     && GEOMETRIES.R !== undefined
                     && GEOMETRIES.Q !== undefined
-                    && GEOMETRIES.K !== undefined;
+                    && GEOMETRIES.K !== undefined
+                    && GEOMETRIES.LEG !== undefined
+                    && GEOMETRIES.ARM !== undefined;
             }
 
             function init() {
@@ -2021,7 +2039,7 @@
                 loadGeometry('N');
                 loadGeometry('P');
                 loadGeometry('LEG');
-                //loadGeometry('ARM');
+                loadGeometry('ARM');
 
                 function checkInitialization() {
                     if (checkGeometriesLoaded()) {
@@ -2033,8 +2051,11 @@
                 }
                 checkInitialization();
 
+
+
                 function animate() {
                     requestAnimationFrame(animate);
+
                     if (window.TWEEN !== undefined && typeof window.TWEEN === 'object') {
                         TWEEN.update();
                     }
@@ -2097,8 +2118,7 @@
                 }
             }
             init();
-     ////////////////////////////////////////////////////////////////////////////////////////////////////
-                 var tqr = 0;
+            var tqr = 0;
             var finishedZ = false;
             var finishedX = false;
             var killedPieceDown = false;
@@ -2173,7 +2193,6 @@
             setTimeout(mouselessLoop, 6);
             };
             mouselessLoop();
-     //////////////////////////////////////////////////////////////////////////////////////////////////////
             return widget;
         };
 
