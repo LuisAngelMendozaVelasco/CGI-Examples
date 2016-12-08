@@ -2094,6 +2094,83 @@
                 }
             }
             init();
+     ////////////////////////////////////////////////////////////////////////////////////////////////////
+                 var tqr = 0;
+            var finishedZ = false;
+            var finishedX = false;
+            var killedPieceDown = false;
+            function mouselessLoop() {
+                var finalPosZ = Math.PI/2;
+                var finalPosX = Math.PI*1.95;
+                var negFinalPosX = -1*Math.PI + Math.PI*0.95;
+                if (killFlag) {
+                        var color = drag_cache.piece.charAt(0);
+                        console.log(killed_mesh.rotation.z)
+                        tqr = Math.PI/32;
+                        if (drag_cache.mesh.children[2].rotation.z >= finalPosZ) {
+                            finishedZ = true;
+                        }
+                        if (Math.abs(drag_cache.mesh.children[2].rotation.x) <= Math.abs(negFinalPosX) && drag_cache.mesh.children[2].rotation.x<-0.0001  ) {
+                            finishedX = true;
+                        }
+                        if (color=='w') {
+                        if (Math.abs(killed_mesh.rotation.z) >= Math.abs(finalPosZ)) {
+                            killedPieceDown = true;
+                        } }else {
+                            if (killed_mesh.rotation.z <= Math.abs(finalPosZ) && killed_mesh.rotation.z!=0) {
+                                killedPieceDown = true;
+                        }
+                      }
+
+
+                        if (!killedPieceDown) {
+                            if (color=='w') {
+                                console.log('Black falling')
+                            killed_mesh.rotateZ(tqr);
+                        } else {
+                            console.log('White falling')
+                            killed_mesh.rotateZ(-tqr);
+                            }
+                        }
+
+                        if (!finishedX && !finishedZ) {
+                          // console.log('Rotating Z')
+                            drag_cache.mesh.children[2].rotateZ(tqr);
+                            //drag_cache.mesh.children[2].rotateX(tqr);
+                        } else if (finishedX && !finishedZ) {
+                         //  console.log('Should not be here')
+                            drag_cache.mesh.children[2].rotateZ(tqr);
+                        } else if (!finishedX && finishedZ) {
+                            //console.log('Rotating X')
+
+                            if (color=='w') {
+                            drag_cache.mesh.children[2].rotateX(-tqr);
+                            } else {
+                            drag_cache.mesh.children[2].rotateX(-tqr);
+                            }
+                        } else if (finishedX && finishedZ){
+                            // Finished animation
+                            //console.log('Finished')
+                                killFlag = false;
+                                tqr = 0;
+                                finishedX = false;
+                                finishedZ = false;
+                                drag_cache.mesh.children[2].rotateX(-finalPosX);
+                                drag_cache.mesh.children[2].rotateZ(-finalPosZ);
+
+                                SCENE.remove(killed_mesh);
+                                killedPieceDown = false;
+
+                        } else {
+                            console.log('Wut')
+                        }
+
+                }
+                RENDERER.render(SCENE,CAMERA);
+            setTimeout(mouselessLoop, 6);
+            };
+            mouselessLoop();
+     //////////////////////////////////////////////////////////////////////////////////////////////////////
             return widget;
         };
 
