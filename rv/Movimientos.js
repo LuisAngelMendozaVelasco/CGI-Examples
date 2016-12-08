@@ -68,7 +68,7 @@ function updateStatus() {
         // console.log(move)
 
         // illegal move
-        if (move === null){ alert("Hola");return 'snapback';}
+        if (move === null){ alert("¡Movimiento NO permitido!");return 'snapback';}
 
         moveList = moveList.slice(0, cursor);
         scoreList = scoreList.slice(0, cursor);
