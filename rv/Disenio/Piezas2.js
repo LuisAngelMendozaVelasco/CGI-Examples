@@ -724,8 +724,8 @@
 
                 var geometry, mesh, pataGeometry, meshPata1, meshPata2, brazoGeometry,meshBrazo;
                 var legOffset = 0.2;
-                var uplift = 0;
-                var legScale = 0;
+                var uplift = 0.8;
+                var legScale = 1.4;
                 var armScale = 0;
 
                 geometry = GEOMETRIES[species];
