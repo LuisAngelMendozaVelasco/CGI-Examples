@@ -50,9 +50,6 @@ function updateStatus() {
     };
 
     var onDrop = function(source, target) {
-        // console.log(source)
-        // console.log(':')
-        // console.log(target)
         if (board.hasOwnProperty('removeGreySquares') && typeof board.removeGreySquares === 'function') {
             board.removeGreySquares();
         }
@@ -110,7 +107,6 @@ function updateStatus() {
         }
     };
 var onSnapEnd = function() {
-              //  updateStatus();
 
     };
 function createBoard(pieceSet) {
