@@ -1,13 +1,3 @@
-/**
- * chessboard3.js version 0.1.0
- *
- * Copyright 2015 Jason Tiscione
- * Portions copyright 2013 Chris Oakman
- * Released under MIT license
- * https://github.com/jtiscione/chessboard3js/blob/master/LICENSE
- *
- * Date: 7/1/2015
- */
  var mat2 = false;
  var mat1 = false;
  var dragUpdate = 0;
