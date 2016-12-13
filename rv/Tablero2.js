@@ -128,9 +128,6 @@ window['Chess'] = window['Chess'] || function(fen) {
   var history = [];
   var header = {};
 
-  /* if the user passes in a fen string, load it, else default to
-   * starting position
-   */
   if (typeof fen === 'undefined') {
     load(DEFAULT_POSITION);
   } else {
@@ -219,46 +216,37 @@ window['Chess'] = window['Chess'] || function(fen) {
       10: '1st field (piece positions) is invalid [row too large].',
     };
 
-    /* 1st criterion: 6 space-seperated fields? */
     var tokens = fen.split(/\s+/);
     if (tokens.length !== 6) {
       return {valid: false, error_number: 1, error: errors[1]};
     }
 
-    /* 2nd criterion: move number field is a integer value > 0? */
     if (isNaN(tokens[5]) || (parseInt(tokens[5], 10) <= 0)) {
       return {valid: false, error_number: 2, error: errors[2]};
     }
 
-    /* 3rd criterion: half move counter is an integer >= 0? */
     if (isNaN(tokens[4]) || (parseInt(tokens[4], 10) < 0)) {
       return {valid: false, error_number: 3, error: errors[3]};
     }
 
-    /* 4th criterion: 4th field is a valid e.p.-string? */
     if (!/^(-|[abcdefgh][36])$/.test(tokens[3])) {
       return {valid: false, error_number: 4, error: errors[4]};
     }
 
-    /* 5th criterion: 3th field is a valid castle-string? */
     if( !/^(KQ?k?q?|Qk?q?|kq?|q|-)$/.test(tokens[2])) {
       return {valid: false, error_number: 5, error: errors[5]};
     }
 
-    /* 6th criterion: 2nd field is "w" (white) or "b" (black)? */
     if (!/^(w|b)$/.test(tokens[1])) {
       return {valid: false, error_number: 6, error: errors[6]};
     }
 
-    /* 7th criterion: 1st field contains 8 rows? */
     var rows = tokens[0].split('/');
     if (rows.length !== 8) {
       return {valid: false, error_number: 7, error: errors[7]};
     }
 
-    /* 8th criterion: every row is valid? */
     for (var i = 0; i < rows.length; i++) {
-      /* check for right sum of fields AND not two numbers in succession */
       var sum_fields = 0;
       var previous_was_number = false;
 
@@ -282,7 +270,6 @@ window['Chess'] = window['Chess'] || function(fen) {
       }
     }
 
-    /* everything's okay! */
     return {valid: true, error_number: 0, error: errors[0]};
   }
 
@@ -325,7 +312,6 @@ window['Chess'] = window['Chess'] || function(fen) {
     if (castling[BLACK] & BITS.KSIDE_CASTLE) { cflags += 'k'; }
     if (castling[BLACK] & BITS.QSIDE_CASTLE) { cflags += 'q'; }
 
-    /* do we have an empty castling flag? */
     cflags = cflags || '-';
     var epflags = (ep_square === EMPTY) ? '-' : algebraic(ep_square);
 
@@ -342,12 +328,6 @@ window['Chess'] = window['Chess'] || function(fen) {
     return header;
   }
 
-  /* called when the initial board setup is changed with put() or remove().
-   * modifies the SetUp and FEN properties of the header object.  if the FEN is
-   * equal to the default position, the SetUp and FEN are deleted
-   * the setup is only updated if history.length is zero, ie moves haven't been
-   * made.
-   */
   function update_setup(fen) {
     if (history.length > 0) return;
 
@@ -366,17 +346,14 @@ window['Chess'] = window['Chess'] || function(fen) {
   }
 
   function put(piece, square) {
-    /* check for valid piece object */
     if (!('type' in piece && 'color' in piece)) {
       return false;
     }
 
-    /* check for piece */
     if (SYMBOLS.indexOf(piece.type.toLowerCase()) === -1) {
       return false;
     }
 
-    /* check for valid square */
     if (!(square in SQUARES)) {
       return false;
     }
@@ -428,7 +405,6 @@ window['Chess'] = window['Chess'] || function(fen) {
 
   function generate_moves(options) {
     function add_move(board, moves, from, to, flags) {
-      /* if pawn promotion */
       if (board[from].type === PAWN &&
          (rank(to) === RANK_8 || rank(to) === RANK_1)) {
           var pieces = [QUEEN, ROOK, BISHOP, KNIGHT];
@@ -449,23 +425,19 @@ window['Chess'] = window['Chess'] || function(fen) {
     var last_sq = SQUARES.h1;
     var single_square = false;
 
-    /* do we want legal moves? */
     var legal = (typeof options !== 'undefined' && 'legal' in options) ?
                 options.legal : true;
 
-    /* are we generating moves for a single square? */
     if (typeof options !== 'undefined' && 'square' in options) {
       if (options.square in SQUARES) {
         first_sq = last_sq = SQUARES[options.square];
         single_square = true;
       } else {
-        /* invalid square */
         return [];
       }
     }
 
     for (var i = first_sq; i <= last_sq; i++) {
-      /* did we run off the end of the board */
       if (i & 0x88) { i += 7; continue; }
 
       var piece = board[i];
@@ -474,19 +446,16 @@ window['Chess'] = window['Chess'] || function(fen) {
       }
 
       if (piece.type === PAWN) {
-        /* single square, non-capturing */
         var square = i + PAWN_OFFSETS[us][0];
         if (board[square] == null) {
             add_move(board, moves, i, square, BITS.NORMAL);
 
-          /* double square */
           var square = i + PAWN_OFFSETS[us][1];
           if (second_rank[us] === rank(i) && board[square] == null) {
             add_move(board, moves, i, square, BITS.BIG_PAWN);
           }
         }
 
-        /* pawn captures */
         for (j = 2; j < 4; j++) {
           var square = i + PAWN_OFFSETS[us][j];
           if (square & 0x88) continue;
@@ -515,18 +484,13 @@ window['Chess'] = window['Chess'] || function(fen) {
               break;
             }
 
-            /* break, if knight or king */
             if (piece.type === 'n' || piece.type === 'k') break;
           }
         }
       }
     }
 
-    /* check for castling if: a) we're generating all moves, or b) we're doing
-     * single square move generation on the king's square
-     */
     if ((!single_square) || last_sq === kings[us]) {
-      /* king-side castling */
       if (castling[us] & BITS.KSIDE_CASTLE) {
         var castling_from = kings[us];
         var castling_to = castling_from + 2;
@@ -541,7 +505,6 @@ window['Chess'] = window['Chess'] || function(fen) {
         }
       }
 
-      /* queen-side castling */
       if (castling[us] & BITS.QSIDE_CASTLE) {
         var castling_from = kings[us];
         var castling_to = castling_from - 2;
@@ -558,14 +521,10 @@ window['Chess'] = window['Chess'] || function(fen) {
       }
     }
 
-    /* return all pseudo-legal moves (this includes moves that allow the king
-     * to be captured)
-     */
     if (!legal) {
       return moves;
     }
 
-    /* filter out illegal moves */
     var legal_moves = [];
     for (var i = 0, len = moves.length; i < len; i++) {
       make_move(moves[i]);
@@ -578,9 +537,6 @@ window['Chess'] = window['Chess'] || function(fen) {
     return legal_moves;
   }
 
-  /* convert a move from 0x88 coordinates to Standard Algebraic Notation
-   * (SAN)
-   */
   function move_to_san(move) {
     var output = '';
 
@@ -626,10 +582,8 @@ window['Chess'] = window['Chess'] || function(fen) {
 
   function attacked(color, square) {
     for (var i = SQUARES.a8; i <= SQUARES.h1; i++) {
-      /* did we run off the end of the board */
       if (i & 0x88) { i += 7; continue; }
 
-      /* if empty square or wrong color */
       if (board[i] == null || board[i].color !== color) continue;
 
       var piece = board[i];
@@ -646,7 +600,6 @@ window['Chess'] = window['Chess'] || function(fen) {
           continue;
         }
 
-        /* if the piece is a knight or a king */
         if (piece.type === 'n' || piece.type === 'k') return true;
 
         var offset = RAYS[index];
@@ -702,14 +655,11 @@ window['Chess'] = window['Chess'] || function(fen) {
       }
     }
 
-    /* k vs. k */
     if (num_pieces === 2) { return true; }
 
-    /* k vs. kn .... or .... k vs. kb */
     else if (num_pieces === 3 && (pieces[BISHOP] === 1 ||
                                  pieces[KNIGHT] === 1)) { return true; }
 
-    /* kb vs. kb where any number of bishops are all on the same color */
     else if (num_pieces === pieces[BISHOP] + 2) {
       var sum = 0;
       var len = bishops.length;
@@ -723,11 +673,6 @@ window['Chess'] = window['Chess'] || function(fen) {
   }
 
   function in_threefold_repetition() {
-    /* TODO: while this function is fine for casual use, a better
-     * implementation would use a Zobrist key (instead of FEN). the
-     * Zobrist key would be maintained in the make_move/undo_move functions,
-     * avoiding the costly that we do below.
-     */
     var moves = [];
     var positions = {};
     var repetition = false;
@@ -739,11 +684,8 @@ window['Chess'] = window['Chess'] || function(fen) {
     }
 
     while (true) {
-      /* remove the last two fields in the FEN string, they're not needed
-       * when checking for draw by rep */
       var fen = generate_fen().split(' ').slice(0,4).join(' ');
 
-      /* has the position occurred three or move times */
       positions[fen] = (fen in positions) ? positions[fen] + 1 : 1;
       if (positions[fen] >= 3) {
         repetition = true;
@@ -778,7 +720,6 @@ window['Chess'] = window['Chess'] || function(fen) {
     board[move.to] = board[move.from];
     board[move.from] = null;
 
-    /* if ep capture, remove the captured pawn */
     if (move.flags & BITS.EP_CAPTURE) {
       if (turn === BLACK) {
         board[move.to - 16] = null;
@@ -787,16 +728,13 @@ window['Chess'] = window['Chess'] || function(fen) {
       }
     }
 
-    /* if pawn promotion, replace with new piece */
     if (move.flags & BITS.PROMOTION) {
       board[move.to] = {type: move.promotion, color: us};
     }
 
-    /* if we moved the king */
     if (board[move.to].type === KING) {
       kings[board[move.to].color] = move.to;
 
-      /* if we castled, move the rook next to the king */
       if (move.flags & BITS.KSIDE_CASTLE) {
         var castling_to = move.to - 1;
         var castling_from = move.to + 1;
@@ -809,11 +747,9 @@ window['Chess'] = window['Chess'] || function(fen) {
         board[castling_from] = null;
       }
 
-      /* turn off castling */
       castling[us] = '';
     }
 
-    /* turn off castling if we move a rook */
     if (castling[us]) {
       for (var i = 0, len = ROOKS[us].length; i < len; i++) {
         if (move.from === ROOKS[us][i].square &&
@@ -824,7 +760,6 @@ window['Chess'] = window['Chess'] || function(fen) {
       }
     }
 
-    /* turn off castling if we capture a rook */
     if (castling[them]) {
       for (var i = 0, len = ROOKS[them].length; i < len; i++) {
         if (move.to === ROOKS[them][i].square &&
@@ -835,7 +770,6 @@ window['Chess'] = window['Chess'] || function(fen) {
       }
     }
 
-    /* if big pawn move, update the en passant square */
     if (move.flags & BITS.BIG_PAWN) {
       if (turn === 'b') {
         ep_square = move.to - 16;
@@ -846,7 +780,6 @@ window['Chess'] = window['Chess'] || function(fen) {
       ep_square = EMPTY;
     }
 
-    /* reset the 50 move counter if a pawn is moved or a piece is captured */
     if (move.piece === PAWN) {
       half_moves = 0;
     } else if (move.flags & (BITS.CAPTURE | BITS.EP_CAPTURE)) {
@@ -910,7 +843,6 @@ window['Chess'] = window['Chess'] || function(fen) {
     return move;
   }
 
-  /* this function is used to uniquely identify ambiguous moves */
   function get_disambiguator(move) {
     var moves = generate_moves();
 
@@ -927,9 +859,6 @@ window['Chess'] = window['Chess'] || function(fen) {
       var ambig_to = moves[i].to;
       var ambig_piece = moves[i].piece;
 
-      /* if a move of the same piece type ends on the same to square, we'll
-       * need to add a disambiguator to the algebraic notation
-       */
       if (piece === ambig_piece && from !== ambig_from && to === ambig_to) {
         ambiguities++;
 
@@ -944,19 +873,12 @@ window['Chess'] = window['Chess'] || function(fen) {
     }
 
     if (ambiguities > 0) {
-      /* if there exists a similar moving piece on the same rank and file as
-       * the move in question, use the square as the disambiguator
-       */
       if (same_rank > 0 && same_file > 0) {
         return algebraic(from);
       }
-      /* if the moving piece rests on the same file, use the rank symbol as the
-       * disambiguator
-       */
       else if (same_file > 0) {
         return algebraic(from).charAt(1);
       }
-      /* else use the file symbol */
       else {
         return algebraic(from).charAt(0);
       }
@@ -968,12 +890,10 @@ window['Chess'] = window['Chess'] || function(fen) {
   function ascii() {
     var s = '   +------------------------+\n';
     for (var i = SQUARES.a8; i <= SQUARES.h1; i++) {
-      /* display the rank */
       if (file(i) === 0) {
         s += ' ' + '87654321'[rank(i)] + ' |';
       }
 
-      /* empty piece */
       if (board[i] == null) {
         s += ' . ';
       } else {
@@ -1019,7 +939,6 @@ window['Chess'] = window['Chess'] || function(fen) {
     return '0123456789'.indexOf(c) !== -1;
   }
 
-  /* pretty = external move object */
   function make_pretty(ugly_move) {
     var move = clone(ugly_move);
     move.san = move_to_san(move);
@@ -1093,12 +1012,6 @@ window['Chess'] = window['Chess'] || function(fen) {
     QUEEN: QUEEN,
     KING: KING,
     SQUARES: (function() {
-                /* from the ECMA-262 spec (section 12.6.4):
-                 * "The mechanics of enumerating the properties ... is
-                 * implementation dependent"
-                 * so: for (var sq in SQUARES) { keys.push(sq); } might not be
-                 * ordered correctly
-                 */
                 var keys = [];
                 for (var i = SQUARES.a8; i <= SQUARES.h1; i++) {
                   if (i & 0x88) { i += 7; continue; }
@@ -1120,20 +1033,12 @@ window['Chess'] = window['Chess'] || function(fen) {
     },
 
     moves: function(options) {
-      /* The internal representation of a chess move is in 0x88 format, and
-       * not meant to be human-readable.  The code below converts the 0x88
-       * square coordinates to algebraic coordinates.  It also prunes an
-       * unnecessary move keys resulting from a verbose call.
-       */
 
       var ugly_moves = generate_moves(options);
       var moves = [];
 
       for (var i = 0, len = ugly_moves.length; i < len; i++) {
 
-        /* does the user want a full move object (most likely not), or just
-         * SAN
-         */
         if (typeof options !== 'undefined' && 'verbose' in options &&
             options.verbose) {
           moves.push(make_pretty(ugly_moves[i]));
@@ -1189,9 +1094,6 @@ window['Chess'] = window['Chess'] || function(fen) {
     },
 
     pgn: function(options) {
-      /* using the specification from http://www.chessclub.com/help/PGN-spec
-       * example for html usage: .pgn({ max_width: 72, newline_char: "<br />" })
-       */
       var newline = (typeof options === 'object' &&
                      typeof options.newline_char === 'string') ?
                      options.newline_char : '\n';
@@ -1201,11 +1103,7 @@ window['Chess'] = window['Chess'] || function(fen) {
       var result = [];
       var header_exists = false;
 
-      /* add the PGN header headerrmation */
       for (var i in header) {
-        /* TODO: order of enumerated properties in header object is not
-         * guaranteed, see ECMA-262 spec (section 12.6.4)
-         */
         result.push('[' + i + ' \"' + header[i] + '\"]' + newline);
         header_exists = true;
       }
@@ -1214,7 +1112,6 @@ window['Chess'] = window['Chess'] || function(fen) {
         result.push(newline);
       }
 
-      /* pop all of history onto reversed_history */
       var reversed_history = [];
       while (history.length > 0) {
         reversed_history.push(undo_move());
@@ -1224,16 +1121,13 @@ window['Chess'] = window['Chess'] || function(fen) {
       var move_string = '';
       var pgn_move_number = 1;
 
-      /* build the list of moves.  a move_string looks like: "3. e3 e6" */
       while (reversed_history.length > 0) {
         var move = reversed_history.pop();
 
-        /* if the position started with black to move, start PGN with 1. ... */
         if (pgn_move_number === 1 && move.color === 'b') {
           move_string = '1. ...';
           pgn_move_number++;
         } else if (move.color === 'w') {
-          /* store the previous generated move_string if we have one */
           if (move_string.length) {
             moves.push(move_string);
           }
@@ -1245,30 +1139,22 @@ window['Chess'] = window['Chess'] || function(fen) {
         make_move(move);
       }
 
-      /* are there any other leftover moves? */
       if (move_string.length) {
         moves.push(move_string);
       }
 
-      /* is there a result? */
       if (typeof header.Result !== 'undefined') {
         moves.push(header.Result);
       }
 
-      /* history should be back to what is was before we started generating PGN,
-       * so join together moves
-       */
       if (max_width === 0) {
         return result.join('') + moves.join(' ');
       }
 
-      /* wrap the PGN output at max_width */
       var current_width = 0;
       for (var i = 0; i < moves.length; i++) {
-        /* if the current move will push past max_width */
         if (current_width + moves[i].length > max_width && i !== 0) {
 
-          /* don't end the line with whitespace */
           if (result[result.length - 1] === ' ') {
             result.pop();
           }
@@ -1291,9 +1177,6 @@ window['Chess'] = window['Chess'] || function(fen) {
         return str.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
       }
 
-      /* convert a move from Standard Algebraic Notation (SAN) to 0x88
-       * coordinates
-      */
       function move_from_san(move) {
         var to, from, flags = BITS.NORMAL, promotion;
         var parse = move.match(/^([NBKRQ])?([abcdefgh12345678][12345678]?)?(x)?([abcdefgh][12345678])(=?[NBRQ])?/);
@@ -1329,14 +1212,11 @@ window['Chess'] = window['Chess'] || function(fen) {
                 break;
               }
 
-              /* break, if knight or king */
               if (piece === 'n' || piece === 'k') break;
             }
           }
         } else if (parse) {
-          // pawn move
           if (parse[3]) {
-            // capture
             to = SQUARES[parse[4]];
             for (var j = 2; j < 4; j++) {
               var square = to - PAWN_OFFSETS[turn][j];
@@ -1369,7 +1249,7 @@ window['Chess'] = window['Chess'] || function(fen) {
               }
             }
           }
-          // promotion?
+
           if (parse[5]) {
             if(typeof parse[5][1] == 'undefined') {
               promotion = parse[5][0].toLowerCase();
@@ -1381,7 +1261,6 @@ window['Chess'] = window['Chess'] || function(fen) {
         if (from >=0 && to >=0 && flags) {
           return build_move(board, from, to, flags, promotion);
         } else if (move.length > 0) {
-          /* alert(move); // error in PGN, or in parsing. */
         }
       }
 
@@ -1424,45 +1303,34 @@ window['Chess'] = window['Chess'] || function(fen) {
                                '(' + mask(newline_char) + ')*' +
                                '1.(' + mask(newline_char) + '|.)*$', 'g');
 
-      /* get header part of the PGN file */
       var header_string = pgn.replace(regex, '$1');
 
-      /* no info part given, begins with moves */
       if (header_string[0] !== '[') {
         header_string = '';
       }
 
      reset();
 
-      /* parse PGN header */
       var headers = parse_pgn_header(header_string, options);
       for (var key in headers) {
         set_header([key, headers[key]]);
       }
 
-      /* delete header to get the moves */
       var ms = pgn.replace(header_string, '').replace(new RegExp(mask(newline_char), 'g'), ' ');
 
-      /* delete comments */
       ms = ms.replace(/(\{[^}]+\})+?/g, '');
 
-      /* delete move numbers */
       ms = ms.replace(/\d+\./g, '');
 
 
-      /* trim and get array of moves */
       var moves = trim(ms).split(new RegExp(/\s+/));
 
-      /* delete empty entries */
       moves = moves.join(',').replace(/,,+/g, ',').split(',');
       var move = '';
 
       for (var half_move = 0; half_move < moves.length - 1; half_move++) {
         move = get_move_obj(moves[half_move]);
 
-        /* move not possible! (don't clear the board to examine to show the
-         * latest valid position)
-         */
         if (move == null) {
           return false;
         } else {
@@ -1470,7 +1338,6 @@ window['Chess'] = window['Chess'] || function(fen) {
         }
       }
 
-      /* examine last move */
       move = moves[moves.length - 1];
       if (POSSIBLE_RESULTS.indexOf(move) > -1) {
         if (has_keys(header) && typeof header.Result === 'undefined') {
@@ -1501,20 +1368,10 @@ window['Chess'] = window['Chess'] || function(fen) {
     },
 
     move: function(move) {
-      /* The move function can be called with in the following parameters:
-       *
-       * .move('Nxb7')      <- where 'move' is a case-sensitive SAN string
-       *
-       * .move({ from: 'h7', <- where the 'move' is a move object (additional
-       *         to :'h8',      fields are ignored)
-       *         promotion: 'q',
-       *      })
-       */
       var move_obj = null;
       var moves = generate_moves();
 
       if (typeof move === 'string') {
-        /* convert the move string to a move object */
         for (var i = 0, len = moves.length; i < len; i++) {
           if (move === move_to_san(moves[i])) {
             move_obj = moves[i];
@@ -1522,7 +1379,6 @@ window['Chess'] = window['Chess'] || function(fen) {
           }
         }
       } else if (typeof move === 'object') {
-        /* convert the pretty move object to an ugly move object */
         for (var i = 0, len = moves.length; i < len; i++) {
           if (move.from === algebraic(moves[i].from) &&
               move.to === algebraic(moves[i].to) &&
@@ -1534,14 +1390,10 @@ window['Chess'] = window['Chess'] || function(fen) {
         }
       }
 
-      /* failed to find move */
       if (!move_obj) {
         return null;
       }
 
-      /* need to make a copy of move because we can't generate SAN after the
-       * move is made
-       */
       var pretty_move = make_pretty(move_obj);
 
       make_move(move_obj);
@@ -1609,6 +1461,4 @@ window['Chess'] = window['Chess'] || function(fen) {
   };
 };
 
-/* export Chess object if using node or any other CommonJS compatible
- * environment */
 if (typeof exports !== 'undefined') exports.Chess = Chess;
