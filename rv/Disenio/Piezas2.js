@@ -15,7 +15,7 @@
     var COLUMNS = "abcdefgh".split('');
     var LIGHT_POSITIONS = [
         [50, 40, 30],
-        [-50, 0, -30] // place at y=0 to avoid double phong reflection off the board
+        [-50, 0, -30]
     ];
     var SQUARE_SIZE = 2;
     var CAMERA_POLAR_ANGLE = Math.PI / 4;
@@ -86,15 +86,12 @@
         if (typeof fen !== 'string') {
             return false;
         }
-        // cut off any move, castling, etc info from the end
-        // we're only interested in position information
+
         fen = fen.replace(/ .+$/, '');
 
-        // FEN should be 8 sections separated by slashes
         var chunks = fen.split('/');
         if (chunks.length !== 8) return false;
 
-        // check the piece sections
         for (var i = 0; i < 8; i++) {
             if (chunks[i] === '' ||
                 chunks[i].length > 8 ||
@@ -118,38 +115,31 @@
 
         return true;
     }
-    // convert FEN piece code to bP, wK, etc
+
     function fenToPieceCode(piece) {
-        // black piece
+
         if (piece.toLowerCase() === piece) {
             return 'b' + piece.toUpperCase();
         }
 
-        // white piece
         return 'w' + piece.toUpperCase();
     }
 
-    // convert bP, wK, etc code to FEN structure
     function pieceCodeToFen(piece) {
         var tmp = piece.split('');
 
-        // white piece
         if (tmp[0] === 'w') {
             return tmp[1].toUpperCase();
         }
 
-        // black piece
         return tmp[1].toLowerCase();
     }
-    // convert FEN string to position object
-    // returns false if the FEN string is invalid
+
     function fenToObj(fen) {
         if (validFen(fen) !== true) {
             return false;
         }
 
-        // cut off any move, castling, etc info from the end
-        // we're only interested in position information
         fen = fen.replace(/ .+$/, '');
 
         var rows = fen.split('/');
@@ -160,13 +150,12 @@
             var row = rows[i].split('');
             var colIndex = 0;
 
-            // loop through each character in the FEN section
             for (var j = 0; j < row.length; j++) {
-                // number / empty squares
+
                 if (row[j].search(/[1-8]/) !== -1) {
                     colIndex += parseInt(row[j], 10);
                 }
-                // piece
+
                 else {
                     var square = COLUMNS[colIndex] + currentRow;
                     position[square] = fenToPieceCode(row[j]);
@@ -180,8 +169,6 @@
         return position;
     }
 
-    // position object to FEN string
-    // returns false if the obj is not a valid position object
     function objToFen(obj) {
         if (validPositionObject(obj) !== true) {
             return false;
@@ -194,12 +181,10 @@
             for (var j = 0; j < 8; j++) {
                 var square = COLUMNS[j] + currentRow;
 
-                // piece exists
                 if (obj.hasOwnProperty(square) === true) {
                     fen += pieceCodeToFen(obj[square]);
                 }
 
-                // empty space
                 else {
                     fen += '1';
                 }
@@ -329,7 +314,7 @@
             //--------------------
 
             function error(code, msg, obj) {
-                // do nothing if showErrors is not set
+
                 var showErrors = cfg['showErrors'];
                 if (cfg.hasOwnProperty('showErrors') !== true ||
                     cfg['showErrors'] === false) {
@@ -338,7 +323,6 @@
 
                 var errorText = 'ChessBoard3 Error ' + code + ': ' + msg;
 
-                // print to console
                 if (cfg.hasOwnProperty('showErrors') && cfg['showErrors']=== 'console' &&
                     typeof console === 'object' &&
                     typeof console.log === 'function') {
@@ -357,14 +341,13 @@
                     return;
                 }
 
-                // custom function
                 if (typeof cfg['showErrors'] === 'function') {
                     cfg['showErrors'].call(code, msg, obj);
                 }
             }
 
             function checkDeps() {
-                // Check for three.js
+
                 if (THREE === undefined || THREE.REVISION === undefined
                     || isNaN(parseInt(THREE.REVISION))
                     || (parseInt(THREE.REVISION) < MINIMUM_THREEJS_REVISION)) {
@@ -415,8 +398,6 @@
                 return (speed >= 0);
             }
 
-
-            // validate config / set default options
             function expandConfig() {
                 if (typeof cfg === 'string' || validPositionObject(cfg)) {
                     cfg = {
@@ -445,19 +426,16 @@
                     cfg.sparePieces = false;
                 }
 
-                // draggable must be true if sparePieces is enabled
                 if (cfg.spare  === true) {
                     cfg.draggable = true;
                 }
 
-                // default chess set
                 if (cfg.hasOwnProperty('pieceSet') !== true ||
                     (typeof cfg.pieceSet !== 'string' &&
                     typeof cfg.pieceSet !== 'function')) {
                     cfg.pieceSet = 'Clasico/{piece}.json';
                 }
 
-                // rotate and zoom controls
                 if (cfg.rotateControls !== false) {
                     cfg.rotateControls = true;
                 }
@@ -465,8 +443,6 @@
                     cfg.zoomControls = false;
                 }
 
-
-                // animation speeds
                 if (cfg.hasOwnProperty('appearSpeed') !== true ||
                     validAnimationSpeed(cfg.appearSpeed) !== true) {
                     cfg.appearSpeed = 200;
@@ -518,7 +494,6 @@
                     }
                 }
 
-                // make sure position is valid
                 if (cfg.hasOwnProperty('position') === true) {
                     if (cfg.position === 'start') {
                         CURRENT_POSITION = deepCopy(START_POSITION);
@@ -536,14 +511,12 @@
                 return true;
             }
 
-            // three.js scene construction (sans pieces)
             function prepareScene() {
 
                 if (cfg.orientation !== 'black') {
                     cfg.orientation = 'white';
                 }
 
-                //window.WebGLRenderingContext ? new THREE.WebGLRenderer() : new THREE.CanvasRenderer();
                 RENDERER = new THREE.WebGLRenderer({
                     alpha: true,
                     preserveDrawingBuffer: true,
@@ -562,13 +535,12 @@
                 RENDERER.setSize(containerEl.clientWidth, Math.round(containerEl.clientWidth * ASPECT_RATIO));
 
                 SCENE = new THREE.Scene();
-                //SCENE.add(new THREE.AxisHelper(3));
 
                 CAMERA = new THREE.PerspectiveCamera(60, containerEl.clientWidth / containerEl.clientHeight, 0.1, 1000);
                 CAMERA.aspectRatio = ASPECT_RATIO;
 
                 if (cfg.sparePieces === false) {
-                    // no spare pieces, so let's pull a bit closer with this hack
+
                     CAMERA_POSITION_WHITE.multiplyScalar(0.9);
                     CAMERA_POSITION_BLACK.multiplyScalar(0.9);
                 }
@@ -649,10 +621,10 @@
                 };
 
                 if (window.TWEEN !== undefined && typeof TWEEN === 'object') {
-                    // interpolate: startingTheta -> targetTheta and startY -> targetY
+
                     var tween = new TWEEN.Tween({t: 0})
                         .to({t: 1}, 1000)
-                        //.easing(TWEEN.Easing.Elastic.InOut)
+
                         .onUpdate(function() {
                             var t = this.t;
                             var theta = startTheta + t * (targetTheta - startTheta);
@@ -665,7 +637,7 @@
                         .onComplete(end);
                     tween.start();
                 } else {
-                    end(); // tween.js not available
+                    end();
                 }
             }
 
@@ -774,7 +746,6 @@
                side4.computeVertexNormals();
                SCENE.add(side4Mesh);
 
-                // Add the file / rank labels
                 var opts = {
                     size: 0.5,
                     height: 0.0,
@@ -813,7 +784,7 @@
                         SCENE.add(label);
                     }
                     if (LABELS.length > 0) {
-                        // no issue with misg font file
+
                         var rankLabelText = "12345678".split('');
                         for (i = 0; i < 8; i++) {
                             textGeom = new THREE.TextGeometry(rankLabelText[i], opts);
@@ -855,7 +826,6 @@
             //                              ANIMATIONS                              //
             // ---------------------------------------------------------------------//
 
-            // Verify that CURRENT_POSITION and PIECE_MESH_IDS are in sync
             function checkBoard() {
                 for (var sq in PIECE_MESH_IDS) {
                     if (!PIECE_MESH_IDS.hasOwnProperty(sq) || validSpareSquare(sq)) {
@@ -893,7 +863,6 @@
                     destSquareMesh = SCENE.getObjectById(SQUARE_MESH_IDS[dest]);
                 }
                 if (validSpareSquare(src)) {
-                    // this is an animation from a spare square to an ordinary square.
                     pieceMesh = pieceMesh.clone();
                     SCENE.add(pieceMesh);
                 }
@@ -902,7 +871,7 @@
                     var tx_dest = destSquareMesh.position.x, tz_dest = destSquareMesh.position.z;
                     var tween = new TWEEN.Tween({t: 0})
                         .to({t: 1}, cfg.moveSpeed)
-                        //.easing(TWEEN.Easing.Elastic.InOut)
+
                         .onUpdate(function() {
                             var t = this.t;
                             pieceMesh.position.x = tx_src + t * (tx_dest - tx_src);
@@ -964,9 +933,7 @@
                 function onFinish() {
                     numOps--;
                     if (numOps === 0) {
-                        // the last callback to run
                         setCurrentPosition(newPos);
-                         // run their onMoveEnd callback
                         if (cfg.hasOwnProperty('moveEnd') && typeof cfg.onMoveEnd === 'function') {
                             cfg.onMoveEnd(deepCopy(oldPos, deepCopy(newPos)));
                         }
@@ -1040,7 +1007,6 @@
                 return position[sq];
             }
 
-            // returns the distance between two squares
             function squareDistance(s1, s2) {
                 s1 = s1.split('');
                 var s1x = COLUMNS.indexOf(s1[0]) + 1;
@@ -1057,16 +1023,13 @@
                 return yDelta;
             }
 
-            // returns an array of closest squares from square
             function createRadius(square) {
                 var squares = [];
                 var i, j;
-                // calculate distance of all squares
                 for (i = 0; i < 8; i++) {
                     for (j = 0; j < 8; j++) {
                         var s = COLUMNS[i] + (j + 1);
 
-                        // skip the square we're starting from
                         if (square === s) continue;
 
                         squares.push({
@@ -1075,11 +1038,9 @@
                         });
                     }
                 }
-                // sort by distance
                 squares.sort(function(a, b) {
                     return a.distance - b.distance;
                 });
-                // just return the square code
                 var squares2 = [];
                 for (i = 0; i < squares.length; i++) {
                     squares2.push(squares[i].square);
@@ -1087,12 +1048,8 @@
                 return squares2;
             }
 
-            // returns the square of the closest instance of piece
-            // returns false if no instance of piece is found in position
             function findClosestPiece(position, piece, square) {
-                // create array of closest squares from square
                 var closestSquares = createRadius(square);
-                // search through the position in order of distance for the piece
                 for (var i = 0; i < closestSquares.length; i++) {
                     var s = closestSquares[i];
                     if (position.hasOwnProperty(s) === true && position[s] === piece) {
@@ -1102,7 +1059,6 @@
                 return false;
             }
 
-            // calculate an array of animations that need to happen in order to get from pos1 to pos2
             function calculateAnimations(oldPosition, newPosition) {
 
                 var pos1 = deepCopy(oldPosition);
@@ -1111,7 +1067,6 @@
                 var animations = [];
                 var i;
 
-                // remove pieces that are the same in both positions
                 for (i in pos2) {
                     if (pos2.hasOwnProperty(i) !== true) continue;
 
@@ -1121,7 +1076,6 @@
                     }
                 }
 
-                // find all the "move" animations
                 for (i in pos2) {
                     if (pos2.hasOwnProperty(i) !== true) continue;
                     var closestPiece = findClosestPiece(pos1, pos2[i], i);
@@ -1137,7 +1091,6 @@
                     }
                 }
 
-                // add pieces to pos2
                 for (i in pos2) {
                     if (pos2.hasOwnProperty(i) !== true) continue;
 
@@ -1150,7 +1103,6 @@
                     delete pos2[i];
                 }
 
-                // clear pieces from pos1
                 for (i in pos1) {
                     if (pos1.hasOwnProperty(i) !== true) continue;
                     animations.push({
@@ -1197,7 +1149,6 @@
                 }
 
                 if (cfg.sparePieces) {
-                    // Return "spare square" code, e.g. sw1, sb2, sw3 etc.
                     var colorcode;
                     if (z_coord >= 4 * SQUARE_SIZE && z_coord <= 6 * SQUARE_SIZE) {
                         colorcode = 'w';
@@ -1215,7 +1166,6 @@
                 return 'offboard';
             }
 
-            // Checks ray collisions with board or pieces
             function raycast(mouseX, mouseY) {
 
                 var raycaster = pickingRayCaster(mouseX, mouseY);
@@ -1247,7 +1197,6 @@
                 }
                 if (meshes.length > 0) {
                     if (meshes.length === 1) {
-                        // we hit one piece's bounding box; just take a shortcut and assume an exact hit:
                         sq = Object.keys(possibleHits)[0];
                         intersection = possibleHits[sq];
                         mesh = meshes[0];
@@ -1261,8 +1210,6 @@
                             off_center_z : intersection.z - mesh.position.z
                         };
                     }
-                    // Check piece meshes to see which mesh is closest to camera
-                    // The intersectObjects() call is more expensive than the call to intersectBox()
                     var intersects = raycaster.intersectObjects(meshes);
                     if (intersects.length > 0) {
                         for (sq in possibleHits) {
@@ -1285,7 +1232,6 @@
                     }
                 }
 
-                // We didn't hit an actual piece mesh. Did we hit anything, like a square, empty or not?
                 var pos = projectOntoPlane(mouseX, mouseY, 0);
                 if (!pos) {
                     return {
@@ -1310,7 +1256,7 @@
             function updateLocation(raycast, mouse_x, mouse_y) {
                 var pos = projectOntoPlane(mouse_x, mouse_y, raycast.intersection_point.y);
                 if (!pos) {
-                    return; // ray parallel to xz plane
+                    return; 
                 }
                 pos.x -= raycast.off_center_x;
                 pos.z -= raycast.off_center_z;
@@ -1328,7 +1274,7 @@
                     }
                     var piece = SPARE_POSITION[sq];
                     var mesh = buildPieceMesh(sq, piece);
-                    mesh.position.y = -0.5; // board thickness
+                    mesh.position.y = -0.5; 
                     PIECE_MESH_IDS[sq] = mesh.id;
                     SCENE.add(mesh);
                 }
@@ -1359,7 +1305,6 @@
                     if (window.TWEEN !== undefined && typeof TWEEN === 'object') {
                         var tween = new TWEEN.Tween({t: 0})
                             .to({t: 1}, 100)
-                            //.easing(TWEEN.Easing.Elastic.InOut)
                             .onUpdate(function() {
                                 var t = this.t;
                                 DRAG_INFO.mesh.position.x = tx_start + t * (tx_target - tx_start);
@@ -1368,7 +1313,7 @@
                             .onComplete(end);
                         tween.start();
                     } else {
-                        end(); // tween.js not available
+                        end();
                     }
                 }
             }
@@ -1398,7 +1343,6 @@
 
                 if (newPosition[DRAG_INFO.location]) {
                     killed_mesh = SCENE.getObjectById(PIECE_MESH_IDS[DRAG_INFO.location]);
-                    //SCENE.remove(SCENE.getObjectById(PIECE_MESH_IDS[DRAG_INFO.location]));
                     killFlag = true;
                     drag_cache = DRAG_INFO;
                 }
@@ -1424,7 +1368,7 @@
                         continue;
                     }
                     if (validSpareSquare(sq)) {
-                        continue; // leave spare pieces
+                        continue; 
                     }
                     SCENE.remove(SCENE.getObjectById(PIECE_MESH_IDS[sq]));
                     delete PIECE_MESH_IDS[sq];
@@ -1447,13 +1391,11 @@
                 drawPositionInstant();
             }
 
-            // given a position and a set of moves, return a new position with the moves executed
             function calculatePositionFromMoves(position, moves) {
                 position = deepCopy(position);
                 for (var i in moves) {
                     if (moves.hasOwnProperty(i) !== true) continue;
 
-                    // skip the move if the position doesn't have a piece on the source square
                     if (position.hasOwnProperty(i) !== true) continue;
 
                     var piece = position[i];
@@ -1538,17 +1480,14 @@
                     return;
                 }
                 if (validSpareSquare(DRAG_INFO.source)) {
-                    // dragging a spare piece
                     console.log('spare')
                     DRAG_INFO.mesh = DRAG_INFO.mesh.clone();
-                    DRAG_INFO.mesh.position.y = 0; // lift spare piece onto the board
+                    DRAG_INFO.mesh.position.y = 0; 
                     SCENE.add(DRAG_INFO.mesh);
                     RENDER_FLAG = true;
                 } else if (validOrdinarySquare(DRAG_INFO.source)) {
-                    // dragging an ordinary piece
                     console.log('1525-spare');
                     dragUpdate = 0;
-                    //DRAG_INFO.mesh.position.y = 5;
                     highlightSourceSquare(DRAG_INFO.source);
                 }
             }
@@ -1586,19 +1525,17 @@
                     }
                 }
 
-                // Call onDrop on event handlers, possibly changing action
                 if (cfg.hasOwnProperty('onDrop') && typeof cfg.onDrop === 'function') {
                     var newPosition = deepCopy(CURRENT_POSITION);
 
-                    // source piece is a spare piece and destination is on the board
                     if (validSpareSquare(DRAG_INFO.source) && validOrdinarySquare(DRAG_INFO.location)) {
                         newPosition[DRAG_INFO.location] = DRAG_INFO.piece;
                     }
-                    // source piece was on the board and destination is off the board
+
                     if (validOrdinarySquare(DRAG_INFO.source) && !validOrdinarySquare(DRAG_INFO.location)) {
                         delete newPosition[DRAG_INFO.source];
                     }
-                    // Both source piece and destination are on the board
+
                     if (validOrdinarySquare(DRAG_INFO.source) && validOrdinarySquare(DRAG_INFO.location)) {
                         delete newPosition[DRAG_INFO.source];
                         newPosition[DRAG_INFO.location] = DRAG_INFO.piece;
@@ -1631,12 +1568,10 @@
             //                            PUBLIC METHODS                            //
             // ---------------------------------------------------------------------//
 
-            // clear the board
             widget.clear = function(useAnimation) {
                 widget.position({}, useAnimation);
             };
 
-            // remove the widget from the page
             widget.destroy = function() {
                 // remove markup
                 RENDERER.domElement.removeEventListener('mousedown', mouseDown);
@@ -1645,12 +1580,10 @@
                 containerEl.removeChild(RENDERER.domElement);
             };
 
-            // Return FEN string of current position
             widget.fen = function() {
                 return widget.position('fen');
             };
 
-            // flip orientation
             widget.flip = function() {
                 return widget.orientation('flip');
             };
@@ -1668,13 +1601,12 @@
                 var brazoMesh = new THREE.Mesh(brazoGeometry, material);
                 return brazoMesh;
             }
-            // highlight a square from client code
+
             widget.greySquare = function(sq) {
                 USER_HIGHLIGHT_MESHES.push(addSquareHighlight(sq, 0x404040));
                 RENDER_FLAG = true;
             };
 
-            // clear all highlights set from client code
             widget.removeGreySquares = function() {
                 while (USER_HIGHLIGHT_MESHES.length > 0) {
                     SCENE.remove(USER_HIGHLIGHT_MESHES.pop());
@@ -1683,20 +1615,15 @@
                 RENDER_FLAG = true;
             };
 
-            // move pieces
             widget.move = function() {
-                // no need to throw an error here; just do nothing
                 if (arguments.length === 0) return;
                 var useAnimation = true;
-                // collect the moves into an object
                 var moves = {};
                 for (var i = 0; i < arguments.length; i++) {
-                    // any "false" to this function means no animations
                     if (arguments[i] === false) {
                         useAnimation = false;
                         continue;
                     }
-                    // skip invalid arguments
                     if (validMove(arguments[i]) !== true) {
                         error(2826, 'Invalid move passed to the move method.', arguments[i]);
                         continue;
@@ -1705,22 +1632,17 @@
                     moves[tmp[0]] = tmp[1];
                 }
 
-                // calculate position from moves
                 var newPos = calculatePositionFromMoves(CURRENT_POSITION, moves);
 
-                // update the board
                 widget.position(newPos, useAnimation);
 
-                // return the new position object
                 return newPos;
             };
 
             widget.orientation = function(arg) {
-                // no arguments, return the current orientation
                 if (arguments.length === 0) {
                     return CURRENT_ORIENTATION;
                 }
-                // set to white or black
                 if (arg === 'white' || arg === 'black') {
                     CURRENT_ORIENTATION = arg;
                     if (arg === 'white') {
@@ -1730,7 +1652,7 @@
                     }
                     return CURRENT_ORIENTATION;
                 }
-                // flip orientation
+
                 if (arg === 'flip') {
                     CURRENT_ORIENTATION = (CURRENT_ORIENTATION === 'white') ? 'black' : 'white';
                     if (CURRENT_ORIENTATION === 'white') {
@@ -1748,32 +1670,26 @@
             };
 
             widget.position = function(position, useAnimation) {
-                // no arguments, return the current position
                 if (arguments.length === 0) {
                     return deepCopy(CURRENT_POSITION);
                 }
 
-                // get position as FEN
                 if (typeof position === 'string' && position.toLowerCase() === 'fen') {
                     return objToFen(CURRENT_POSITION);
                 }
 
-                // default for useAnimations is true
                 if (useAnimation !== false) {
                     useAnimation = true;
                 }
 
-                // start position
                 if (typeof position === 'string' && position.toLowerCase() === 'start') {
                     position = deepCopy(START_POSITION);
                 }
 
-                // convert FEN to position object
                 if (validFen(position) === true) {
                     position = fenToObj(position);
                 }
 
-                // validate position object
                 if (validPositionObject(position) !== true) {
                     error(6482, 'Invalid value passed to the position method.', position);
                     return;
@@ -1782,9 +1698,8 @@
                 var doDrawing = function() {
                     if (useAnimation === true && window.TWEEN !== undefined && typeof TWEEN === 'object') {
                         var anims = calculateAnimations(CURRENT_POSITION, position);
-                        doAnimations(anims, CURRENT_POSITION, position); // invokes setCurrentPosition() from a callback
+                        doAnimations(anims, CURRENT_POSITION, position); 
                     } else {
-                        // instant update
                         console.log('heara-1740');
                         setCurrentPosition(position);
                         drawPositionInstant();
@@ -1793,10 +1708,8 @@
                 };
 
                 if (checkGeometriesLoaded() && ANIMATION_HAPPENING === false) {
-                    doDrawing(); // normal case
+                    doDrawing(); 
                 } else {
-                    // Someone called position() before the geometries finished loading,
-                    // or animations are still going
                     var keepWaiting = function() {
                         if (checkGeometriesLoaded() === false || ANIMATION_HAPPENING) {
                             setTimeout(keepWaiting, 100);
@@ -1810,7 +1723,7 @@
 
             widget.resize = function() {
                 var w = containerEl.clientWidth;
-                w &= 0xFFFC; // shrink to mod 4
+                w &= 0xFFFC; 
                 var h = w * ASPECT_RATIO;
                 containerEl.style.width = w;
                 containerEl.style.height = h;
@@ -1881,7 +1794,6 @@
                 if (DRAG_INFO) {
                     updateDraggedPiece(coords.x, coords.y);
                 } else {
-                    // Support onMouseOutSquare() and mouseOverSquare() callbacks if they exist
                     var callOut, callOver;
                     if (cfg.hasOwnProperty('onMouseoutSquare') && typeof (cfg.onMouseoutSquare) === 'function') {
                         callOut = cfg.onMouseoutSquare;
@@ -2109,14 +2021,10 @@
                         }
 
                         if (!finishedX && !finishedZ) {
-                          // console.log('Rotating Z')
                             drag_cache.mesh.children[2].rotateZ(tqr);
-                            //drag_cache.mesh.children[2].rotateX(tqr);
                         } else if (finishedX && !finishedZ) {
-                         //  console.log('Should not be here')
                             drag_cache.mesh.children[2].rotateZ(tqr);
                         } else if (!finishedX && finishedZ) {
-                            //console.log('Rotating X')
 
                             if (color=='w') {
                             drag_cache.mesh.children[2].rotateX(-tqr);
@@ -2124,8 +2032,6 @@
                             drag_cache.mesh.children[2].rotateX(-tqr);
                             }
                         } else if (finishedX && finishedZ){
-                            // Finished animation
-                            //console.log('Finished')
                                 killFlag = false;
                                 tqr = 0;
                                 finishedX = false;
@@ -2148,7 +2054,6 @@
             return widget;
         };
 
-    // expose util functions
     window.ChessBoard3.webGLEnabled = webGLEnabled;
     window.ChessBoard3.fenToObj = fenToObj;
     window.ChessBoard3.objToFen = objToFen;
