@@ -253,15 +253,6 @@
             }
             var WHITE_MATERIAL = new THREE.MeshPhongMaterial({color: new THREE.Color(whitePieceColor)});
 
-
-        //     var fnWhite = function(textura) {
-        //        var WHITE_MATERIAL = new THREE.MeshBasicMaterial({map: textura});
-        //        mat2 = true;
-        //    }
-        //     var cargadorWhite=new THREE.TextureLoader();
-        //     cargadorWhite.load("https://luishdzupiita.github.io/rv/marmolBlanco.jpeg",
-        //                   fnWhite);
-
             var whitePieceSpecular = 0xCCFFFF;
             if (cfg.hasOwnProperty('whitePieceSpecular') && typeof cfg.whitePieceSpecular === 'number') {
                 whitePieceSpecular = cfg.whitePieceSpecular;
@@ -274,17 +265,6 @@
                 blackPieceColor = cfg.blackPieceColor;
             }
             var  BLACK_MATERIAL= new THREE.MeshPhongMaterial({color: new THREE.Color(blackPieceColor)});
-
-            // var fnBlack = function(textura) {
-            //    var BLACK_MATERIAL = new THREE.MeshBasicMaterial({map: textura});
-                //   BLACK_MATERIAL.specular = new THREE.Color(blackPieceSpecular);
-                //   BLACK_MATERIAL.transparent = true;
-            //    mat1 = true;
-            // }
-            // var cargadorBlack=new THREE.TextureLoader();
-            // cargadorBlack.load("https://luishdzupiita.github.io/rv/marmolNegro.jpeg",
-            //               fnBlack);
-
 
             var blackPieceSpecular = 0x553333;
             if (cfg.hasOwnProperty('blackPieceSpecular') && typeof cfg.blackPieceSpecular === 'number') {
@@ -316,10 +296,6 @@
                 lightSquareColor = cfg.lightSquareColor;
             }
             var lightSquareMaterial = new THREE.MeshPhongMaterial({color: new THREE.Color(lightSquareColor)});
-            /*
-            darkSquareMaterial.specularMap = THREE.ImageUtils.loadTexture("img/iris.png", undefined, function() {SPECULAR_MAPS_PENDING--;};);
-            lightSquareMaterial.specularMap = THREE.ImageUtils.loadTexture("img/grain.jpg", undefined, function() {SPECULAR_MAPS_PENDING--;};);
-            */
 
             var GEOMETRIES = {
                 K: undefined,
@@ -700,11 +676,7 @@
                 var species = piece.charAt(1);
 
                 var material;
-                // while (mat1===false || mat2===false) {
-                //     // wait
-                //     console.log(mat1+':'+mat2)
-                //     setTimeout(function(){},300);
-                // }
+
                     if (color === 'w') {
                         material = WHITE_MATERIAL.clone();
                     } else if (color === 'b') {
@@ -733,11 +705,6 @@
                 meshPata1 = new THREE.Mesh(pataGeometry, material);
                 meshPata2 = new THREE.Mesh(pataGeometry, material);
                 meshBrazo = new THREE.Mesh(brazoGeometry, material);
-
-                //meshPata1.position.x = coords.x-legOffset;
-                //meshPata1.position.z = coords.z;
-                //meshPata2.position.x = coords.x+legOffset;
-                //meshPata2.position.z = coords.z;
 
                 if (color === 'w') {
                     mesh.rotation.y = Math.PI;
@@ -1588,10 +1555,6 @@
 
             function updateDraggedPiece(mouse_x, mouse_y) {
                 dragUpdate += 1;
-                // console.log(dragUpdate);
-                // console.log(DRAG_INFO.piece)
-                // console.log(DRAG_INFO.mesh)
-                // console.log(DRAG_INFO.mesh.children[0])
                 var anAm = 0.4;
                 var anPer = 0.2;
                 DRAG_INFO.mesh.children[0].position.z = anAm*Math.sin(dragUpdate*anPer);
@@ -1599,7 +1562,6 @@
 
                 var priorLocation = DRAG_INFO.location;
                 updateLocation(DRAG_INFO, mouse_x, mouse_y);
-                //DRAG_INFO.updateLocation(mouse_x, mouse_y);
                 if (priorLocation !== DRAG_INFO.location) {
                     removeDestinationHighlight();
                     if (validOrdinarySquare(DRAG_INFO.location) && DRAG_INFO.location !== DRAG_INFO.source) {
