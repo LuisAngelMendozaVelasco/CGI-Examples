@@ -54,17 +54,12 @@ function updateStatus() {
             board.removeGreySquares();
         }
 
-        // see if the move is legal
         var move = game.move({
             from: source,
             to: target,
             promotion: $("#promotion").val()
         });
 
-        // console.log('move:')
-        // console.log(move)
-
-        // illegal move
         if (move === null){ alert("¡Movimiento NO permitido!");return 'snapback';}
 
         moveList = moveList.slice(0, cursor);
