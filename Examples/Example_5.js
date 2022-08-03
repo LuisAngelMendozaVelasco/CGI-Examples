@@ -23,9 +23,10 @@ const points = [new THREE.Vector3(-1, 1, -1),//c
                 ];
 forma.setFromPoints(points);
 forma.computeVertexNormals();
-malla.rotateX(Math.PI/2);
+malla.rotateX(-Math.PI/4);
+malla.rotateY(Math.PI/4);
 escena.add(malla);
-camara.position.z = 10;
+camara.position.z = 5;
 renderizador.setSize(window.innerHeight*.95, window.innerHeight*.95);
 document.body.appendChild(renderizador.domElement);
 renderizador.render(escena, camara);
