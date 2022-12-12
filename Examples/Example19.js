@@ -1,7 +1,7 @@
 var texture = new Object();
 
-texture.callback = function(texture){
-    var material = new THREE.MeshBasicMaterial({map:texture});
+texture.callback = function(texture_){
+    var material = new THREE.MeshBasicMaterial({map:texture_});
 
     texture.mesh = new THREE.Mesh(new THREE.SphereGeometry(3), material);
     texture.scene.add(texture.mesh);
@@ -11,7 +11,7 @@ texture.setup = function(){
     var loader = new THREE.TextureLoader();
     var canvas = document.getElementById("texture_example");
 
-    loader.load('../images/earth_atmos_2048.jpg',  texture.callback);
+    loader.load('../images/earth_atmos_2048.jpg', texture.callback);
     texture.scene = new THREE.Scene();
     texture.camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
     texture.camera.position.z = 5;
