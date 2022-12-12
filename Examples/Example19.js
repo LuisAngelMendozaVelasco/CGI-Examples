@@ -16,7 +16,7 @@ texture_object.setup = function(){
     texture_object.camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
     texture_object.camera.position.z = 5;
     texture_object.renderer = new THREE.WebGLRenderer({canvas:canvas, antialias:true});
-texture_object.renderer.setSize(600, 600);
+    texture_object.renderer.setSize(600, 600);
 }
 
 texture_object.loop = function(){
