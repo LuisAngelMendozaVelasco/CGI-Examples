@@ -8,7 +8,7 @@ texture_object.callback = function(texture){
 }
 
 texture_object.setup = function(){
-    var loader = new THREE.Texture_objectLoader();
+    var loader = new THREE.TextureLoader();
     var canvas = document.getElementById("texture_example");
 
     loader.load('../images/earth_atmos_2048.jpg', texture_object.callback);
