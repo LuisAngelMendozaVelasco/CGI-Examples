@@ -86,8 +86,8 @@ var texture = new Object();
 
 //Callback declaration
 //White marble texture
-texture.white_marble_callback = function(texture){
-    var material = new THREE.MeshBasicMaterial({map:texture}); 
+texture.white_marble_callback = function(texture_){
+    var material = new THREE.MeshBasicMaterial({map:texture_}); 
     
     texture.ftower1 = new THREE.Mesh(towerForm, material); 
     texture.ftower1.position.x = 10; 
@@ -109,8 +109,8 @@ texture.white_marble_callback = function(texture){
 }
 
 //Black marble texture
-texture.black_marble_callback = function(texture){
-    var material = new THREE.MeshBasicMaterial({map:texture}); 
+texture.black_marble_callback = function(texture_){
+    var material = new THREE.MeshBasicMaterial({map:texture_}); 
     
     texture.ftower3 = new THREE.Mesh(towerForm, material); 
     texture.ftower3.position.x = 10; 
@@ -135,8 +135,8 @@ texture.black_marble_callback = function(texture){
 var cube = new THREE.BoxGeometry(10, 10, 10); 
 
 //White ceramic
-texture.white_ceramic_callback = function(texture){
-    var material = new THREE.MeshBasicMaterial({map:texture}); 
+texture.white_ceramic_callback = function(texture_){
+    var material = new THREE.MeshBasicMaterial({map:texture_}); 
     //Create chessboard group
     var chessboard1 = new THREE.Group(); 
     var k = 0; 
@@ -160,8 +160,8 @@ texture.white_ceramic_callback = function(texture){
 }
 
 //Black ceramic
-texture.black_ceramic_callback = function(texture){
-    var material = new THREE.MeshBasicMaterial({map:texture}); 
+texture.black_ceramic_callback = function(texture_){
+    var material = new THREE.MeshBasicMaterial({map:texture_}); 
     //Creación del grupo del chessboard
     var chessboard2 = new THREE.Group(); 
     var k = 0; 
@@ -185,8 +185,8 @@ texture.black_ceramic_callback = function(texture){
 }  
 
 //Wood
-texture.wood_callback = function(texture){
-    var material = new THREE.MeshBasicMaterial({map:texture}); 
+texture.wood_callback = function(texture_){
+    var material = new THREE.MeshBasicMaterial({map:texture_}); 
     //Create edge1 group
     var chessboard3 =  new THREE.Group(); 
     for(var l=0; l<10; l++){    //columnas
