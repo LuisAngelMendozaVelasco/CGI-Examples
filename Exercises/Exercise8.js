@@ -233,7 +233,7 @@ texture.setup = function(){
     var loader5 = new THREE.TextureLoader(); 
     //Configure images
     loader1.load("../images/white_marble.jpg", texture.white_marble_callback); 
-    loader2.load("../imagesblack_marble.jpg", texture.black_marble_callback); 
+    loader2.load("../images/black_marble.jpg", texture.black_marble_callback); 
     loader3.load("../images/white_ceramic.jpg", texture.white_ceramic_callback); 
     loader4.load("../images/black_ceramic.jpg", texture.black_ceramic_callback); 
     loader5.load("../images/wood.jpg", texture.wood_callback); 
