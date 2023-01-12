@@ -249,7 +249,6 @@ texture.setup = function(){
     texture.renderer.setSize(window.innerHeight*.95, window.innerHeight*.95)
 }
 
-
 texture.loop = function(){
     requestAnimationFrame(texture.loop); 
     if((texture1 == true)&&(texture2 == true)&&(texture3 == true)&&(texture4 == true)&&(texture5 == true)){
