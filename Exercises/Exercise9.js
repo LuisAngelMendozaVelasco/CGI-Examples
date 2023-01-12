@@ -104,8 +104,8 @@ var cubo=new THREE.BoxGeometry(10,10,10);
 
 prototipo.TableroGeometry = function(){
   THREE.Group.call(this);
-    var textura3 = new THREE.TextureLoader().load('ceramicablanca.jpg');
-    var textura4 = new THREE.TextureLoader().load('ceramicanegra.jpg');
+    var textura3 = new THREE.TextureLoader().load('../images/white_ceramic.jpg');
+    var textura4 = new THREE.TextureLoader().load('../images/black_ceramic.jpg');
 
     var ceramicablanca = new THREE.MeshBasicMaterial({map:textura3});
     var ceramicanegra = new THREE.MeshBasicMaterial({map:textura4});
@@ -147,7 +147,7 @@ prototipo.TableroGeometry = function(){
 
 prototipo.TableroGeometry1 = function(){
   THREE.Group.call(this);
-  var textura5 = new THREE.TextureLoader().load('madera.jpg');
+  var textura5 = new THREE.TextureLoader().load('../images/wood.jpg');
   var madera = new THREE.MeshBasicMaterial({map:textura5});
   
   for(var l=0;l<10;l++){//columnas
@@ -270,8 +270,8 @@ prototipo.TorreGeometry.prototype = new THREE.Geometry();
 
 prototipo.setup = function(){
   //Textura
-    var textura1 = new THREE.TextureLoader().load('marmolblanco.jpg');
-    var textura2 = new THREE.TextureLoader().load('marmolnegro.jpg');
+    var textura1 = new THREE.TextureLoader().load('../images/white_marble.jpg');
+    var textura2 = new THREE.TextureLoader().load('../images/black_marble.jpg');
 
     var marmolblanco = new THREE.MeshBasicMaterial({map:textura1});
     var marmolnegro = new THREE.MeshBasicMaterial({map:textura2});
