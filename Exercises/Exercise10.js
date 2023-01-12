@@ -29,7 +29,7 @@ function init(){
     var black_ceramic = new THREE.MeshBasicMaterial({map:texture4});   
     var wood = new THREE.MeshBasicMaterial({map:texture5}); 
     
-    tower1 = new THREE.Mesh(towerForma, white_marble); 
+    tower1 = new THREE.Mesh(tower_Form, white_marble); 
     tower1.position.y = 10; 
     tower1.position.z = -7; 
     tower1.position.x = 10; 
