@@ -73,20 +73,20 @@ var onDrop = function(source, target) {
 };
 
 var onMouseoverSquare = function(square) {
-    // Lista de posibles movimientos
+    //List of possible movements
     var moves = game.moves({
         square: square,
         verbose: true
     });
 
-    // Si no hay posibles movimientos, salir
+    //If there are no more possible movements, leave
     if (moves.length === 0) return;
 
     if (board.hasOwnProperty('greySquare') && typeof board.greySquare === 'function') {
-        // Seleccionar recuadro actual
+        //Select current square
         board.greySquare(square);
 
-        // Resaltar lugares a donde se puede mover
+        //Highlight the squares where it can move
         for (var i = 0; i < moves.length; i++) {
             board.greySquare(moves[i].to);
         }
