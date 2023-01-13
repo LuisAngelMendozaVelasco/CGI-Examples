@@ -36,7 +36,7 @@ var killFlag=false;
             var canvas = document.createElement( 'canvas' );
             return !! (
                     (window.hasOwnProperty('WebGLRenderingContext') && window.WebGLRenderingContext)
-                     &&
+                    &&
                     ( canvas.getContext( 'webgl' ) || canvas.getContext( 'experimental-webgl')
                 )
             );
