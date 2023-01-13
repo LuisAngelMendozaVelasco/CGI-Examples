@@ -34,7 +34,7 @@ function updateStatus() {
         else {
 
             status += 'Mueven ' + moveColor;
-                alert("¡BIENVENIDO!");
+                alert("Welcome!");
             // Jaque?
             if (game.in_check() === true) {
                 status += ' ' + moveColor + ' esta en jaque.';      
